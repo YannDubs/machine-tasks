@@ -54,6 +54,8 @@ def parse_arguments(args):
     parser.add_argument('-C', '--n-heldout-compositions', type=int, default=50, help='Number of compositions to randomly remove.')
     parser.add_argument('-I', '--n-heldout-inputs', type=int, default=2, help='Number of inputs to heldout from training.')
     parser.add_argument('-l', '--n-longer', type=int, default=5, help='Number of additional tables to add to `longer` test data.')
+    parser.add_argument('-B', '--random-start-token', default="!", help='Token to be randomly inserted somewhere in the sequence to separate noise tables with the ones that you should use for the task.')
+    parser.add_argument('-n', '--max-noise-tables', type=int, default=None, help='Maximum number of noise tables to add before the `random_start_token`. If `None` then will not insert a `random_start_token` and any noise tables.')
     parser.add_argument('--reverse', action='store_true', help='Reverses the input sequence to match the mathematical composition. I.e if given, then uses `t1(t2(input))` without parenthesis instead of `input t2 t1`.')
     parser.add_argument('--not-copy-input', action='store_true', help='Removes the copy of the input in the target sequence.')
     parser.add_argument('--not-intermediate', action='store_true', help='Removes intermediate step in the target sequence.')
@@ -91,7 +93,9 @@ def main(args):
                                    bound_test=args.bound_test,
                                    seed=seed,
                                    alphabet=args.alphabet,
-                                   n_repeats=args.n_repeats)
+                                   n_repeats=args.n_repeats,
+                                   random_start_token=args.random_start_token,
+                                   max_noise_tables=args.max_noise_tables)
 
         names = ("train", "validation", "heldout_inputs", "heldout_compositions", "heldout_tables",
                  "new_compositions", "longer_seen", "longer_incremental", "longer_new")
@@ -117,6 +121,8 @@ def table_lookup_dataset(validation_size=0.11,
                          is_target_attention=False,
                          eos=".",
                          bound_test=10**4,
+                         random_start_token="!",
+                         max_noise_tables=None,
                          seed=123,
                          **kwargs):
     r"""Prepare the table lookup dataset.
@@ -143,6 +149,10 @@ def table_lookup_dataset(validation_size=0.11,
         is_target_attention (bool, optional): whether to append the target attention as an additional column.
         eos (str, optional): token to append at the end of each input.
         bound_test (int, optional): bounds the number of rows in each test files.
+        random_start_token (str, optional): token to be randomly inserted somewhere in the sequence to
+            separate noise tables with the ones that you should use for the task.
+        max_noise_tables (int, optional): maximum number of noise tables to add before
+            the `random_start_token`. If `None` then will not insert a `random_start_token` and any noise tables.
         seed (int, optional): sets the seed for generating random numbers.
         kwargs: Additional arguments to `create_N_table_lookup`.
 
@@ -167,6 +177,9 @@ def table_lookup_dataset(validation_size=0.11,
     assert " " not in eos, "Cannot have spaces in the <eos> token."
     if not is_copy_input and is_target_attention:
         raise NotImplementedError("`is_target_attention` with `is_copy=False` not implemented yet.")
+
+    if is_reverse and max_noise_tables is not None:
+        raise NotImplementedError("`is_reverse` with `max_noise_tables is not None` not implemented yet.")
 
     np.random.seed(seed)
     random.seed(seed)
@@ -248,6 +261,14 @@ def table_lookup_dataset(validation_size=0.11,
 
     out = (train, validation, heldout_inputs, heldout_compositions, heldout_tables, new_compositions,
            longer_seens, longer_incrementals, longer_news)
+
+    # add noise tables
+    if max_noise_tables is not None:
+        for o in out:
+            _add_noise_tables(o,
+                              names_unary_train,
+                              max_noise_tables=max_noise_tables,
+                              random_start_token=random_start_token)
 
     # adds target attention
     if is_target_attention:
@@ -354,10 +375,13 @@ def _save_tsv(data, name, path):
 
 
 def flatten(l):
-    if isinstance(l, list):
-        return reduce(operator.add, l)
-    else:
-        return l
+    """Flattens a list of element or lists into a list of elements."""
+    out = []
+    for e in l:
+        if not isinstance(e, list):
+            e = [e]
+        out.extend(e)
+    return out
 
 
 def assert_equal(a, b):
@@ -444,6 +468,22 @@ def _append_target_attention(df, eos, is_reverse):
     if eos != "":
         df["taget attention"] = [ta + " " + str(len(ta.split())) for ta in df["taget attention"]]
     return df
+
+
+def _add_noise_tables(data, names_unary_train, max_noise_tables=10, random_start_token="!"):
+    if isinstance(data, list):
+        for d in data:
+            _add_noise_tables(d,
+                              names_unary_train,
+                              max_noise_tables=max_noise_tables,
+                              random_start_token=random_start_token)
+
+    else:
+        names_unary_train = list(names_unary_train)
+        n_noise_tables = np.random.randint(max_noise_tables, size=len(data.index))
+        noise_tables = [random.choices(names_unary_train, k=k) + [random_start_token] for k in n_noise_tables]
+        data.index = [" ".join([i.split(" ", 1)[0]] + nt + [i.split(" ", 1)[1]])
+                      for nt, i in zip(noise_tables, data.index)]
 
 
 ### SCRIPT ###
