@@ -75,10 +75,11 @@ def generate_report(task,
                     k=5,
                     is_retrain=False,
                     compare_name=None,
+                    n_attn_plots=3,
+                    is_rm_FalseNone=False,
                     var_not_show=["max_len", "epochs", "src_vocab", "tgt_vocab", "batch_size", "eval_batch_size",
                                   "save_every", "print_every", "log_level", "cuda_device", "checkpoint_path",
                                   "name_checkpoint", "patience"],
-                    n_attn_plots=3,
                     _is_multiple_tasks=False,
                     _pdf=None,
                     _results_file="results.csv",
@@ -95,13 +96,18 @@ def generate_report(task,
         k (int, optional): number of times to rerun each task.
         is_retrain (bool, optional): whether to retrain or use the previous saved model.
         compare_name (str, optional): name of the model to which to compare to. Have to already be saved.
+        n_attn_plots (int, optional): number of example to sample and visualize from each test set.
+        is_rm_FalseNone (bool, optional): if `True` whill not show given arguments equal to `False` or `None` in the model name.
         var_not_show (list of str): name of the variables in kwargs that should not be shown in the model name. Note that the default values
             won't be shown in the name.
         kwargs:
             Additional arguments to `train`.
     """
+    is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
+    attention_method = kwargs.pop("attention_method", "dot")  # gets because want to show their name
+
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
-    name = _namer(name, **parameters_show_name)
+    name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
 
     output_path = os.path.join(output_dir, name)
     task_path = os.path.join(output_path, task.name)
@@ -119,12 +125,15 @@ def generate_report(task,
             shutil.rmtree(task_path)
 
         model, histories, results = _train_evaluate(task.name, task.train_path, task.test_paths, task.valid_path,
+                                                    oneshot_path=task.oneshot_path,
                                                     metric_names=task.metric_names,
                                                     loss_names=task.loss_names,
                                                     output_dir=output_path,
                                                     k=k,
                                                     _histories_file=_histories_file,
                                                     _results_file=_results_file,
+                                                    is_predict_eos=is_predict_eos,
+                                                    attention_method=attention_method,
                                                     **kwargs)
     else:
         checkpoint = Checkpoint.load(task_path)
@@ -152,9 +161,12 @@ def generate_report(task,
         grid = plot_results(results, is_plot_mean=True, title=title_results)
     fig_results = grid.fig
 
-    attn_figs_generator = generate_attn_figs(task.test_paths, task_path, n_sample_plots=n_attn_plots)
-    # generator because could be very memory heavy
-    figs_generator = itertools.chain([fig_title, fig_model, fig_losses, fig_results], attn_figs_generator)
+    figs_generator = [fig_title, fig_model, fig_losses, fig_results]
+    if n_attn_plots != 0 and attention_method != "hard":
+        attn_figs_generator = _generate_attn_figs(task.test_paths, task_path, n_sample_plots=n_attn_plots, is_predict_eos=is_predict_eos)
+        # generator because could be very memory heavy
+        figs_generator = itertools.chain(figs_generator, attn_figs_generator)
+
     plot_pdf(report_task_path, figures=figs_generator)
 
     if _is_multiple_tasks:
@@ -198,14 +210,21 @@ def _plot_losses(losses, title="Training and validation losses"):
 
 
 def plot_text(txt, size=12, ha='center', **kwargs):
-    """Plots text as an image."""
+    """Plots text as an image and returns the matplotlib figure."""
     fig = plt.figure(figsize=(11, 7))
     text = fig.text(0.5, 0.5, txt, ha=ha, va='center', size=size, **kwargs)
     return fig
 
 
-def plot_pdf(file, figures=[], is_close=True):
-    """Plots every given figure as a new page of the pdf."""
+def plot_pdf(file, figures, is_close=True):
+    """Plots every given figure as a new page of the pdf.
+
+    Args:
+        file (str or PdfPages): file path where to save the PDF.
+        figures (list): list of matplotlib figures, each of them will be saved as a new PDF page.
+        is_close (bool, optional): whether to close the PDF file or to return it. The Latter is useful if you want to
+            save something in the PDF later.
+    """
     if isinstance(file, str):
         if os.path.isfile(file):
             try:
@@ -233,7 +252,6 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
     Args:
         data (pd.DataFrame): dataframe containing the losses and metric results in a "Dataset",
             a "Value", a "Metric", and an optional "Model" column.
-
         is_plot_mean (bool, optional): whether to plot the mean value with a horizontal bar.
         title (str, optional): title to add.
         kwargs:
@@ -262,8 +280,9 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
     return grid
 
 
-def generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
-    attn_visualizer = AttentionVisualizer(task_path, **kwargs)
+def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
+    """Generates `n_sample_plots` attention plots by sampling examples in `files` and predicting using the model in `task_path`."""
+    attn_visualizer = AttentionVisualizer(task_path, is_show_name=False, **kwargs)
 
     for file in files:
         samples = pd.read_csv(file, sep="\t", header=None, usecols=[0, 1]).sample(n_sample_plots)
@@ -275,7 +294,7 @@ def generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
 
 
 ### Helpers ###
-def _namer(name, **kwargs):
+def _namer(name, is_rm_FalseNone=False, **kwargs):
     """Append variable name and value in alphabetical order to `name`."""
     def _key_value_to_name(k, v):
         if isinstance(v, bool):
@@ -285,7 +304,8 @@ def _namer(name, **kwargs):
         else:
             return k.split("_size")[0] + str(v)
 
-    kwargs = {k: v for k, v in kwargs.items() if v != False and v is not None}
+    if is_rm_FalseNone:
+        kwargs = {k: v for k, v in kwargs.items() if v != False and v is not None}
     kwargs = sorted([_key_value_to_name(k, v) for k, v in kwargs.items()])
     if kwargs != {}:
         name += "_" + "_".join(kwargs)
@@ -364,6 +384,7 @@ def _train_evaluate(name,
                     train_path,
                     test_paths,
                     valid_path,
+                    oneshot_path=None,
                     metric_names=["word accuracy", "sequence accuracy", "final target accuracy"],
                     loss_names=["nll"],
                     k=5,
@@ -378,7 +399,7 @@ def _train_evaluate(name,
                     _results_file="results.csv",
                     _histories_file="histories.csv",
                     **kwargs):
-    """Train a model and evaluate it"""
+    """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
 
     if not is_predict_eos:
@@ -391,15 +412,16 @@ def _train_evaluate(name,
 
     results_dfs = [None] * k
     histories = [None] * k
-    is_last_iter = False
+    is_last_run = False
     for i in range(k):
         if i % 5 == 0:
-            print("iter: {}".format(i))
+            print("run: {}".format(i))
 
         if i == k - 1:
-            is_last_iter = True
+            is_last_run = True
 
         model, history = train(train_path, valid_path,
+                               oneshot_path=oneshot_path,
                                output_dir=output_dir,
                                max_len=max_len,
                                name_checkpoint=name,
@@ -421,7 +443,7 @@ def _train_evaluate(name,
                                    metric_names=metric_names,
                                    loss_names=loss_names)
 
-        if not is_last_iter:
+        if not is_last_run:
             shutil.rmtree(output_path)
 
     histories = pd.DataFrame(histories, columns=history.names)

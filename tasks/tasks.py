@@ -15,14 +15,27 @@ def flatten(l):
 
 
 def repeat(s, n, start=1):
+    """Repeats a string multiple times by adding a iter index to the name."""
     return ["{}_{}".format(s, i) for i in range(start, n + start)]
 
 
 def filter_dict(d, remove):
+    """Filters our the key of a dictionary."""
     return {k: v for k, v in d.items() if k not in remove}
 
 
-def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, longer_repeat=5, **kwargs):
+def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, longer_repeat=5):
+    """Return a list of tasks.
+
+    Args:
+        name ({"lookup", "long lookup", "long lookup jump", "long lookup oneshot", "long lookup reverse", "noisy long lookup multi",
+            "noisy long lookup single", "symbol rewriting", "scan", "attention lookup"}) name of the task to get.
+        base_data_dir (str, optional): name of the base directory containing all the datasets.
+        is_small (bool, optional). whether to run a smaller verson of the task. Used for getting
+            less statistically significant results.
+        is_mini (bool, optional). whether to run a smaller verson of the task. Used for testing purposes.
+        longer_repeat (int, optional). number of longer test sets.
+    """
     name = name.lower()
 
     if name == "lookup":
@@ -35,6 +48,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs = {"batch_size": 1, "k": 10, "max_len": 10, "patience": 15}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
 
     elif name == "long lookup":
         task_name = "Long Lookup Table"
@@ -47,30 +61,72 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
 
-    elif name == "guided long lookup":
-        task_name = "Long Lookup Table"
-        train_file = "train"
+    elif name == "long lookup jump":
+        task_name = "Long Lookup Table Jump"
+        train_file = "trainJump"
         test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
                               repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
-        data_dir = os.path.join(base_data_dir, "guidance/")
+        data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
 
-    elif name == "noisy long lookup":
-        task_name = "Noisy Long Lookup Table"
+    elif name == "long lookup oneshot":
+        task_name = "Long Lookup Table Oneshot"
+        train_file = "train_before_new_tables"
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
+                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+                              repeat("longer_new", longer_repeat)])
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = "train"
+
+    elif name == "long lookup reverse":
+        task_name = "Long Lookup Table Reverse"
         train_file = "train"
         test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
                               repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
-        data_dir = os.path.join(base_data_dir, "NoisyLongLookupTables/")
+        data_dir = os.path.join(base_data_dir, "LongLookupTablesReverse/")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
+
+    elif name == "noisy long lookup multi":
+        task_name = "Noisy Long Lookup Table Multi"
+        train_file = "train"
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
+                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+                              repeat("longer_new", longer_repeat)])
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesMulti/")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 5}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
+
+    elif name == "noisy long lookup single":
+        task_name = "Noisy Long Lookup Table Single"
+        train_file = "train"
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
+                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+                              repeat("longer_new", longer_repeat)])
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesSingle/")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 5}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
 
     elif name == "symbol rewriting":
         task_name = "Symbol Rewriting"
@@ -78,9 +134,10 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         test_files = ["grammar_long.tst.full", "grammar_repeat.tst.full", "grammar_short.tst.full", "grammar_std.tst.full"]
         valid_file = "grammar.val"
         data_dir = os.path.join(base_data_dir, "SymbolRewriting/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 60, "patience": 15}
+        task_kwargs = {"batch_size": 128, "k": 3, "max_len": 60, "patience": 5, "epochs": 20}
         metric_names = ["symbol rewriting accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
 
     elif name == "scan":
         task_name = "SCAN Length"
@@ -91,6 +148,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 55, "patience": 5}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
 
     elif name == "attention lookup":
         task_name = "Attention Lookup"
@@ -101,8 +159,14 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 110, "patience": 5}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
+        oneshot_train_file = None
+
+    else:
+        raise ValueError("Unkown name : {}".format(name))
 
     if is_small:
+        if name == "symbol rewriting":
+            train_file = "grammar_std.train.small"
         task_kwargs["k"] = 1
 
     if is_mini:
@@ -111,13 +175,15 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs["k"] = 1
         task_kwargs["batch_size"] = 128
         task_kwargs["patience"] = 2
-        task_kwargs["epochs"] = 30
+        task_kwargs["epochs"] = 5
+        task_kwargs["n_attn_plots"] = 1
 
     return Task(task_name, train_file, test_files, valid_file,
                 data_dir=data_dir,
                 task_kwargs=task_kwargs,
                 metric_names=metric_names,
-                loss_names=loss_names,)
+                loss_names=loss_names,
+                oneshot_path=oneshot_train_file)
 
 
 class Task(object):
@@ -132,6 +198,10 @@ class Task(object):
         data_dir (str, optional):  directory to prepend to all path above.
         is_add_to_test (bool, optional): whether to add the train and validation path to the test paths.
         task_kwargs (dictionnaries, optional): list of task specific arguments that update the kwargs for a specific task.
+        metric_names (list, optional): metrics to use for evaluating the task.
+        metric_names (list, optional): loss to use for training the task.
+        oneshot_path (str, optional): path to a file that contains the training examples + the new tables to use for one shot learning.
+            If `None` then doesn't switch to a new training set.
     """
 
     def __init__(self,
@@ -144,7 +214,8 @@ class Task(object):
                  is_add_to_test=True,
                  task_kwargs={},
                  metric_names=["word accuracy", "sequence accuracy", "final target accuracy"],
-                 loss_names=["nll"]):
+                 loss_names=["nll"],
+                 oneshot_path=None):
         self.name = name
         self.extension = "." + extension if extension != "" else extension
         self.data_dir = data_dir
@@ -156,6 +227,7 @@ class Task(object):
         self.task_kwargs = task_kwargs
         self.metric_names = metric_names
         self.loss_names = loss_names
+        self.oneshot_path = self._add_presufixes(oneshot_path)
 
     def _add_presufixes(self, path):
         if path is None:

@@ -5,6 +5,7 @@ Script to generate of the lookup tables problem.
 
 Running this script will save the following files in /dir/ or /dir/sample<i>/ if n_samples > 1:
 - train.tsv
+- train_before_new_tables.tsv
 - validation.tsv
 - heldout_inputs.tsv
 - heldout_compositions
@@ -33,6 +34,7 @@ import operator
 import warnings
 import argparse
 from functools import reduce
+from collections import Counter
 
 import numpy as np
 import pandas as pd
@@ -62,6 +64,7 @@ def parse_arguments(args):
     parser.add_argument('--not-shuffle', action='store_true', help='Disables shuffling of the outputed datasets')
     parser.add_argument('--not-stratify', action='store_true', help='Disables the balancing of the lookups in train and validation set.')
     parser.add_argument('--is-target-attention', action='store_true', help='Append the target attention as an additional column.')
+    parser.add_argument('--is-multiple-start-token', action='store_true', help='Also adds `start-token`, but only start predciting at the last occurence of it.')
     parser.add_argument('-e', '--eos', default='.', help='EOS token to append at the end of each input.')
     parser.add_argument('-b', '--bound-test', type=int, default=5000, help='Bound the number of rows in each test files.')
     parser.add_argument('-a', '--alphabet', metavar=('letter1', 'letter2'), nargs='*', default=['0', '1'], help='Possible characters given as input.')
@@ -73,7 +76,10 @@ def parse_arguments(args):
 
 
 def main(args):
+    _save_arguments(vars(args), args.dir)
+
     random.seed(args.seed)
+
     for sample in range(args.n_samples):
         seed = args.seed if args.n_samples == 1 else random.randint(0, 1e5)
         out = table_lookup_dataset(validation_size=args.validation_size,
@@ -95,9 +101,11 @@ def main(args):
                                    alphabet=args.alphabet,
                                    n_repeats=args.n_repeats,
                                    random_start_token=args.random_start_token,
-                                   max_noise_tables=args.max_noise_tables)
+                                   max_noise_tables=args.max_noise_tables,
+                                   is_multiple_start_token=args.is_multiple_start_token)
 
-        names = ("train", "validation", "heldout_inputs", "heldout_compositions", "heldout_tables",
+
+        names = ("train", "train_before_new_tables", "validation", "heldout_inputs", "heldout_compositions", "heldout_tables",
                  "new_compositions", "longer_seen", "longer_incremental", "longer_new")
 
         for data, name in zip(out, names):
@@ -123,6 +131,7 @@ def table_lookup_dataset(validation_size=0.11,
                          bound_test=10**4,
                          random_start_token="!",
                          max_noise_tables=None,
+                         is_multiple_start_token=False,
                          seed=123,
                          **kwargs):
     r"""Prepare the table lookup dataset.
@@ -153,6 +162,8 @@ def table_lookup_dataset(validation_size=0.11,
             separate noise tables with the ones that you should use for the task.
         max_noise_tables (int, optional): maximum number of noise tables to add before
             the `random_start_token`. If `None` then will not insert a `random_start_token` and any noise tables.
+        is_multiple_start_token (bool, optional): whether to add multiple `random_start_token`. If `True` should
+            only start predciting at the last occurence.
         seed (int, optional): sets the seed for generating random numbers.
         kwargs: Additional arguments to `create_N_table_lookup`.
 
@@ -169,8 +180,8 @@ def table_lookup_dataset(validation_size=0.11,
         longer_seens (list of pd.Series): list of len `add_composition_test`. Where the ith element is a dataframe
             composed of `max_composition_train+i` tables that have all been composed in the training set.
         longer_incrementals (list of pd.Series): list of len `add_composition_test`. Where the ith element is a
-            dataframe composed of `max_composition_train+i` tables, with at least one that been composed in the
-            training set and at least one that hasn't.
+            dataframe composed of `max_composition_train+i` tables, exactly one table that has not been composed
+            in the training set.
         longer_news (list of pd.Series): ist of len `add_composition_test`. Where the ith element is a
             dataframe composed of `max_composition_train+i` tables that have never been composed in the training set.
     """
@@ -246,10 +257,14 @@ def table_lookup_dataset(validation_size=0.11,
                                        is_reverse=is_reverse, eos=eos)
 
     multiary_train += longest_multiary_train
-    building_blocks = (unary_functions, multiary_train, heldout_inputs, heldout_compositions, heldout_tables, new_compositions)
+    building_blocks = [multiary_train, heldout_inputs, heldout_compositions, heldout_tables, new_compositions]
+    # don't shuffle unary_functions becaue will be separating the train and test for those by indexing
+    unary_functions_list = _merge_format_inputs([unary_functions], False, bound_test=None, seed=seed, is_reverse=is_reverse, eos=eos)
     # don't bound test because size check after
     building_blocks = _merge_format_inputs(building_blocks, is_shuffle, bound_test=None, seed=seed, is_reverse=is_reverse, eos=eos)
-    _check_sizes(building_blocks, n_inputs, max_composition_train, n_unary_tables, n_heldout_tables, n_heldout_compositions, n_heldout_inputs)
+    building_blocks = unary_functions_list + building_blocks
+    _check_sizes(building_blocks, n_inputs, max_composition_train, n_unary_tables,
+                 n_heldout_tables, n_heldout_compositions, n_heldout_inputs)
     if bound_test is not None:
         # bound only testing sets
         building_blocks[2:] = [df.iloc[:bound_test] for df in building_blocks[2:]]
@@ -257,10 +272,13 @@ def table_lookup_dataset(validation_size=0.11,
 
     # validation
     multiary_train, validation = _uniform_split(multiary_train, names_unary_train, validation_size=validation_size, seed=seed)
-    train = pd.concat([unary_functions, multiary_train], axis=0)
 
-    out = (train, validation, heldout_inputs, heldout_compositions, heldout_tables, new_compositions,
-           longer_seens, longer_incrementals, longer_news)
+    train_all = pd.concat([unary_functions, multiary_train], axis=0)
+    unary_functions_train = unary_functions.iloc[:len(names_unary_train) * n_inputs]
+    train_before_new_tables = pd.concat([unary_functions_train, multiary_train], axis=0)
+
+    out = (train_all, train_before_new_tables, validation, heldout_inputs, heldout_compositions, heldout_tables,
+           new_compositions, longer_seens, longer_incrementals, longer_news)
 
     # add noise tables
     if max_noise_tables is not None:
@@ -268,7 +286,8 @@ def table_lookup_dataset(validation_size=0.11,
             _add_noise_tables(o,
                               names_unary_train,
                               max_noise_tables=max_noise_tables,
-                              random_start_token=random_start_token)
+                              random_start_token=random_start_token,
+                              is_multiple_start_token=is_multiple_start_token)
 
     # adds target attention
     if is_target_attention:
@@ -356,6 +375,12 @@ def format_input(table, is_copy_input=True, is_reverse=False, eos=None):
 
 
 ### HELPERS ###
+def _save_arguments(args, directory, filename="generation_arguments.txt"):
+    """Save arguments to a file given a dictionnary."""
+    with open(os.path.join(directory, filename), 'w') as file:
+        file.writelines('{}={}\n'.format(k, v) for k, v in args.items())
+
+
 def _save_tsv(data, name, path):
     try:
         os.makedirs(path)
@@ -375,13 +400,12 @@ def _save_tsv(data, name, path):
 
 
 def flatten(l):
-    """Flattens a list of element or lists into a list of elements."""
-    out = []
-    for e in l:
-        if not isinstance(e, list):
-            e = [e]
-        out.extend(e)
-    return out
+    if l == []:
+        return []
+    elif isinstance(l, list):
+        return reduce(operator.add, l)
+    else:
+        return l
 
 
 def assert_equal(a, b):
@@ -389,15 +413,23 @@ def assert_equal(a, b):
 
 
 def _split_seen_unseen_new(dfs, name_train, name_test):
-    """Split list of datatframes such that `seen` has only tables in `name_train`, `new` has only tables
-    in `name_test`, and the rest is in `unseen`."""
+    """
+    Split list of datatframes such that `seen` has only tables in `name_train`, `new` has only tables
+    in `name_test`, and `unseen` has exactly one table in `name_test`.
+    """
 
-    def _table_is_composed_of(composed_table, tables):
-        return set(composed_table.name.split()).intersection(tables)
+    def _table_is_composed_of(composed_table, tables, n_tables=None):
+        if n_tables is None:
+            # compsed of at least one
+            return set(composed_table.name.split()).intersection(tables)
+        else:
+            # at least one table composed of exactly `n_tables`
+            return sum(Counter(composed_table.name.split())[table] for table in tables) == n_tables
 
     seen = [t for t in dfs if not _table_is_composed_of(t, name_test)]
     new = [t for t in dfs if not _table_is_composed_of(t, name_train)]
-    unseen = [t for t in dfs if _table_is_composed_of(t, name_test) and _table_is_composed_of(t, name_train)]
+    unseen = [t for t in dfs
+              if _table_is_composed_of(t, name_test, n_tables=1) and _table_is_composed_of(t, name_train)]
     return seen, unseen, new
 
 
@@ -444,20 +476,22 @@ def _check_sizes(dfs, n_inputs, max_length, n_unary_tables, n_heldout_tables, n_
     n_train_tables = n_unary_tables - n_heldout_tables
     n_train_compositions = sum(n_train_tables**i for i in range(2, max_length + 1)) - n_heldout_compositions
 
-    def _size_compose(n_tables):
+    def _size_permute_compose(n_tables):
+        return sum(n_tables**i * n_inputs for i in range(2, max_length + 1))
+
+    def _size_compose(n_tables, max_length=max_length):
         return n_tables**max_length * n_inputs
 
     assert_equal(len(unary_functions), n_unary_tables * n_inputs)
     assert_equal(len(heldout_inputs), (n_train_tables**max_length - n_heldout_compositions) * n_heldout_inputs)
     assert_equal(len(multiary_train), n_train_compositions * n_inputs - len(heldout_inputs))
     assert_equal(len(heldout_compositions), n_heldout_compositions * n_inputs)
-    assert_equal(len(heldout_tables),
-                 _size_compose(n_train_tables + n_heldout_tables) - _size_compose(n_train_tables) - _size_compose(n_heldout_tables))
+    assert_equal(len(heldout_tables), _size_compose(n_train_tables, max_length - 1) * max_length * 2)
     assert_equal(len(new_compositions), _size_compose(n_heldout_tables))
 
 
 def _append_target_attention(df, eos, is_reverse):
-    """Appends the target attention by returning a datfarme with the attention given a series."""
+    """Appends the target attention by returning a datafarme with the attention given a series."""
     def _len_no_eos(s):
         return len([el for el in s.split() if el != eos])
 
@@ -470,18 +504,32 @@ def _append_target_attention(df, eos, is_reverse):
     return df
 
 
-def _add_noise_tables(data, names_unary_train, max_noise_tables=10, random_start_token="!"):
+def _add_noise_tables(data,
+                      names_unary_train,
+                      max_noise_tables=10,
+                      random_start_token="!",
+                      is_multiple_start_token=False):
+
+    def noise(n, possible_noisy_tokens):
+        n_start_token = np.random.randint(n) if (is_multiple_start_token and n !=0)  else 0
+        noisy_tokens = random.choices(possible_noisy_tokens, k=n-n_start_token) + [random_start_token] * n_start_token
+        np.random.shuffle(noisy_tokens)
+        return noisy_tokens + [random_start_token]
+
     if isinstance(data, list):
         for d in data:
             _add_noise_tables(d,
                               names_unary_train,
                               max_noise_tables=max_noise_tables,
-                              random_start_token=random_start_token)
+                              random_start_token=random_start_token,
+                              is_multiple_start_token=is_multiple_start_token)
 
     else:
-        names_unary_train = list(names_unary_train)
+        possible_noisy_tokens = list(names_unary_train)
         n_noise_tables = np.random.randint(max_noise_tables, size=len(data.index))
-        noise_tables = [random.choices(names_unary_train, k=k) + [random_start_token] for k in n_noise_tables]
+
+        noise_tables = [noise(n, possible_noisy_tokens) for n in n_noise_tables]
+
         data.index = [" ".join([i.split(" ", 1)[0]] + nt + [i.split(" ", 1)[1]])
                       for nt, i in zip(noise_tables, data.index)]
 
