@@ -12,13 +12,11 @@ from matplotlib.backends.backend_pdf import PdfPages
 import torch
 
 from seq2seq.trainer import SupervisedTrainer
-from seq2seq.models import EncoderRNN, DecoderRNN, Seq2seq
 from seq2seq.loss.loss import get_losses
 from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
-from seq2seq.evaluator import Evaluator
+from seq2seq.evaluator import Evaluator, Predictor
 from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.util.callbacks import EarlyStopping
 from seq2seq.util.helpers import get_kwargs
 from seq2seq.main import train
 
@@ -49,6 +47,7 @@ def generate_multireport(tasks,
             Additional arguments to `generate_report` and `train`.
     """
     models = {}
+    others = {}
     pdf = None
     for i, task in enumerate(tasks):
         if isinstance(task, str):
@@ -59,14 +58,14 @@ def generate_multireport(tasks,
         task_kwarg.update(kwargs)
         if task_kwargs is not None:
             task_kwarg.update(task_kwargs[i])
-        models[task.name], pdf = generate_report(task,
-                                                 output_dir,
-                                                 _is_multiple_tasks=True,
-                                                 _pdf=pdf,
-                                                 **task_kwarg)
+        models[task.name], pdf, others[task.name] = generate_report(task,
+                                                                    output_dir,
+                                                                    _is_multiple_tasks=True,
+                                                                    _pdf=pdf,
+                                                                    **task_kwarg)
     pdf.close()
 
-    return models
+    return models, others
 
 
 def generate_report(task,
@@ -104,7 +103,7 @@ def generate_report(task,
             Additional arguments to `train`.
     """
     is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
-    attention_method = kwargs.pop("attention_method", "dot")  # gets because want to show their name
+    content_method = kwargs.pop("content_method", "dot")  # gets because want to show their name
 
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
     name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
@@ -124,17 +123,17 @@ def generate_report(task,
         if os.path.exists(task_path) and os.path.isdir(task_path):
             shutil.rmtree(task_path)
 
-        model, histories, results = _train_evaluate(task.name, task.train_path, task.test_paths, task.valid_path,
-                                                    oneshot_path=task.oneshot_path,
-                                                    metric_names=task.metric_names,
-                                                    loss_names=task.loss_names,
-                                                    output_dir=output_path,
-                                                    k=k,
-                                                    _histories_file=_histories_file,
-                                                    _results_file=_results_file,
-                                                    is_predict_eos=is_predict_eos,
-                                                    attention_method=attention_method,
-                                                    **kwargs)
+        model, histories, results, other = _train_evaluate(task.name, task.train_path, task.test_paths, task.valid_path,
+                                                           oneshot_path=task.oneshot_path,
+                                                           metric_names=task.metric_names,
+                                                           loss_names=task.loss_names,
+                                                           output_dir=output_path,
+                                                           k=k,
+                                                           _histories_file=_histories_file,
+                                                           _results_file=_results_file,
+                                                           is_predict_eos=is_predict_eos,
+                                                           content_method=content_method,
+                                                           **kwargs)
     else:
         checkpoint = Checkpoint.load(task_path)
         model = checkpoint.model
@@ -162,7 +161,7 @@ def generate_report(task,
     fig_results = grid.fig
 
     figs_generator = [fig_title, fig_model, fig_losses, fig_results]
-    if n_attn_plots != 0 and attention_method != "hard":
+    if n_attn_plots != 0 and content_method != "hard":
         attn_figs_generator = _generate_attn_figs(task.test_paths, task_path, n_sample_plots=n_attn_plots, is_predict_eos=is_predict_eos)
         # generator because could be very memory heavy
         figs_generator = itertools.chain(figs_generator, attn_figs_generator)
@@ -172,12 +171,36 @@ def generate_report(task,
     if _is_multiple_tasks:
         pdf = report_path if _pdf is None else _pdf
         pdf = plot_pdf(pdf, figures=[fig_title, fig_model, fig_losses, fig_results], is_close=False)
-        return model, pdf
+        return model, pdf, other
 
-    return model
+    return model, other
 
+
+def dev_predict(task_path, src_str, is_plot=True):
+    if is_plot:
+        visualizer = AttentionVisualizer(task_path)
+    check = Checkpoint.load(task_path)
+    check.model.set_dev_mode()
+
+    predictor = Predictor(check.model, check.input_vocab, check.output_vocab)
+    out_words, other = predictor.predict(src_str.split())
+
+    test = dict()
+
+    for k, v in other["test"].items():
+        try:
+            test[k] = torch.cat(v).detach().numpy().squeeze()[:other["length"][0]]
+        except:
+            test[k] = v
+
+    if is_plot:
+        visualizer(src_str)
+
+    return out_words, other, test
 
 ### Plotting ###
+
+
 def _plot_mean(data, **kwargs):
     """Plot a horizontal line for the mean"""
     m = data.mean()
@@ -298,7 +321,10 @@ def _namer(name, is_rm_FalseNone=False, **kwargs):
     """Append variable name and value in alphabetical order to `name`."""
     def _key_value_to_name(k, v):
         if isinstance(v, bool):
-            return k.split("is_")[-1]
+            if not v:
+                return k.replace("is_", "no_")
+            else:
+                return k.split("is_")[-1]
         elif isinstance(v, str):
             return v
         else:
@@ -335,7 +361,7 @@ def _evaluate(checkpoint_path, test_paths,
               max_len=50,
               batch_size=32,
               is_predict_eos=True,
-              attention_method=None,
+              content_method=None,
               is_attnloss=False):
     """Evaluates the models saved in a checkpoint."""
     results = []
@@ -344,7 +370,7 @@ def _evaluate(checkpoint_path, test_paths,
     checkpoint = Checkpoint.load(checkpoint_path)
     seq2seq = checkpoint.model
 
-    tabular_data_fields = get_tabular_data_fields(attention_method=attention_method,
+    tabular_data_fields = get_tabular_data_fields(content_method=content_method,
                                                   is_predict_eos=is_predict_eos,
                                                   is_attnloss=is_attnloss)
 
@@ -393,7 +419,7 @@ def _train_evaluate(name,
                     is_save=True,
                     is_predict_eos=True,
                     batch_size=32,
-                    attention_method="dot",
+                    content_method="dot",
                     is_attnloss=False,
                     scale_attention_loss=1.0,
                     _results_file="results.csv",
@@ -420,25 +446,25 @@ def _train_evaluate(name,
         if i == k - 1:
             is_last_run = True
 
-        model, history = train(train_path, valid_path,
-                               oneshot_path=oneshot_path,
-                               output_dir=output_dir,
-                               max_len=max_len,
-                               name_checkpoint=name,
-                               is_predict_eos=is_predict_eos,
-                               batch_size=batch_size,
-                               attention_method=attention_method,
-                               is_attnloss=is_attnloss,
-                               metric_names=metric_names,
-                               loss_names=loss_names,
-                               **kwargs)
+        model, history, other = train(train_path, valid_path,
+                                      oneshot_path=oneshot_path,
+                                      output_dir=output_dir,
+                                      max_len=max_len,
+                                      name_checkpoint=name,
+                                      is_predict_eos=is_predict_eos,
+                                      batch_size=batch_size,
+                                      content_method=content_method,
+                                      is_attnloss=is_attnloss,
+                                      metric_names=metric_names,
+                                      loss_names=loss_names,
+                                      **kwargs)
 
         histories[i] = list(history)
         results_dfs[i] = _evaluate(output_path, test_paths,
                                    is_predict_eos=is_predict_eos,
                                    max_len=max_len,
                                    batch_size=batch_size,
-                                   attention_method=attention_method,
+                                   content_method=content_method,
                                    is_attnloss=is_attnloss,
                                    metric_names=metric_names,
                                    loss_names=loss_names)
@@ -453,4 +479,4 @@ def _train_evaluate(name,
         histories.to_csv(os.path.join(output_path, _histories_file), index=False)
         results.to_csv(os.path.join(output_path, _results_file), index=False)
 
-    return model, histories, results
+    return model, histories, results, other

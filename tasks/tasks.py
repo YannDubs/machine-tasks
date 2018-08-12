@@ -175,7 +175,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         task_kwargs["k"] = 1
         task_kwargs["batch_size"] = 128
         task_kwargs["patience"] = 2
-        task_kwargs["epochs"] = 5
+        task_kwargs["epochs"] = 3
         task_kwargs["n_attn_plots"] = 1
 
     return Task(task_name, train_file, test_files, valid_file,

@@ -82,7 +82,8 @@ class AttentionVisualizer(object):
         task_path (str): name of the  checkpoint file.
         figsizeh (tuple, optional): (width, height) of the final matplotlib figure.
         decimals (int, optional): number of decimals to whoe when pritning any number.
-        is_show_positioner (bool, optional): whether to show the positional attention if there's one.
+        is_show_attn_split (bool, optional): whether to show the the content and positional attention if there is one in addition
+            to the full attention.
         is_show_evaluation (bool, optional): whether to show the evaluation metric if the target is given.
         output_length_key, attention_key, content_attn_key (str, optional): keys of the respective values in the
             the dictionnary returned by the prediction.
@@ -94,10 +95,11 @@ class AttentionVisualizer(object):
         kwargs:
             Additional arguments to `MetricComputer`.
     """
+
     def __init__(self, task_path,
                  figsize=(13, 13),
                  decimals=3,
-                 is_show_positioner=True,
+                 is_show_attn_split=True,
                  is_show_evaluation=True,
                  output_length_key='length',
                  attention_key="attention_score",
@@ -118,7 +120,7 @@ class AttentionVisualizer(object):
         self.model_name = task_path.split("/")[-2]
         self.figsize = figsize
         self.decimals = decimals
-        self.is_show_positioner = is_show_positioner
+        self.is_show_attn_split = is_show_attn_split
         self.is_show_evaluation = is_show_evaluation
         self.positional_table_labels = positional_table_labels
         self.is_show_name = is_show_name
@@ -183,7 +185,7 @@ class AttentionVisualizer(object):
 
         attention = additional[self.attention_key]
 
-        if self.is_show_positioner and self.position_attn_key in additional:
+        if self.is_show_attn_split and (self.position_attn_key in additional and self.content_attn_key in additional):
             content_attention = additional.get(self.content_attn_key)
             positional_attention = additional.get(self.position_attn_key)
 
@@ -216,6 +218,9 @@ class AttentionVisualizer(object):
                 return "Carry % : None"
             return "Carry % : mean: {}; median: {}".format(np.around(carry_rates.mean().item(), decimals=self.decimals),
                                                            np.around(carry_rates.median().item(), decimals=self.decimals))
+
+        additional.pop("visualize", None)  # this is only for training visualization not predict
+        additional.pop("losses", None)
 
         additional_text = []
         additional = flatten_dict(additional)
