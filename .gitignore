@@ -1,0 +1,15 @@
+# directories
+venv*/
+notebooks/
+AttentionLookup/**/*.tsv
+PTB/*
+.DS_Store
+.ipynb_checkpoints
+reports/
+
+# files
+#.gitignore
+
+# extensions
+*.pyc
+*.egg-info
