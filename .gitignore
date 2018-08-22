@@ -9,6 +9,7 @@ reports/
 
 # files
 #.gitignore
+..gitignore.icloud
 
 # extensions
 *.pyc

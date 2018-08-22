@@ -433,7 +433,7 @@ def _format_losses_history(histories):
 def _tensors_to_np_array(list_tensors):
     """COnversts a list of tensors to a numpy array."""
     try:
-        arr = torch.stack(list_tensors).detach().squeeze().numpy()
+        arr = torch.stack(list_tensors).detach().squeeze().cpu().numpy()
     except TypeError:
         arr = np.array(list_tensors)
 
