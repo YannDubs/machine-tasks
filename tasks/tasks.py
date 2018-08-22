@@ -28,21 +28,27 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
     """Return a list of tasks.
 
     Args:
-        name ({"lookup", "long lookup", "long lookup jump", "long lookup oneshot", "long lookup reverse", "noisy long lookup multi",
-            "noisy long lookup single", "symbol rewriting", "scan", "attention lookup"}) name of the task to get.
-        base_data_dir (str, optional): name of the base directory containing all the datasets.
-        is_small (bool, optional). whether to run a smaller verson of the task. Used for getting
-            less statistically significant results.
-        is_mini (bool, optional). whether to run a smaller verson of the task. Used for testing purposes.
+        name ({"lookup", "long lookup", "long lookup jump", "long lookup oneshot",
+            "long lookup reverse", "noisy long lookup multi", "noisy long lookup single",
+            "long lookup intermediate noise", "symbol rewriting", "scan",
+            "attention lookup"}) name of the task to get.
+        base_data_dir (str, optional): name of the base directory containing all
+            the datasets.
+        is_small (bool, optional). whether to run a smaller verson of the task.
+            Used for getting less statistically significant results.
+        is_mini (bool, optional). whether to run a smaller verson of the task.
+            Used for testing purposes.
         longer_repeat (int, optional). number of longer test sets.
     """
     name = name.lower()
 
+    # classical lookup table
     if name == "lookup":
         task_name = "Lookup Table"
         train_file = "train"
-        test_files = ["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                      "longer_compositions_seen", "longer_compositions_incremental", "longer_compositions_new"]
+        test_files = ["heldout_inputs", "heldout_compositions", "heldout_tables",
+                      "new_compositions", "longer_compositions_seen",
+                      "longer_compositions_incremental", "longer_compositions_new"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LookupTables/lookup-3bit/samples/sample1/")
         task_kwargs = {"batch_size": 1, "k": 10, "max_len": 10, "patience": 15}
@@ -50,88 +56,122 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # lookup tables with training up to 3 cmpositions
     elif name == "long lookup":
         task_name = "Long Lookup Table"
         train_file = "train"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # lookup tables with training 1 2 and 4 compositions (i.e jumping 3)
     elif name == "long lookup jump":
         task_name = "Long Lookup Table Jump"
         train_file = "trainJump"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # long lookup tables with a iniital training file without t7 and t8 and then
+    # adding uncomposed t7 and t8 with all the rest
     elif name == "long lookup oneshot":
         task_name = "Long Lookup Table Oneshot"
         train_file = "train_before_new_tables"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = "train"
 
+    # reverse long lookup table (i.e right to left hard attention)
     elif name == "long lookup reverse":
         task_name = "Long Lookup Table Reverse"
         train_file = "train"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTablesReverse/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 5}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
-    elif name == "noisy long lookup multi":
-        task_name = "Noisy Long Lookup Table Multi"
-        train_file = "train"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
-                              repeat("longer_new", longer_repeat)])
-        valid_file = "validation"
-        data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesMulti/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 5}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = ["nll"]
-        oneshot_train_file = None
-
+    # noisy long lookup table with a special start token saying when are the
+    # "real tables" starting. THe hard attention is thus a diagonal that starts at
+    # some random position.
     elif name == "noisy long lookup single":
         task_name = "Noisy Long Lookup Table Single"
         train_file = "train"
-        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables", "new_compositions",
-                              repeat("longer_seen", longer_repeat), repeat("longer_incremental", longer_repeat),
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesSingle/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 5}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # noisy long lookup table where there are multiple start token and only
+    # the last one really counts
+    elif name == "noisy long lookup multi":
+        task_name = "Noisy Long Lookup Table Multi"
+        train_file = "train"
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
+                              repeat("longer_new", longer_repeat)])
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesMulti/")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
+
+    # noisy long lookup table where between each "real" table there's one noisy
+    # one. THe hard attention is thus a diagonal wich is less steep
+    elif name == "long lookup intermediate noise":
+        task_name = "Long Lookup Table Intermediate Noise"
+        train_file = "train"
+        test_files = flatten(["heldout_inputs", "heldout_compositions", "heldout_tables",
+                              "new_compositions", repeat("longer_seen", longer_repeat),
+                              repeat("longer_incremental", longer_repeat),
+                              repeat("longer_new", longer_repeat)])
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "LongLookupTablesIntermediateNoise/")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
+
+    # classical symbol rewriting task
     elif name == "symbol rewriting":
         task_name = "Symbol Rewriting"
         train_file = "grammar_std.train.full"
-        test_files = ["grammar_long.tst.full", "grammar_repeat.tst.full", "grammar_short.tst.full", "grammar_std.tst.full"]
+        test_files = ["grammar_long.tst.full", "grammar_repeat.tst.full",
+                      "grammar_short.tst.full", "grammar_std.tst.full"]
         valid_file = "grammar.val"
         data_dir = os.path.join(base_data_dir, "SymbolRewriting/")
         task_kwargs = {"batch_size": 128, "k": 3, "max_len": 60, "patience": 5, "epochs": 20}
@@ -139,6 +179,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # classical scan
     elif name == "scan":
         task_name = "SCAN Length"
         train_file = "tasks_train_length"
@@ -196,12 +237,15 @@ class Task(object):
         valid_path (str, optional): path to validation data.
         extension (str, optional): extension to add to every paths above.
         data_dir (str, optional):  directory to prepend to all path above.
-        is_add_to_test (bool, optional): whether to add the train and validation path to the test paths.
-        task_kwargs (dictionnaries, optional): list of task specific arguments that update the kwargs for a specific task.
+        is_add_to_test (bool, optional): whether to add the train and validation
+            path to the test paths.
+        task_kwargs (dictionnaries, optional): list of task specific arguments
+            that update the kwargs for a specific task.
         metric_names (list, optional): metrics to use for evaluating the task.
         metric_names (list, optional): loss to use for training the task.
-        oneshot_path (str, optional): path to a file that contains the training examples + the new tables to use for one shot learning.
-            If `None` then doesn't switch to a new training set.
+        oneshot_path (str, optional): path to a file that contains the training
+            examples + the new tables to use for one shot learning. If `None`
+            then doesn't switch to a new training set.
     """
 
     def __init__(self,

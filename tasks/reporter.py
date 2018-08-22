@@ -3,9 +3,13 @@ import logging
 import shutil
 from functools import reduce
 import itertools
+import warnings
+import ast
+import pickle
 
 import seaborn as sns
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -17,11 +21,10 @@ from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
 from seq2seq.evaluator import Evaluator, Predictor
 from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.util.helpers import get_kwargs
 from seq2seq.main import train
 
 from tasks import get_task
-from visualizer import AttentionVisualizer
+from visualizer import AttentionVisualizer, visualize_training, AttentionException
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -32,17 +35,21 @@ logger = logging.getLogger(__name__)
 
 
 ### API ###
+
 def generate_multireport(tasks,
                          output_dir,
                          task_kwargs=None,
                          **kwargs):
-    """Make a pdf report experiments either by loading them or recomputing them on multiple tasks.
+    """Make a pdf report experiments either by loading them or recomputing them
+    on multiple tasks.
 
     Args:
-        tasks (list of Task or str): list of helper objects containing meta information of the task. If list of str, then each element
-            should be the name of a task which will be given to `get_task`.
+        tasks (list of Task or str): list of helper objects containing meta information
+            of the task. If list of str, then each element should be the name of
+            a task which will be given to `get_task`.
         output_dir (str): directory containing the different models.
-        task_kwargs (list of dictionnaries, optional): list of task specific arguments that update the kwargs for a specific task.
+        task_kwargs (list of dictionnaries, optional): list of task specific arguments
+            that update the kwargs for a specific task.
         kwargs:
             Additional arguments to `generate_report` and `train`.
     """
@@ -75,14 +82,17 @@ def generate_report(task,
                     is_retrain=False,
                     compare_name=None,
                     n_attn_plots=3,
+                    is_plot_train=True,
                     is_rm_FalseNone=False,
-                    var_not_show=["max_len", "epochs", "src_vocab", "tgt_vocab", "batch_size", "eval_batch_size",
-                                  "save_every", "print_every", "log_level", "cuda_device", "checkpoint_path",
-                                  "name_checkpoint", "patience"],
+                    var_not_show=["max_len", "epochs", "src_vocab", "tgt_vocab",
+                                  "batch_size", "eval_batch_size", "save_every",
+                                  "print_every", "log_level", "cuda_device",
+                                  "checkpoint_path", "name_checkpoint", "patience"],
                     _is_multiple_tasks=False,
                     _pdf=None,
                     _results_file="results.csv",
                     _histories_file="histories.csv",
+                    _other_file="other.pkl",
                     _parameters_file='train_arguments.txt',
                     _report_file='report.pdf',
                     **kwargs):
@@ -91,13 +101,20 @@ def generate_report(task,
     Args:
         task (Task): helper object containing meta information of the task.
         output_dir (str): directory containing the different models.
-        name (str, optional): base name of the method tested, to which we will be appending the value of different parameters.
+        name (str, optional): base name of the method tested, to which we will
+            be appending the value of different parameters.
         k (int, optional): number of times to rerun each task.
         is_retrain (bool, optional): whether to retrain or use the previous saved model.
-        compare_name (str, optional): name of the model to which to compare to. Have to already be saved.
-        n_attn_plots (int, optional): number of example to sample and visualize from each test set.
-        is_rm_FalseNone (bool, optional): if `True` whill not show given arguments equal to `False` or `None` in the model name.
-        var_not_show (list of str): name of the variables in kwargs that should not be shown in the model name. Note that the default values
+        compare_name (str, optional): name of the model to which to compare to.
+            Have to already be saved.
+        n_attn_plots (int, optional): number of example to sample and visualize
+            from each test set.
+        is_plot_train (bool, optional): whether to plot how the averages of some
+            intepretable variables change during training.
+        is_rm_FalseNone (bool, optional): if `True` whill not show given arguments
+            equal to `False` or `None` in the model name.
+        var_not_show (list of str): name of the variables in kwargs that should
+            not be shown in the model name. Note that the default values
             won't be shown in the name.
         kwargs:
             Additional arguments to `train`.
@@ -114,7 +131,8 @@ def generate_report(task,
     report_task_path = os.path.join(task_path, _report_file)
 
     if compare_name is not None:
-        compare_to = reduce(os.path.join, [output_dir, compare_name, task.name, _results_file])
+        compare_to = reduce(os.path.join,
+                            [output_dir, compare_name, task.name, _results_file])
         compare_to = pd.read_csv(compare_to)
     else:
         compare_to = None
@@ -123,46 +141,72 @@ def generate_report(task,
         if os.path.exists(task_path) and os.path.isdir(task_path):
             shutil.rmtree(task_path)
 
-        model, histories, results, other = _train_evaluate(task.name, task.train_path, task.test_paths, task.valid_path,
+        model, histories, results, other = _train_evaluate(task.name,
+                                                           task.train_path,
+                                                           task.test_paths,
+                                                           task.valid_path,
                                                            oneshot_path=task.oneshot_path,
                                                            metric_names=task.metric_names,
                                                            loss_names=task.loss_names,
                                                            output_dir=output_path,
                                                            k=k,
                                                            _histories_file=_histories_file,
+                                                           _other_file=_other_file,
                                                            _results_file=_results_file,
                                                            is_predict_eos=is_predict_eos,
                                                            content_method=content_method,
+                                                           is_viz_train=is_plot_train,
                                                            **kwargs)
+
     else:
         checkpoint = Checkpoint.load(task_path)
         model = checkpoint.model
         results = pd.read_csv(os.path.join(task_path, _results_file))
-        histories = pd.read_csv(os.path.join(task_path, _histories_file))
+        histories = pd.read_csv(os.path.join(task_path, _histories_file),
+                                converters={0: ast.literal_eval, 1: ast.literal_eval})
+        with open(os.path.join(task_path, _other_file), 'rb') as f:
+            other = pickle.load(f)
 
+    other["task_path"] = task_path
     histories = _format_losses_history(histories)
 
     with open(os.path.join(task_path, _parameters_file), "r") as f:
         parameters = dict([line.strip().split('=') for line in f])
 
     # Makes PDF report
-    text_title = "{} \n Task: {} \n # parameters : {} \n # runs : {}".format(task.name,
-                                                                             name.capitalize(),
-                                                                             parameters["n_parameters"],
-                                                                             k)
+    to_format = "{} \n Task: {} \n # parameters : {} \n # runs : {}"
+    text_title = to_format.format(task.name,
+                                  name.capitalize(),
+                                  parameters["n_parameters"],
+                                  k)
     fig_title = plot_text(text_title, size=10)
     fig_model = plot_text(str(model), size=6, ha="left")
-    fig_losses = _plot_losses(histories, title="{} - training and validation losses".format(task.name))
+    fig_losses = _plot_losses(histories,
+                              title="{} - training and validation losses".format(task.name))
     title_results = '{} - average metrics. Bootstrap 95 % CI.'.format(task.name)
     if compare_to is not None:
-        grid = _plot_compare(results, compare_to, name, compare_name, is_plot_mean=True, title=title_results)
+        grid = _plot_compare(results, compare_to, name, compare_name,
+                             is_plot_mean=True,
+                             title=title_results)
     else:
         grid = plot_results(results, is_plot_mean=True, title=title_results)
     fig_results = grid.fig
 
     figs_generator = [fig_title, fig_model, fig_losses, fig_results]
+
+    if is_plot_train:
+        figs_generator += visualize_training(other["visualize"], model)
+
     if n_attn_plots != 0 and content_method != "hard":
-        attn_figs_generator = _generate_attn_figs(task.test_paths, task_path, n_sample_plots=n_attn_plots, is_predict_eos=is_predict_eos)
+        try:
+            attn_figs_generator = _generate_attn_figs(task.test_paths, task_path,
+                                                      n_sample_plots=n_attn_plots,
+                                                      is_predict_eos=is_predict_eos)
+
+        except AttentionException:
+            warnings.warn("Skipping the attention plotter because the model is not using attention.")
+            attn_figs_generator = []
+
         # generator because could be very memory heavy
         figs_generator = itertools.chain(figs_generator, attn_figs_generator)
 
@@ -170,13 +214,30 @@ def generate_report(task,
 
     if _is_multiple_tasks:
         pdf = report_path if _pdf is None else _pdf
-        pdf = plot_pdf(pdf, figures=[fig_title, fig_model, fig_losses, fig_results], is_close=False)
+        pdf = plot_pdf(pdf,
+                       figures=[fig_title, fig_model, fig_losses, fig_results],
+                       is_close=False)
         return model, pdf, other
 
     return model, other
 
 
 def dev_predict(task_path, src_str, is_plot=True):
+    """Helper used to visualize and understand why and what the model predicts.
+
+    Args:
+        task_path (str): path to the saved task directory containing, amongst
+            other, the model.
+        src_str (str): source sentence that will be used to predict.
+        is_plot (bool, optional): whether to plots the attention pattern.
+
+    Returns:
+        out_words (list): decoder predictions.
+        other (dictionary): additional information used for predictions.
+        test (dictionary): additional information that is only stored in dev mode.
+            These can include temporary variables that do not have to be stored in
+            `other` but that can still be interesting to inspect.
+    """
     if is_plot:
         visualizer = AttentionVisualizer(task_path)
     check = Checkpoint.load(task_path)
@@ -244,9 +305,10 @@ def plot_pdf(file, figures, is_close=True):
 
     Args:
         file (str or PdfPages): file path where to save the PDF.
-        figures (list): list of matplotlib figures, each of them will be saved as a new PDF page.
-        is_close (bool, optional): whether to close the PDF file or to return it. The Latter is useful if you want to
-            save something in the PDF later.
+        figures (list): list of matplotlib figures, each of them will be saved as
+            a new PDF page.
+        is_close (bool, optional): whether to close the PDF file or to return it.
+            The Latter is useful if you want to save something in the PDF later.
     """
     if isinstance(file, str):
         if os.path.isfile(file):
@@ -273,8 +335,8 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
     """Plot evaluation results.
 
     Args:
-        data (pd.DataFrame): dataframe containing the losses and metric results in a "Dataset",
-            a "Value", a "Metric", and an optional "Model" column.
+        data (pd.DataFrame): dataframe containing the losses and metric results
+            in a "Dataset", a "Value", a "Metric", and an optional "Model" column.
         is_plot_mean (bool, optional): whether to plot the mean value with a horizontal bar.
         title (str, optional): title to add.
         kwargs:
@@ -304,16 +366,27 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
 
 
 def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
-    """Generates `n_sample_plots` attention plots by sampling examples in `files` and predicting using the model in `task_path`."""
+    """Generates `n_sample_plots` attention plots by sampling examples in `files`
+        and predicting using the model in `task_path`.
+    """
     attn_visualizer = AttentionVisualizer(task_path, is_show_name=False, **kwargs)
 
-    for file in files:
-        samples = pd.read_csv(file, sep="\t", header=None, usecols=[0, 1]).sample(n_sample_plots)
+    def generator():
+        """Uses a sub generator in order to correctly catch errors of the
+        `AttentionVisualizer` constructor.
+        """
+        for file in files:
+            samples = pd.read_csv(file,
+                                  sep="\t",
+                                  header=None,
+                                  usecols=[0, 1]).sample(n_sample_plots)
 
-        yield plot_text(file.split("/")[-1])
+            yield plot_text(file.split("/")[-1])
 
-        for _, sample in samples.iterrows():
-            yield attn_visualizer(sample[0], sample[1])
+            for _, sample in samples.iterrows():
+                yield attn_visualizer(sample[0], sample[1])
+
+    return generator()
 
 
 ### Helpers ###
@@ -339,10 +412,13 @@ def _namer(name, is_rm_FalseNone=False, **kwargs):
 
 
 def _format_losses_history(histories):
-    """Formats a pd.DataFrame where the `k` rows correspond to different runs, the columns are
-    the different datas and the each cell contains a list of `n_epoch` values corresponding to the loss
-    at each epoch. Return a melted pd.dataframe with `n_epoch` rows and `columns=["epoch","k","loss","data"]`."""
-    histories = {n: pd.DataFrame(dict(zip(c.index, c.values))) for n, c in histories.iteritems()}
+    """Formats a pd.DataFrame where the `k` rows correspond to different runs,
+    the columns are the different datas and the each cell contains a list of `n_epoch`
+    values corresponding to the loss at each epoch. Return a melted pd.dataframe
+    with `n_epoch` rows and `columns=["epoch","k","loss","data"]`.
+    """
+    histories = {name: pd.DataFrame(dict(zip(col.index, col.values)))
+                 for name, col in histories.iteritems()}
     losses = []
     for name, df in histories.items():
         value_col = df.columns
@@ -352,6 +428,22 @@ def _format_losses_history(histories):
         losses.append(df)
     losses = pd.concat(losses, axis=0)
     return losses
+
+
+def _tensors_to_np_array(list_tensors):
+    """COnversts a list of tensors to a numpy array."""
+    try:
+        arr = torch.stack(list_tensors).detach().squeeze().numpy()
+    except TypeError:
+        arr = np.array(list_tensors)
+
+    return arr
+
+
+def _format_other(other):
+    """Format the additional outputs of the model predictions."""
+    return {k_ext: {k_int: _tensors_to_np_array(v_int) for k_int, v_int in v_ext.items()}
+            for k_ext, v_ext in other.items()}
 
 
 ### Evalation ###
@@ -424,13 +516,15 @@ def _train_evaluate(name,
                     scale_attention_loss=1.0,
                     _results_file="results.csv",
                     _histories_file="histories.csv",
+                    _other_file="other.pkl",
                     **kwargs):
     """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
 
     if not is_predict_eos:
         if "final target accuracy" not in metric_names:
-            # final target accuracy is like sequence accuracy but is correct if outputted too many token (but not if not enough!)
+            # final target accuracy is like sequence accuracy but is correct if
+            # outputted too many token (but not if not enough!)
             metric_names.append("final target accuracy")
 
     if is_attnloss:
@@ -458,6 +552,7 @@ def _train_evaluate(name,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
                                       **kwargs)
+        other = _format_other(other)
 
         histories[i] = list(history)
         results_dfs[i] = _evaluate(output_path, test_paths,
@@ -478,5 +573,7 @@ def _train_evaluate(name,
     if is_save:
         histories.to_csv(os.path.join(output_path, _histories_file), index=False)
         results.to_csv(os.path.join(output_path, _results_file), index=False)
+        with open(os.path.join(output_path, _other_file), 'wb') as f:
+            pickle.dump(other, f)
 
     return model, histories, results, other
