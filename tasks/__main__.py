@@ -54,7 +54,7 @@ def parse_arguments(args):
                         default="model")
     report.add_argument('-m', '--mode',
                         help='Task mode.',
-                        choices=["normal", "simple", "mini"],
+                        choices=["normal", "small", "mini"],
                         default="normal")
     report.add_argument('-k', '--k',
                         help='Number of times to rerun each task. Default given by `mode`.',
@@ -127,7 +127,7 @@ def parse_arguments(args):
                          help='Whether to use a residual connection betwen the embedding and the value of the encoder.',
                          default=None,
                          type=str2bool)
-    encoder.add_argument('--is-higway',
+    encoder.add_argument('--is-highway',
                          help='Whether to use a highway betwen the embedding and the value of the encoder.',
                          default=None,
                          type=str2bool)
