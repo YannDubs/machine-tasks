@@ -58,6 +58,7 @@ def generate_multireport(tasks,
         if isinstance(task, str):
             task = get_task(task)
 
+        print()
         print("----- TASK : {} -----".format(task.name))
         task_kwarg = task.task_kwargs
         task_kwarg.update(kwargs)
