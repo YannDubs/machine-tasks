@@ -26,8 +26,6 @@ from seq2seq.main import train
 from tasks import get_task
 from visualizer import AttentionVisualizer, visualize_training, AttentionException
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
 LOG_FORMAT = '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
 log_level = "warning"
 logging.basicConfig(format=LOG_FORMAT, level=getattr(logging, log_level.upper()))
@@ -250,7 +248,7 @@ def dev_predict(task_path, src_str, is_plot=True):
 
     for k, v in other["test"].items():
         try:
-            test[k] = torch.cat(v).detach().numpy().squeeze()[:other["length"][0]]
+            test[k] = torch.cat(v).detach().cpu().numpy().squeeze()[:other["length"][0]]
         except:
             test[k] = v
 

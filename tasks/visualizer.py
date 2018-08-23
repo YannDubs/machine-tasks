@@ -263,7 +263,7 @@ class AttentionVisualizer(object):
         output[self.output_length_key] = additional.pop(self.output_length_key)[0]
 
         for k, v in additional.items():
-            output[k] = torch.cat(v).detach().numpy().squeeze()[:output[self.output_length_key]]
+            output[k] = torch.cat(v).detach().cpu().numpy().squeeze()[:output[self.output_length_key]]
 
         return output, additional_text
 
