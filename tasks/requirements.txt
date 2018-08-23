@@ -1,0 +1,7 @@
+pandas
+numpy
+seaborn
+matplotlib
+seaborn
+torch
+-e ../../machine
