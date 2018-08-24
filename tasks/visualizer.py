@@ -219,13 +219,13 @@ class AttentionVisualizer(object):
 
         attention = additional[self.attention_key]
 
+        table_values = np.stack([np.around(additional[name], decimals=self.decimals)
+                                 for name in self.positional_table_labels.values()
+                                 if name in additional]).T
+
         if self.is_show_attn_split and (self.position_attn_key in additional and self.content_attn_key in additional):
             content_attention = additional.get(self.content_attn_key)
             positional_attention = additional.get(self.position_attn_key)
-
-            table_values = np.stack([np.around(additional[name], decimals=self.decimals)
-                                     for name in self.positional_table_labels.values()
-                                     if name in additional]).T
 
             fig, axs = plt.subplots(2, 2, figsize=self.figsize)
             _plot_attention(src_words, out_words, attention, axs[0, 0],
@@ -237,6 +237,10 @@ class AttentionVisualizer(object):
             _plot_attention(src_words, out_words, positional_attention, axs[1, 1],
                             title="Positional Attention")
 
+        elif self.position_attn_key in additional:
+            fig, axs = plt.subplots(1, 2, figsize=self.figsize)
+            _plot_attention(src_words, out_words, attention, axs[0], title="Final Attention")
+            _plot_table(table_values, list(self.positional_table_labels.keys()), axs[1])
         else:
             fig, ax = plt.subplots(1, 1, figsize=self.figsize)
             _plot_attention(src_words, out_words, attention, ax, title="Final Attention")
@@ -328,8 +332,8 @@ def _plot_table(values, columns, ax, title=None):
     ax.axis('off')
     table = ax.table(cellText=values, colLabels=columns, loc='center')
     table.auto_set_font_size(False)
-    table.set_fontsize(12)
-    table.scale(1.3, 1.7)
+    table.set_fontsize(11)
+    table.scale(1.17, 1.7)
 
     if title is not None:
         ax.set_title(title, pad=27)
