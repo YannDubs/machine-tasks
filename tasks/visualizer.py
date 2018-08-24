@@ -219,11 +219,13 @@ class AttentionVisualizer(object):
 
         attention = additional[self.attention_key]
 
+        filtered_pos_table_labels = {k: v for k, v in self.positional_table_labels.items()
+                                     if v in additional}
         table_values = np.stack([np.around(additional[name], decimals=self.decimals)
-                                 for name in self.positional_table_labels.values()
-                                 if name in additional]).T
+                                 for name in filtered_pos_table_labels.values()]).T
 
-        if self.is_show_attn_split and (self.position_attn_key in additional and self.content_attn_key in additional):
+        if self.is_show_attn_split and (self.position_attn_key in additional
+                                        and self.content_attn_key in additional):
             content_attention = additional.get(self.content_attn_key)
             positional_attention = additional.get(self.position_attn_key)
 
@@ -231,7 +233,7 @@ class AttentionVisualizer(object):
             _plot_attention(src_words, out_words, attention, axs[0, 0],
                             is_colorbar=False,
                             title="Final Attention")
-            _plot_table(table_values, list(self.positional_table_labels.keys()), axs[0, 1])
+            _plot_table(table_values, list(filtered_pos_table_labels.keys()), axs[0, 1])
             _plot_attention(src_words, out_words, content_attention, axs[1, 0],
                             title="Content Attention")
             _plot_attention(src_words, out_words, positional_attention, axs[1, 1],
@@ -240,7 +242,7 @@ class AttentionVisualizer(object):
         elif self.position_attn_key in additional:
             fig, axs = plt.subplots(1, 2, figsize=self.figsize)
             _plot_attention(src_words, out_words, attention, axs[0], title="Final Attention")
-            _plot_table(table_values, list(self.positional_table_labels.keys()), axs[1])
+            _plot_table(table_values, list(filtered_pos_table_labels.keys()), axs[1])
         else:
             fig, ax = plt.subplots(1, 1, figsize=self.figsize)
             _plot_attention(src_words, out_words, attention, ax, title="Final Attention")

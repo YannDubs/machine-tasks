@@ -237,8 +237,6 @@ def dev_predict(task_path, src_str, is_plot=True):
             These can include temporary variables that do not have to be stored in
             `other` but that can still be interesting to inspect.
     """
-    if is_plot:
-        visualizer = AttentionVisualizer(task_path)
     check = Checkpoint.load(task_path)
     check.model.set_dev_mode()
 
@@ -254,6 +252,7 @@ def dev_predict(task_path, src_str, is_plot=True):
         #test[k] = v
 
     if is_plot:
+        visualizer = AttentionVisualizer(task_path)
         visualizer(src_str)
 
     return out_words, other, test
