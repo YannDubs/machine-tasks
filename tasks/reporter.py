@@ -248,10 +248,10 @@ def dev_predict(task_path, src_str, is_plot=True):
     test = dict()
 
     for k, v in other["test"].items():
-        try:
-            test[k] = torch.cat(v).detach().cpu().numpy().squeeze()[:other["length"][0]]
-        except:
-            test[k] = v
+        tensor = v if isinstance(v, torch.Tensor) else torch.cat(v)
+        test[k] = tensor.detach().cpu().numpy().squeeze()[:other["length"][0]]
+        # except: # for using "step"
+        #test[k] = v
 
     if is_plot:
         visualizer(src_str)

@@ -113,18 +113,24 @@ class AttentionVisualizer(object):
 
     def __init__(self, task_path,
                  figsize=(13, 13),
-                 decimals=3,
+                 decimals=2,
                  is_show_attn_split=True,
                  is_show_evaluation=True,
                  output_length_key='length',
                  attention_key="attention_score",
                  position_attn_key='position_attention',
                  content_attn_key='content_attention',
-                 positional_table_labels={"mu": "mu",
-                                          "sigma": "sigma",
-                                          "% pos.": "position_percentage",
-                                          "cont. conf.": "content_confidence",
-                                          "pos. conf.": "pos_confidence"},
+                 positional_table_labels={"μ": "mu",
+                                          "σ": "sigma",
+                                          "λ%": "position_percentage",
+                                          "C.γ": "content_confidence",
+                                          "C.λ": "pos_confidence",
+                                          "w_μ": "mu_old_weight",
+                                          "w_α": "mean_attn_old_weight",
+                                          "w_j": "rel_counter_decoder_weight",
+                                          "w_1/n": "mean_content_old_weight",
+                                          "w_γ": "mean_content_old_weight",
+                                          "w_1": "bias_weight"},
                  # "% carry": "carry_rates",
                  is_show_name=True,
                  max_src=17,
@@ -134,6 +140,9 @@ class AttentionVisualizer(object):
 
         check = Checkpoint.load(task_path)
         self.model = check.model
+        # store some interesting variables
+        self.model.set_dev_mode()
+
         self.predictor = Predictor(self.model, check.input_vocab, check.output_vocab)
         self.model_name = task_path.split("/")[-2]
         self.figsize = figsize
@@ -215,7 +224,8 @@ class AttentionVisualizer(object):
             positional_attention = additional.get(self.position_attn_key)
 
             table_values = np.stack([np.around(additional[name], decimals=self.decimals)
-                                     for name in self.positional_table_labels.values()]).T
+                                     for name in self.positional_table_labels.values()
+                                     if name in additional]).T
 
             fig, axs = plt.subplots(2, 2, figsize=self.figsize)
             _plot_attention(src_words, out_words, attention, axs[0, 0],
@@ -249,21 +259,31 @@ class AttentionVisualizer(object):
             median_carry_rates = np.around(carry_rates.median().item(), decimals=self.decimals)
             return "Carry % : mean: {}; median: {}".format(mean_carry_rates, median_carry_rates)
 
+        def _format_mu_weights(mu_weights):
+            if mu_weights is not None:
+                building_blocks_labels = self.model.decoder.position_attention.building_blocks_labels
+                for i, label in enumerate(building_blocks_labels):
+                    output[label + "_weight"] = mu_weights[:, i]
+
+        output = dict()
+
         additional.pop("visualize", None)  # this is only for training visualization not predict
-        additional.pop("test", None)
         additional.pop("losses", None)
 
         additional_text = []
         additional = flatten_dict(additional)
 
-        carry_txt = _format_carry_rates(additional.pop("carry_rates", None))
-        additional_text.append(carry_txt)
-
         output = dict()
         output[self.output_length_key] = additional.pop(self.output_length_key)[0]
 
         for k, v in additional.items():
-            output[k] = torch.cat(v).detach().cpu().numpy().squeeze()[:output[self.output_length_key]]
+            tensor = v if isinstance(v, torch.Tensor) else torch.cat(v)
+            output[k] = tensor.detach().cpu().numpy().squeeze()[:output[self.output_length_key]]
+
+        carry_txt = _format_carry_rates(additional.pop("carry_rates", None))
+        additional_text.append(carry_txt)
+
+        _format_mu_weights(output.pop("mu_weights", None))
 
         return output, additional_text
 
@@ -308,8 +328,8 @@ def _plot_table(values, columns, ax, title=None):
     ax.axis('off')
     table = ax.table(cellText=values, colLabels=columns, loc='center')
     table.auto_set_font_size(False)
-    table.set_fontsize(14)
-    table.scale(1, 1.7)
+    table.set_fontsize(12)
+    table.scale(1.3, 1.7)
 
     if title is not None:
         ax.set_title(title, pad=27)
