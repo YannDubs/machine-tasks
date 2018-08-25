@@ -9,15 +9,16 @@ import json
 from functools import reduce
 from distutils.dir_util import copy_tree
 
-import seaborn as sns
-import pandas as pd
-import numpy as np
 import matplotlib
 if os.environ.get('DISPLAY', '') == '':
     # HAS TO BE BEFORE IMPORTING PYPLOT
     # solving ssh plotting issue
     warnings.warn('No display found. Using non-interactive Agg backend')
     matplotlib.use('Agg')
+
+import seaborn as sns
+import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
