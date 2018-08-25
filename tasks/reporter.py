@@ -5,6 +5,7 @@ import itertools
 import warnings
 import ast
 import pickle
+import json
 from functools import reduce
 from distutils.dir_util import copy_tree
 
@@ -90,11 +91,11 @@ def generate_report(task,
                                   "checkpoint_path", "name_checkpoint", "patience"],
                     _is_multiple_tasks=False,
                     _pdf=None,
-                    _results_file="results.csv",
-                    _histories_file="histories.csv",
-                    _other_file="other.pkl",
-                    _parameters_file='train_arguments.txt',
-                    _report_file='report.pdf',
+                    _filenames=dict(results="results.csv",
+                                    histories="histories.csv",
+                                    other="other.pkl",
+                                    parameters='train_arguments.txt',
+                                    report='report.pdf'),
                     **kwargs):
     """Makes a pdf report experiments either by loading them or recomputing them.
 
@@ -127,95 +128,49 @@ def generate_report(task,
 
     output_path = os.path.join(output_dir, name)
     task_path = os.path.join(output_path, task.name)
-    report_path = os.path.join(output_path, _report_file)
-    report_task_path = os.path.join(task_path, _report_file)
-
-    if compare_name is not None:
-        compare_to = reduce(os.path.join,
-                            [output_dir, compare_name, task.name, _results_file])
-        compare_to = pd.read_csv(compare_to)
-    else:
-        compare_to = None
+    report_path = os.path.join(output_path, _filenames["report"])
 
     if is_retrain:
         if os.path.exists(task_path) and os.path.isdir(task_path):
             shutil.rmtree(task_path)
 
-        model, histories, results, other = _train_evaluate(task.name,
-                                                           task.train_path,
-                                                           task.test_paths,
-                                                           task.valid_path,
-                                                           oneshot_path=task.oneshot_path,
-                                                           metric_names=task.metric_names,
-                                                           loss_names=task.loss_names,
-                                                           output_dir=output_path,
-                                                           k=k,
-                                                           _histories_file=_histories_file,
-                                                           _other_file=_other_file,
-                                                           _results_file=_results_file,
-                                                           is_predict_eos=is_predict_eos,
-                                                           content_method=content_method,
-                                                           is_viz_train=is_plot_train,
-                                                           **kwargs)
-
+        model, _, _, other = _train_evaluate(task.name,
+                                             task.train_path,
+                                             task.test_paths,
+                                             task.valid_path,
+                                             oneshot_path=task.oneshot_path,
+                                             metric_names=task.metric_names,
+                                             loss_names=task.loss_names,
+                                             output_dir=output_path,
+                                             k=k,
+                                             is_predict_eos=is_predict_eos,
+                                             content_method=content_method,
+                                             is_viz_train=is_plot_train,
+                                             _filenames=_filenames,
+                                             **kwargs)
     else:
-        checkpoint = Checkpoint.load(task_path)
-        model = checkpoint.model
-        results = pd.read_csv(os.path.join(task_path, _results_file))
-        histories = pd.read_csv(os.path.join(task_path, _histories_file),
-                                converters={0: ast.literal_eval, 1: ast.literal_eval})
-        with open(os.path.join(task_path, _other_file), 'rb') as f:
-            other = pickle.load(f)
-
-    other["task_path"] = task_path
-    histories = _format_losses_history(histories)
-
-    with open(os.path.join(task_path, _parameters_file), "r") as f:
-        parameters = dict([line.strip().split('=') for line in f])
+        model = None
+        other = dict()
 
     # Makes PDF report
-    to_format = "{} \n Task: {} \n # parameters : {} \n # runs : {}"
-    text_title = to_format.format(task.name,
-                                  name.capitalize(),
-                                  parameters["n_parameters"],
-                                  k)
-    fig_title = plot_text(text_title, size=10)
-    fig_model = plot_text(str(model), size=6, ha="left")
-    fig_losses = _plot_losses(histories,
-                              title="{} - training and validation losses".format(task.name))
-    title_results = '{} - average metrics. Bootstrap 95 % CI.'.format(task.name)
-    if compare_to is not None:
-        grid = _plot_compare(results, compare_to, name, compare_name,
-                             is_plot_mean=True,
-                             title=title_results)
-    else:
-        grid = plot_results(results, is_plot_mean=True, title=title_results)
-    fig_results = grid.fig
+    fig_multiple_tasks = plot_report(task, name, output_dir, is_plot_train,
+                                     n_attn_plots,
+                                     compare_name=compare_name,
+                                     is_multiple_tasks=_is_multiple_tasks,
+                                     _filenames=_filenames)
 
-    figs_generator = [fig_title, fig_model, fig_losses, fig_results]
+    for i in range(k):
+        # making smaller report for each run
+        plot_report(task, name, output_dir, is_plot_train, 1,
+                    sub_run=i,
+                    _filenames=_filenames)
 
-    if is_plot_train:
-        figs_generator += visualize_training(other["visualize"], model)
-
-    if n_attn_plots != 0 and content_method != "hard":
-        try:
-            attn_figs_generator = _generate_attn_figs(task.test_paths, task_path,
-                                                      n_sample_plots=n_attn_plots,
-                                                      is_predict_eos=is_predict_eos)
-
-        except AttentionException:
-            warnings.warn("Skipping the attention plotter because the model is not using attention.")
-            attn_figs_generator = []
-
-        # generator because could be very memory heavy
-        figs_generator = itertools.chain(figs_generator, attn_figs_generator)
-
-    plot_pdf(report_task_path, figures=figs_generator)
+    other["task_path"] = task_path
 
     if _is_multiple_tasks:
         pdf = report_path if _pdf is None else _pdf
         pdf = plot_pdf(pdf,
-                       figures=[fig_title, fig_model, fig_losses, fig_results],
+                       figures=fig_multiple_tasks,
                        is_close=False)
         return model, pdf, other
 
@@ -250,7 +205,7 @@ def dev_predict(task_path, src_str, is_plot=True):
         tensor = v if isinstance(v, torch.Tensor) else torch.cat(v)
         test[k] = tensor.detach().cpu().numpy().squeeze()[:other["length"][0]]
         # except: # for using "step"
-        #test[k] = v
+        # test[k] = v
 
     if is_plot:
         visualizer = AttentionVisualizer(task_path)
@@ -388,7 +343,84 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
     return generator()
 
 
+def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
+                compare_name=None,
+                sub_run=None,
+                is_multiple_tasks=False,
+                _filenames=dict(results="results.csv",
+                                histories="histories.csv",
+                                other="other.pkl",
+                                parameters='train_arguments.txt',
+                                report='report.pdf')):
+
+    output_path = os.path.join(output_dir, name)
+    task_name = task.name if sub_run is None else "{}_{}".format(task.name, sub_run)
+    task_path = os.path.join(output_path, task_name)
+    report_task_path = os.path.join(task_path, _filenames["report"])
+
+    (model, results, histories,
+     other, parameters) = _load_output_training(task_path, _filenames=_filenames)
+
+    k = histories["k"].max() + 1
+
+    # TITLE #
+    to_format = "{} \n Task: {} \n # parameters : {} \n # runs : {}"
+    text_title = to_format.format(task.name,
+                                  name.capitalize(),
+                                  parameters["n_parameters"],
+                                  k)
+    fig_title = plot_text(text_title, size=10)
+
+    # MODEL #
+    fig_model = plot_text(str(model), size=6, ha="left")
+
+    # LOSSES #
+    fig_losses = _plot_losses(histories,
+                              title="{} - training and validation losses".format(task.name))
+
+    # METRICS #
+    title_results = '{} - average metrics. Bootstrap 95 % CI.'.format(task.name)
+
+    if compare_name is not None:
+        compare_to = reduce(os.path.join,
+                            [output_dir, compare_name, task.name, _filenames["results"]])
+        compare_to = pd.read_csv(compare_to)
+        grid = _plot_compare(results, compare_to, name, compare_name,
+                             is_plot_mean=True,
+                             title=title_results)
+    else:
+        grid = plot_results(results, is_plot_mean=True, title=title_results)
+    fig_results = grid.fig
+
+    figs_generator = [fig_title, fig_model, fig_losses, fig_results]
+
+    # VIZ TRAIN #
+    if is_plot_train:
+        figs_generator += visualize_training(other["visualize"], model)
+
+    # ATTENTION #
+    if n_attn_plots != 0 and parameters["content_method"] != "hard":
+        try:
+            attn_figs_generator = _generate_attn_figs(task.test_paths, task_path,
+                                                      n_sample_plots=n_attn_plots,
+                                                      is_predict_eos=parameters["is_predict_eos"])
+        except AttentionException:
+            warnings.warn("Skipping the attention plotter because the model is not using attention.")
+            attn_figs_generator = []
+
+        # generator because could be very memory heavy
+        figs_generator = itertools.chain(figs_generator, attn_figs_generator)
+
+    # RETURN #
+    plot_pdf(report_task_path, figures=figs_generator)
+
+    if is_multiple_tasks:
+        return [fig_title, fig_model, fig_losses, fig_results]
+
+
 ### Helpers ###
+
+
 def _namer(name, is_rm_FalseNone=False, **kwargs):
     """Append variable name and value in alphabetical order to `name`."""
     def _key_value_to_name(k, v):
@@ -445,7 +477,29 @@ def _format_other(other):
             for k_ext, v_ext in other.items()}
 
 
+def _load_output_training(task_path,
+                          _results_file="results.csv",
+                          _histories_file="histories.csv",
+                          _other_file="other.pkl",
+                          _parameters_file='train_arguments.txt'):
+    """Loads all the components that were saved during and at the end of training."""
+    checkpoint = Checkpoint.load(task_path)
+    model = checkpoint.model
+    results = pd.read_csv(os.path.join(task_path, _results_file))
+    histories = pd.read_csv(os.path.join(task_path, _histories_file),
+                            converters={0: ast.literal_eval, 1: ast.literal_eval})
+    with open(os.path.join(task_path, _other_file), 'rb') as f:
+        other = pickle.load(f)
+    with open(_parameters_file, 'r') as f:
+        parameters = json.load(f)
+
+    histories = _format_losses_history(histories)
+
+    return model, results, histories, other, parameters
+
 ### Evalation ###
+
+
 def _evaluate(checkpoint_path, test_paths,
               metric_names=["word accuracy", "sequence accuracy", "final target accuracy"],
               loss_names=["nll"],
@@ -497,6 +551,18 @@ def _evaluate(checkpoint_path, test_paths,
     return results_df
 
 
+def _save_output_training(output_path, results, other, histories,
+                          _filenames=dict(results="results.csv",
+                                          histories="histories.csv",
+                                          other="other.pkl")):
+    results.to_csv(os.path.join(output_path, _filenames["results"]),
+                   index=False)
+    histories.to_csv(os.path.join(output_path, _filenames["histories"]),
+                     index=False)
+    with open(os.path.join(output_path, _filenames["other"]), 'wb') as f:
+        pickle.dump(other, f)
+
+
 def _train_evaluate(name,
                     train_path,
                     test_paths,
@@ -513,9 +579,9 @@ def _train_evaluate(name,
                     content_method="dot",
                     is_attnloss=False,
                     scale_attention_loss=1.0,
-                    _results_file="results.csv",
-                    _histories_file="histories.csv",
-                    _other_file="other.pkl",
+                    _filenames=dict(results="results.csv",
+                                    histories="histories.csv",
+                                    other="other.pkl"),
                     **kwargs):
     """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
@@ -565,14 +631,12 @@ def _train_evaluate(name,
 
         if k > 1:
             i_output_path = output_path + "_{}".format(i)
+            copy_tree(output_path, i_output_path)
 
             if is_save:
-                results_dfs[i].to_csv(os.path.join(i_output_path, _results_file), index=False)
-                pd.DataFrame([histories[i]], columns=history.names
-                             ).to_csv(os.path.join(i_output_path, _histories_file),
-                                      index=False)
-                with open(os.path.join(i_output_path, _other_file), 'wb') as f:
-                    pickle.dump(other, f)
+                histories_i = pd.DataFrame([histories[i]], columns=history.names)
+                _save_output_training(i_output_path, results_dfs[i], other, histories_i,
+                                      _filenames=_filenames)
 
         if not is_last_run:
             shutil.rmtree(output_path)
@@ -581,9 +645,7 @@ def _train_evaluate(name,
     results = pd.concat(results_dfs).reset_index(drop=True)
 
     if is_save:
-        histories.to_csv(os.path.join(output_path, _histories_file), index=False)
-        results.to_csv(os.path.join(output_path, _results_file), index=False)
-        with open(os.path.join(output_path, _other_file), 'wb') as f:
-            pickle.dump(other, f)
+        _save_output_training(output_path, results, other, histories,
+                              _filenames=_filenames)
 
     return model, histories, results, other
