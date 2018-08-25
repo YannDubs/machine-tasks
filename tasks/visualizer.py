@@ -1,3 +1,5 @@
+"""Module containing all the callables that return figures."""
+
 import warnings
 
 import pandas as pd
@@ -14,6 +16,80 @@ from seq2seq.evaluator import Predictor
 from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import get_tabular_data_fields, get_single_data
+
+
+def _plot_mean(data, **kwargs):
+    """Plot a horizontal line for the mean"""
+    m = data.mean()
+    plt.axhline(m, **kwargs)
+
+
+def plot_compare(df1, df2, model1, model2, **kwargs):
+    """Plot and compares evaluation results of 2 models."""
+    df1['Model'] = model1
+    df2['Model'] = model2
+    df = pd.concat([df1, df2])
+    return plot_results(df, **kwargs)
+
+
+def plot_losses(losses, title="Training and validation losses"):
+    """Plots the losses given a pd.dataframe with `n_epoch` rows and `columns=["epoch","k","loss","data"]`."""
+    sns.set(font_scale=1.5, style="white")
+    f, ax = plt.subplots(figsize=(11, 7))
+    grid = sns.tsplot(time="epoch",
+                      value="loss",
+                      unit="k",
+                      err_style="unit_traces",
+                      condition="data",
+                      data=losses,
+                      ax=ax)
+    sns.despine()
+    if title is not None:
+        grid.set_title(title)
+    return f
+
+
+def plot_text(txt, size=12, ha='center', **kwargs):
+    """Plots text as an image and returns the matplotlib figure."""
+    fig = plt.figure(figsize=(11, 7))
+    text = fig.text(0.5, 0.5, txt, ha=ha, va='center', size=size, **kwargs)
+    return fig
+
+
+def plot_results(data, is_plot_mean=False, title=None, **kwargs):
+    """Plot evaluation results.
+
+    Args:
+        data (pd.DataFrame): dataframe containing the losses and metric results
+            in a "Dataset", a "Value", a "Metric", and an optional "Model" column.
+        is_plot_mean (bool, optional): whether to plot the mean value with a horizontal bar.
+        title (str, optional): title to add.
+        kwargs:
+            Additional arguments to `sns.factorplot`.
+    """
+    sns.set(font_scale=1.5)
+    hue = "Model" if "Model" in data.columns and data['Model'].nunique() > 1 else None
+    grid = sns.factorplot(x="Dataset",
+                          y="Value",
+                          col="Metric",
+                          kind="bar",
+                          size=9,
+                          sharey=False,
+                          ci=95,
+                          hue=hue,
+                          data=data,
+                          **kwargs)
+    grid.set_xticklabels(rotation=90)
+    for ax in grid.axes[0, 1:]:
+        ax.set_ylim(0, 1)
+    if is_plot_mean:
+        grid.map(_plot_mean, 'Value', ls="--", c=".5", linewidth=1.3)
+    if title is not None:
+        plt.subplots_adjust(top=0.9)
+        grid.fig.suptitle(title)
+    return grid
+
+### ATTENTION VISUALISATION ###
 
 
 class AttentionException(Exception):
@@ -369,7 +445,7 @@ def _plot_attention(src_words, out_words, attention, ax, title=None, is_colorbar
     if title is not None:
         ax.set_title(title, pad=27)
 
-# Training visualisation
+### TRAINING VISUALISATION ###
 
 
 def _plot_training_phase(df, title=None, **kwargs):

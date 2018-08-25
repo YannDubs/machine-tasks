@@ -16,7 +16,7 @@ if os.environ.get('DISPLAY', '') == '':
     warnings.warn('No display found. Using non-interactive Agg backend')
     matplotlib.use('Agg')
 
-import seaborn as sns
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -33,7 +33,8 @@ from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.main import train
 
 from tasks import get_task
-from visualizer import AttentionVisualizer, visualize_training, AttentionException
+from visualizer import (plot_compare, plot_losses, plot_text, plot_results,
+                        AttentionVisualizer, visualize_training, AttentionException)
 
 LOG_FORMAT = '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
 log_level = "warning"
@@ -176,9 +177,9 @@ def generate_report(task,
 
     if _is_multiple_tasks:
         pdf = report_path if _pdf is None else _pdf
-        pdf = plot_pdf(pdf,
-                       figures=fig_multiple_tasks,
-                       is_close=False)
+        pdf = figures_to_pdf(pdf,
+                             figures=fig_multiple_tasks,
+                             is_close=False)
         return model, pdf, other
 
     return model, other
@@ -223,45 +224,7 @@ def dev_predict(task_path, src_str, is_plot=True):
 ### Plotting ###
 
 
-def _plot_mean(data, **kwargs):
-    """Plot a horizontal line for the mean"""
-    m = data.mean()
-    plt.axhline(m, **kwargs)
-
-
-def _plot_compare(df1, df2, model1, model2, **kwargs):
-    """Plot and compares evaluation results of 2 models."""
-    df1['Model'] = model1
-    df2['Model'] = model2
-    df = pd.concat([df1, df2])
-    return plot_results(df, **kwargs)
-
-
-def _plot_losses(losses, title="Training and validation losses"):
-    """Plots the losses given a pd.dataframe with `n_epoch` rows and `columns=["epoch","k","loss","data"]`."""
-    sns.set(font_scale=1.5, style="white")
-    f, ax = plt.subplots(figsize=(11, 7))
-    grid = sns.tsplot(time="epoch",
-                      value="loss",
-                      unit="k",
-                      err_style="unit_traces",
-                      condition="data",
-                      data=losses,
-                      ax=ax)
-    sns.despine()
-    if title is not None:
-        grid.set_title(title)
-    return f
-
-
-def plot_text(txt, size=12, ha='center', **kwargs):
-    """Plots text as an image and returns the matplotlib figure."""
-    fig = plt.figure(figsize=(11, 7))
-    text = fig.text(0.5, 0.5, txt, ha=ha, va='center', size=size, **kwargs)
-    return fig
-
-
-def plot_pdf(file, figures, is_close=True):
+def figures_to_pdf(file, figures, is_close=True):
     """Plots every given figure as a new page of the pdf.
 
     Args:
@@ -290,40 +253,6 @@ def plot_pdf(file, figures, is_close=True):
         pdf.close()
     else:
         return pdf
-
-
-def plot_results(data, is_plot_mean=False, title=None, **kwargs):
-    """Plot evaluation results.
-
-    Args:
-        data (pd.DataFrame): dataframe containing the losses and metric results
-            in a "Dataset", a "Value", a "Metric", and an optional "Model" column.
-        is_plot_mean (bool, optional): whether to plot the mean value with a horizontal bar.
-        title (str, optional): title to add.
-        kwargs:
-            Additional arguments to `sns.factorplot`.
-    """
-    sns.set(font_scale=1.5)
-    hue = "Model" if "Model" in data.columns and data['Model'].nunique() > 1 else None
-    grid = sns.factorplot(x="Dataset",
-                          y="Value",
-                          col="Metric",
-                          kind="bar",
-                          size=9,
-                          sharey=False,
-                          ci=95,
-                          hue=hue,
-                          data=data,
-                          **kwargs)
-    grid.set_xticklabels(rotation=90)
-    for ax in grid.axes[0, 1:]:
-        ax.set_ylim(0, 1)
-    if is_plot_mean:
-        grid.map(_plot_mean, 'Value', ls="--", c=".5", linewidth=1.3)
-    if title is not None:
-        plt.subplots_adjust(top=0.9)
-        grid.fig.suptitle(title)
-    return grid
 
 
 def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
@@ -382,8 +311,8 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
     fig_model = plot_text(str(model), size=6, ha="left")
 
     # LOSSES #
-    fig_losses = _plot_losses(histories,
-                              title="{} - training and validation losses".format(task.name))
+    fig_losses = plot_losses(histories,
+                             title="{} - training and validation losses".format(task.name))
 
     # METRICS #
     title_results = '{} - average metrics. Bootstrap 95 % CI.'.format(task.name)
@@ -392,9 +321,9 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
         compare_to = reduce(os.path.join,
                             [output_dir, compare_name, task.name, _filenames["results"]])
         compare_to = pd.read_csv(compare_to)
-        grid = _plot_compare(results, compare_to, name, compare_name,
-                             is_plot_mean=True,
-                             title=title_results)
+        grid = plot_compare(results, compare_to, name, compare_name,
+                            is_plot_mean=True,
+                            title=title_results)
     else:
         grid = plot_results(results, is_plot_mean=True, title=title_results)
     fig_results = grid.fig
@@ -419,7 +348,7 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
         figs_generator = itertools.chain(figs_generator, attn_figs_generator)
 
     # RETURN #
-    plot_pdf(report_task_path, figures=figs_generator)
+    figures_to_pdf(report_task_path, figures=figs_generator)
 
     if is_multiple_tasks:
         return [fig_title, fig_model, fig_losses, fig_results]
