@@ -128,7 +128,7 @@ class AttentionVisualizer(object):
                                           "w_μ": "mu_old_weight",
                                           "w_α": "mean_attn_old_weight",
                                           "w_j": "rel_counter_decoder_weight",
-                                          "w_1/n": "mean_content_old_weight",
+                                          "w_1/n": "single_step_weight",
                                           "w_γ": "mean_content_old_weight",
                                           "w_1": "bias_weight"},
                  # "% carry": "carry_rates",

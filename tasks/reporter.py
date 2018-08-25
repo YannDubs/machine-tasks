@@ -1,11 +1,12 @@
 import os
 import logging
 import shutil
-from functools import reduce
 import itertools
 import warnings
 import ast
 import pickle
+from functools import reduce
+from distutils.dir_util import copy_tree
 
 import seaborn as sns
 import pandas as pd
@@ -561,6 +562,17 @@ def _train_evaluate(name,
                                    is_attnloss=is_attnloss,
                                    metric_names=metric_names,
                                    loss_names=loss_names)
+
+        if k > 1:
+            i_output_path = output_path + "_{}".format(i)
+
+            if is_save:
+                results_dfs[i].to_csv(os.path.join(i_output_path, _results_file), index=False)
+                pd.DataFrame([histories[i]], columns=history.names
+                             ).to_csv(os.path.join(i_output_path, _histories_file),
+                                      index=False)
+                with open(os.path.join(i_output_path, _other_file), 'wb') as f:
+                    pickle.dump(other, f)
 
         if not is_last_run:
             shutil.rmtree(output_path)
