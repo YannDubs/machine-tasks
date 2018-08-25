@@ -12,6 +12,12 @@ from distutils.dir_util import copy_tree
 import seaborn as sns
 import pandas as pd
 import numpy as np
+import matplotlib
+if os.environ.get('DISPLAY', '') == '':
+    # HAS TO BE BEFORE IMPORTING PYPLOT
+    # solving ssh plotting issue
+    warnings.warn('No display found. Using non-interactive Agg backend')
+    matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 
@@ -478,19 +484,19 @@ def _format_other(other):
 
 
 def _load_output_training(task_path,
-                          _results_file="results.csv",
-                          _histories_file="histories.csv",
-                          _other_file="other.pkl",
-                          _parameters_file='train_arguments.txt'):
+                          _filenames=dict(results="results.csv",
+                                          histories="histories.csv",
+                                          other="other.pkl",
+                                          parameters='train_arguments.txt')):
     """Loads all the components that were saved during and at the end of training."""
     checkpoint = Checkpoint.load(task_path)
     model = checkpoint.model
-    results = pd.read_csv(os.path.join(task_path, _results_file))
-    histories = pd.read_csv(os.path.join(task_path, _histories_file),
+    results = pd.read_csv(os.path.join(task_path, _filenames["results"]))
+    histories = pd.read_csv(os.path.join(task_path, _filenames["histories"]),
                             converters={0: ast.literal_eval, 1: ast.literal_eval})
-    with open(os.path.join(task_path, _other_file), 'rb') as f:
+    with open(os.path.join(task_path, _filenames["other"]), 'rb') as f:
         other = pickle.load(f)
-    with open(_parameters_file, 'r') as f:
+    with open(os.path.join(task_path, _filenames["parameters"]), 'r') as f:
         parameters = json.load(f)
 
     histories = _format_losses_history(histories)
