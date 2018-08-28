@@ -199,6 +199,7 @@ class AttentionVisualizer(object):
                  content_attn_key='content_attention',
                  positional_table_labels={"λ%": "position_percentage",
                                           "C.γ": "content_confidence",
+                                          "lgt": "approx_max_logit",
                                           "C.λ": "pos_confidence",
                                           "μ": "mu",
                                           "σ": "sigma",

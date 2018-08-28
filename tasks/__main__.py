@@ -165,6 +165,10 @@ def parse_arguments(args):
                            help="Size of the generated value. -1 means same as hidden size.",
                            default=None,
                            type=int)
+    attention.add_argument('--is-mid-focus',
+                           help="?????????????????",
+                           default=None,
+                           type=str2bool)
 
     # Content attention settings
     content = parser.add_argument_group('Content attention settings')
