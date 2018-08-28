@@ -174,7 +174,7 @@ def parse_arguments(args):
                          type=str2bool)
     content.add_argument('--content-method',
                          help='Content attention function to use.',
-                         choices=["dot", "hard", "mlp"],
+                         choices=["dot", "scaledot", "multiplicative", "additive", "hard"],
                          default=None)
     content.add_argument('--is-key',
                          help="Whether to use a key generator.",
