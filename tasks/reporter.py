@@ -132,6 +132,8 @@ def generate_report(task,
     content_method = kwargs.pop("content_method", "dot")  # gets because want to show their name
 
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
+    parameters_show_name["is_predict_eos"] = is_predict_eos
+    parameters_show_name["content_method"] = content_method
     name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
 
     output_path = os.path.join(output_dir, name)
@@ -167,11 +169,12 @@ def generate_report(task,
                                      is_multiple_tasks=_is_multiple_tasks,
                                      _filenames=_filenames)
 
-    for i in range(k):
-        # making smaller report for each run
-        plot_report(task, name, output_dir, is_plot_train, 1,
-                    sub_run=i,
-                    _filenames=_filenames)
+    if k > 1:
+        for i in range(k):
+            # making smaller report for each run
+            plot_report(task, name, output_dir, is_plot_train, 1,
+                        sub_run=i,
+                        _filenames=_filenames)
 
     other["task_path"] = task_path
 

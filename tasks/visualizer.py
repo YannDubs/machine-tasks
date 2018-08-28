@@ -177,7 +177,8 @@ class AttentionVisualizer(object):
             the respective values in the the dictionary returned by the prediction.
         positional_table_labels (dictionary, optional): mapping from the keys
             in the return dictionary (the values) to the name the name of it should
-            be shown as in the figure (the keys).
+            be shown as in the figure (the keys). The order is the one that will
+            be used to plot the table (in python > 3.6).
         is_show_name (bool, optional): whether to show the name of the mdoel as
             the title of the figure.
         max_src, max_out, max_tgt (int, optional): maximum number of token to show
@@ -196,14 +197,14 @@ class AttentionVisualizer(object):
                  attention_key="attention_score",
                  position_attn_key='position_attention',
                  content_attn_key='content_attention',
-                 positional_table_labels={"μ": "mu",
-                                          "σ": "sigma",
-                                          "λ%": "position_percentage",
+                 positional_table_labels={"λ%": "position_percentage",
                                           "C.γ": "content_confidence",
                                           "C.λ": "pos_confidence",
+                                          "μ": "mu",
+                                          "σ": "sigma",
                                           "w_μ": "mu_old_weight",
                                           "w_α": "mean_attn_old_weight",
-                                          "w_j": "rel_counter_decoder_weight",
+                                          "w_j/n": "rel_counter_decoder_weight",
                                           "w_1/n": "single_step_weight",
                                           "w_γ": "mean_content_old_weight",
                                           "w_1": "bias_weight"},
@@ -295,10 +296,11 @@ class AttentionVisualizer(object):
 
         attention = additional[self.attention_key]
 
-        filtered_pos_table_labels = {k: v for k, v in self.positional_table_labels.items()
-                                     if v in additional}
-        table_values = np.stack([np.around(additional[name], decimals=self.decimals)
-                                 for name in filtered_pos_table_labels.values()]).T
+        if self.position_attn_key in additional:
+            filtered_pos_table_labels = {k: v for k, v in self.positional_table_labels.items()
+                                         if v in additional}
+            table_values = np.stack([np.around(additional[name], decimals=self.decimals)
+                                     for name in filtered_pos_table_labels.values()]).T
 
         if self.is_show_attn_split and (self.position_attn_key in additional
                                         and self.content_attn_key in additional):

@@ -66,7 +66,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
@@ -81,7 +81,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
@@ -97,7 +97,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = "train"
@@ -112,7 +112,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTablesReverse/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
@@ -129,7 +129,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesSingle/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
@@ -145,7 +145,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "NoisyLongLookupTablesMulti/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
@@ -161,7 +161,7 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
                               repeat("longer_new", longer_repeat)])
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTablesIntermediateNoise/")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 10}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 30, "patience": 7}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
         loss_names = ["nll"]
         oneshot_train_file = None
