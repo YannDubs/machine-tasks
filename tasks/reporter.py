@@ -128,12 +128,10 @@ def generate_report(task,
         kwargs:
             Additional arguments to `train`.
     """
-    is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
-    content_method = kwargs.pop("content_method", "dot")  # gets because want to show their name
+    # is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
 
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
-    parameters_show_name["is_predict_eos"] = is_predict_eos
-    parameters_show_name["content_method"] = content_method
+    #parameters_show_name["is_predict_eos"] = is_predict_eos
     name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
 
     output_path = os.path.join(output_dir, name)
@@ -153,8 +151,6 @@ def generate_report(task,
                                              loss_names=task.loss_names,
                                              output_dir=output_path,
                                              k=k,
-                                             is_predict_eos=is_predict_eos,
-                                             content_method=content_method,
                                              is_viz_train=is_plot_train,
                                              _filenames=_filenames,
                                              **kwargs)
@@ -277,7 +273,11 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
             yield plot_text(file.split("/")[-1])
 
             for _, sample in samples.iterrows():
-                yield attn_visualizer(sample[0], sample[1])
+                try:
+                    attn_fig = attn_visualizer(sample[0], sample[1])
+                    yield attn_fig
+                except IndexError:
+                    warnings.warn("Skippping one attention visualisation as the length prediction was wrong.")
 
     return generator()
 
@@ -311,7 +311,7 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
     fig_title = plot_text(text_title, size=10)
 
     # MODEL #
-    fig_model = plot_text(str(model), size=6, ha="left")
+    fig_model = plot_text(str(model), size=6, ha="left", x=0.2)
 
     # LOSSES #
     fig_losses = plot_losses(histories,
@@ -515,7 +515,7 @@ def _train_evaluate(name,
                     is_save=True,
                     is_predict_eos=True,
                     batch_size=32,
-                    content_method="dot",
+                    content_method="scaledot",
                     is_attnloss=False,
                     scale_attention_loss=1.0,
                     _filenames=dict(results="results.csv",

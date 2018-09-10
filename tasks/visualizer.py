@@ -49,10 +49,10 @@ def plot_losses(losses, title="Training and validation losses"):
     return f
 
 
-def plot_text(txt, size=12, ha='center', **kwargs):
+def plot_text(txt, x=0.5, y=0.5, size=12, ha='center', **kwargs):
     """Plots text as an image and returns the matplotlib figure."""
-    fig = plt.figure(figsize=(11, 7))
-    text = fig.text(0.5, 0.5, txt, ha=ha, va='center', size=size, **kwargs)
+    fig = plt.figure(figsize=(8.3, 11.7))  # A4 paper
+    _ = fig.text(x, y, txt, ha=ha, va='center', size=size, **kwargs)
     return fig
 
 
@@ -189,7 +189,7 @@ class AttentionVisualizer(object):
     """
 
     def __init__(self, task_path,
-                 figsize=(13, 13),
+                 figsize=(15, 13),
                  decimals=2,
                  is_show_attn_split=True,
                  is_show_evaluation=True,
@@ -346,7 +346,7 @@ class AttentionVisualizer(object):
 
         def _format_mu_weights(mu_weights):
             if mu_weights is not None:
-                building_blocks_labels = self.model.decoder.position_attention.building_blocks_labels
+                building_blocks_labels = self.model.decoder.position_attention.bb_labels
                 for i, label in enumerate(building_blocks_labels):
                     output[label + "_weight"] = mu_weights[:, i]
 
@@ -413,8 +413,8 @@ def _plot_table(values, columns, ax, title=None):
     ax.axis('off')
     table = ax.table(cellText=values, colLabels=columns, loc='center')
     table.auto_set_font_size(False)
-    table.set_fontsize(11)
-    table.scale(1.17, 1.7)
+    table.set_fontsize(10)
+    table.scale(1.11, 1.11)
 
     if title is not None:
         ax.set_title(title, pad=27)
@@ -556,7 +556,7 @@ def visualize_training(to_visualize, model):
     to_return.append(grid_no_building_blocks.fig)
 
     if "building_blocks" in to_visualize:
-        building_blocks_labels = model.decoder.position_attention.building_blocks_labels
+        building_blocks_labels = model.decoder.position_attention.bb_labels
         grid_building_blocks = _plot_building_blocks(to_visualize, building_blocks_labels)
         to_return.append(grid_building_blocks.fig)
 
