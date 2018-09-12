@@ -203,10 +203,10 @@ class AttentionVisualizer(object):
                                           "C.λ": "pos_confidence",
                                           "μ": "mu",
                                           "σ": "sigma",
-                                          "w_μ": "mu_old_weight",
                                           "w_α": "mean_attn_old_weight",
                                           "w_j/n": "rel_counter_decoder_weight",
                                           "w_1/n": "single_step_weight",
+                                          "w_μ": "mu_old_weight",
                                           "w_γ": "mean_content_old_weight",
                                           "w_1": "bias_weight"},
                  # "% carry": "carry_rates",
@@ -344,6 +344,12 @@ class AttentionVisualizer(object):
             median_carry_rates = np.around(carry_rates.median().item(), decimals=self.decimals)
             return "Carry % : mean: {}; median: {}".format(mean_carry_rates, median_carry_rates)
 
+        def _format_bb_gates(gates):
+            if gates is None:
+                return "BB Weight Mean Gates : None"
+            mean_gates = np.around(gates.mean(0), decimals=self.decimals)
+            return "BB Weight Mean Gates : {}".format(mean_gates)
+
         def _format_mu_weights(mu_weights):
             if mu_weights is not None:
                 building_blocks_labels = self.model.decoder.position_attention.bb_labels
@@ -366,7 +372,9 @@ class AttentionVisualizer(object):
             output[k] = tensor.detach().cpu().numpy().squeeze()[:output[self.output_length_key]]
 
         carry_txt = _format_carry_rates(additional.pop("carry_rates", None))
+        bb_gates_txt = _format_bb_gates(output.pop("bb_gates", None))
         additional_text.append(carry_txt)
+        additional_text.append(bb_gates_txt)
 
         _format_mu_weights(output.pop("mu_weights", None))
 
