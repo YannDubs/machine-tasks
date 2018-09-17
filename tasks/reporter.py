@@ -159,16 +159,16 @@ def generate_report(task,
         other = dict()
 
     # Makes PDF report
-    fig_multiple_tasks = plot_report(task, name, output_dir, is_plot_train,
-                                     n_attn_plots,
-                                     compare_name=compare_name,
-                                     is_multiple_tasks=_is_multiple_tasks,
-                                     _filenames=_filenames)
+    model, other, fig_multiple_tasks = plot_report(task, name, output_dir, is_plot_train,
+                                                   n_attn_plots,
+                                                   compare_name=compare_name,
+                                                   is_multiple_tasks=_is_multiple_tasks,
+                                                   _filenames=_filenames)
 
     if k > 1:
         for i in range(k):
             # making smaller report for each run
-            plot_report(task, name, output_dir, is_plot_train, 1,
+            plot_report(task, name, output_dir, is_plot_train, n_attn_plots=1,
                         sub_run=i,
                         _filenames=_filenames)
 
@@ -351,10 +351,13 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
         figs_generator = itertools.chain(figs_generator, attn_figs_generator)
 
     # RETURN #
+
     figures_to_pdf(report_task_path, figures=figs_generator)
 
     if is_multiple_tasks:
-        return [fig_title, fig_model, fig_losses, fig_results]
+        return model, other, [fig_title, fig_model, fig_losses, fig_results]
+    else:
+        return model, other
 
 
 ### Helpers ###
@@ -556,7 +559,10 @@ def _train_evaluate(name,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
                                       **kwargs)
+        # DEV MODE
+        confusers = other.pop("confusers")
         other = _format_other(other)
+        other["confusers"] = confusers
 
         histories[i] = list(history)
         results_dfs[i] = _evaluate(output_path, test_paths,
