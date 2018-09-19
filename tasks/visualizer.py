@@ -11,11 +11,11 @@ from pandas.tools.plotting import table
 
 import torch
 
-from seq2seq.util.helpers import check_import
+from seq2seq.util.helpers import check_import, rm_prefix, rm_dict_keys
 from seq2seq.evaluator import Predictor
 from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.metrics.metrics import get_metrics
-from seq2seq.dataset.helpers import get_tabular_data_fields, get_single_data
+from seq2seq.dataset.helpers import (get_tabular_data_fields, get_single_data)
 
 
 def _plot_mean(data, **kwargs):
@@ -199,7 +199,7 @@ class AttentionVisualizer(object):
                  content_attn_key='content_attention',
                  positional_table_labels={"λ%": "position_percentage",
                                           "C.γ": "content_confidence",
-                                          "lgt": "approx_max_logit",
+                                          #"lgt": "approx_max_logit",
                                           "C.λ": "pos_confidence",
                                           "μ": "mu",
                                           "σ": "sigma",
@@ -451,7 +451,7 @@ def _plot_attention(src_words, out_words, attention, ax, title=None, is_colorbar
     ax.set_ylabel("OUTPUT")
     ax.yaxis.set_label_position('left')
     # ax.xaxis.set_label_position('top')
-    #ax.xaxis.labelpad = 9
+    # ax.xaxis.labelpad = 9
 
     if title is not None:
         ax.set_title(title, pad=27)
@@ -459,7 +459,7 @@ def _plot_attention(src_words, out_words, attention, ax, title=None, is_colorbar
 ### TRAINING VISUALISATION ###
 
 
-def _plot_training_phase(df, title=None, **kwargs):
+def _plot_training_phase(df, title=None, sharey=True, sharex=True, **kwargs):
     """Plots a melted dataframe containing the training history of interpretable
      variables."""
     sns.set(font_scale=1.5)
@@ -467,8 +467,8 @@ def _plot_training_phase(df, title=None, **kwargs):
                           x="epochs",
                           y="value",
                           margin_titles=True,
-                          sharey=True,
-                          sharex=True,
+                          sharey=sharey,
+                          sharex=sharex,
                           scale=0.5,
                           **kwargs)
 
@@ -519,10 +519,10 @@ def _plot_building_blocks(to_visualize, labels,
     return grid
 
 
-def _plot_vis_train_no_bb(to_visualize,
-                          title="Training Process - Averages of Interprtable Variables."):
-    """Plots all interpretable variables change during training besides the
-    building blocks related ones.
+def _plot_variables_train(to_visualize,
+                          title="Training Process - Averages of Interprtable Variables.",
+                          **kwargs):
+    """Plots interpretable variables change during training.
 
     Args:
         to_visualize (dictionary): dictionary containing all the variables to visualize.
@@ -530,17 +530,16 @@ def _plot_vis_train_no_bb(to_visualize,
             over all batches. But they are not averaged over epochs.
         title (str, optional): title to add.
     """
-    keys_to_rm = ["mu_weights", 'sigma_weights', "building_blocks"]
-    to_visualize_no_bb = rm_dict_keys(to_visualize, keys_to_rm)
-    to_visualize_no_bb = pd.DataFrame(to_visualize_no_bb)
-    to_visualize_no_bb = to_visualize_no_bb.reset_index()
-    to_visualize_no_bb = to_visualize_no_bb.melt(id_vars="index")
-    to_visualize_no_bb = to_visualize_no_bb.rename(columns={"index": "epochs"})
+    to_visualize = pd.DataFrame(to_visualize)
+    to_visualize = to_visualize.reset_index()
+    to_visualize = to_visualize.melt(id_vars="index")
+    to_visualize = to_visualize.rename(columns={"index": "epochs"})
 
-    grid = _plot_training_phase(to_visualize_no_bb,
+    grid = _plot_training_phase(to_visualize,
                                 title=title,
                                 col_wrap=4,
-                                col="variable")
+                                col="variable",
+                                **kwargs)
 
     return grid
 
@@ -560,7 +559,17 @@ def visualize_training(to_visualize, model):
     if len(to_visualize) == 0:
         return to_return
 
-    grid_no_building_blocks = _plot_vis_train_no_bb(to_visualize)
+    weighted_losses_to_visualize = {rm_prefix(k, "losses_weighted_"): v
+                                    for k, v in to_visualize.items()
+                                    if k.startswith("losses_weighted_")}
+    losses_to_visualize = {rm_prefix(k, "losses_"): v for k, v in to_visualize.items()
+                           if k.startswith("losses_") and not k.startswith("losses_weighted_")}
+    to_visualize = {k: v for k, v in to_visualize.items() if not k.startswith("losses_")}
+
+    keys_to_rm = ["mu_weights", 'sigma_weights', "building_blocks"]
+    to_visualize_no_bb = rm_dict_keys(to_visualize, keys_to_rm)
+
+    grid_no_building_blocks = _plot_variables_train(to_visualize_no_bb)
     to_return.append(grid_no_building_blocks.fig)
 
     if "building_blocks" in to_visualize:
@@ -568,14 +577,20 @@ def visualize_training(to_visualize, model):
         grid_building_blocks = _plot_building_blocks(to_visualize, building_blocks_labels)
         to_return.append(grid_building_blocks.fig)
 
+    title_losses = "Training Process - Averages of Unweighted Regularization Losses."
+    grid_losses = _plot_variables_train(losses_to_visualize,
+                                        title=title_losses,
+                                        sharey=False)
+    to_return.append(grid_losses.fig)
+
+    title_weighted_losses = "Training Process - Averages of Weighted Regularization Losses in % of Total Loss."
+    grid_weighted_losses = _plot_variables_train(weighted_losses_to_visualize,
+                                                 title=title_weighted_losses)
+    to_return.append(grid_weighted_losses.fig)
+
     return to_return
 
 # Helpers
-
-
-def rm_dict_keys(dic, keys_to_rm):
-    """remove a set of keys from a dictionary not in place."""
-    return {k: v for k, v in dic.items() if k not in keys_to_rm}
 
 
 def flatten_dict(d):
