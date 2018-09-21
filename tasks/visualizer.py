@@ -477,7 +477,7 @@ def _plot_training_phase(df, title=None, sharey=True, sharex=True, **kwargs):
     ax.xaxis.set_major_locator(ticker.MaxNLocator(nbins=10, integer=True))
 
     if title is not None:
-        plt.subplots_adjust(top=0.9)
+        plt.subplots_adjust(top=0.85)
         grid.fig.suptitle(title)
 
     return grid
