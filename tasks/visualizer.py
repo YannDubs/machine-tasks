@@ -530,10 +530,14 @@ def _plot_variables_train(to_visualize,
             over all batches. But they are not averaged over epochs.
         title (str, optional): title to add.
     """
-    try:
-        to_visualize = pd.DataFrame(to_visualize)
-    except:
-        print(to_visualize)
+    array_lengths = set(len(v) for _, v in to_visualize.items())
+    if len(array_lengths) > 1:
+        warnings.warn("Front padding of some of the training variables to train with 0 as there are multiple different sizes: {}.".format(array_lengths))
+        max_len = max(array_lengths)
+        to_visualize = {k: np.pad(v, (max_len - len(v), 0), "constant", constant_values=(0,))
+                        for k, v in to_visualize.items()}
+
+    to_visualize = pd.DataFrame(to_visualize)
     to_visualize = to_visualize.reset_index()
     to_visualize = to_visualize.melt(id_vars="index")
     to_visualize = to_visualize.rename(columns={"index": "epochs"})
