@@ -530,7 +530,10 @@ def _plot_variables_train(to_visualize,
             over all batches. But they are not averaged over epochs.
         title (str, optional): title to add.
     """
-    to_visualize = pd.DataFrame(to_visualize)
+    try:
+        to_visualize = pd.DataFrame(to_visualize)
+    except:
+        print(to_visualize)
     to_visualize = to_visualize.reset_index()
     to_visualize = to_visualize.melt(id_vars="index")
     to_visualize = to_visualize.rename(columns={"index": "epochs"})
