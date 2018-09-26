@@ -182,7 +182,7 @@ class AttentionVisualizer(object):
         is_show_name (bool, optional): whether to show the name of the mdoel as
             the title of the figure.
         max_src, max_out, max_tgt (int, optional): maximum number of token to show
-            for the source, the output and the target. Used in order no to clotter
+            for the source, the output and the target. Used in order not to clotter
             too much the plots.
         kwargs:
             Additional arguments to `MetricComputer`.
@@ -255,6 +255,8 @@ class AttentionVisualizer(object):
             src_str (str): source of the example.
             tgt_str (str, optional): (width, height) target of the example,
                 must be given in order to show the final metric.
+        Returns:
+            fig (plt.Figure): plotted attention figure.
         """
         out_words, other = self.predictor.predict(src_str.split())
 

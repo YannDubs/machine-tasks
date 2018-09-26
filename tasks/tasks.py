@@ -24,8 +24,12 @@ def filter_dict(d, remove):
     return {k: v for k, v in d.items() if k not in remove}
 
 
-def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, longer_repeat=5):
-    """Return a list of tasks.
+def get_task(name,
+             base_data_dir=BASE_DATA_DIR,
+             is_small=False,
+             is_mini=False,
+             longer_repeat=5):
+    """Return the wanted tasks.
 
     Args:
         name ({"lookup", "long lookup", "long lookup jump", "long lookup oneshot",
@@ -34,11 +38,14 @@ def get_task(name, base_data_dir=BASE_DATA_DIR, is_small=False, is_mini=False, l
             "attention lookup"}) name of the task to get.
         base_data_dir (str, optional): name of the base directory containing all
             the datasets.
-        is_small (bool, optional). whether to run a smaller verson of the task.
+        is_small (bool, optional): whether to run a smaller verson of the task.
             Used for getting less statistically significant results.
-        is_mini (bool, optional). whether to run a smaller verson of the task.
+        is_mini (bool, optional): whether to run a smaller verson of the task.
             Used for testing purposes.
-        longer_repeat (int, optional). number of longer test sets.
+        longer_repeat (int, optional): number of longer test sets.
+
+    Returns:
+        task (tasks.tasks.Task): instantiated task.
     """
     name = name.lower()
 

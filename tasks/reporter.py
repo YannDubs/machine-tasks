@@ -60,6 +60,12 @@ def generate_multireport(tasks,
             that update the kwargs for a specific task.
         kwargs:
             Additional arguments to `generate_report` and `train`.
+
+    Returns:
+        models (dictionary): dictionary containing the trained model of the last
+            run for each task.
+        others (dictionary): dictionary containing additional information for the
+            last run of each task.
     """
     models = {}
     others = {}
@@ -127,11 +133,15 @@ def generate_report(task,
             won't be shown in the name.
         kwargs:
             Additional arguments to `train`.
+
+    Returns:
+        model (seq2seq.models.seq2seq.Seq2seq): trained model in the last run.
+        other (dictionary): additional information of the last run.
     """
     # is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
 
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
-    #parameters_show_name["is_predict_eos"] = is_predict_eos
+    #  parameters_show_name["is_predict_eos"] = is_predict_eos
     name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
 
     output_path = os.path.join(output_dir, name)
