@@ -22,6 +22,8 @@ Running this script will save the following files in /dir/ or /dir/sample<i>/ if
 with n is the max number of additional compositions in test compared to train.
 
 Help : `python make_lookup_tables.py -h`
+
+Contact: Yann Dubois
 """
 
 from __future__ import unicode_literals, division, absolute_import, print_function

@@ -1,4 +1,13 @@
-"""Module containing all the callables that return figures."""
+"""
+Module containing all the callables that return figures.
+
+TO DO:
+- clean
+
+Contact : Yann Dubois
+"""
+import pdb
+from pdb import set_trace as bp
 
 import warnings
 
@@ -16,6 +25,14 @@ from seq2seq.evaluator import Predictor
 from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import (get_tabular_data_fields, get_single_data)
+
+"""
+from seq2seq.util.helpers import check_import, rm_prefix, rm_dict_keys
+from seq2seq.evaluator import Predictor
+from seq2seq.util.checkpoint import Checkpoint
+from seq2seq.metrics.metrics import get_metrics
+from seq2seq.dataset.helpers import (get_tabular_data_fields, get_single_data)
+"""
 
 
 def _plot_mean(data, **kwargs):
@@ -245,7 +262,7 @@ class AttentionVisualizer(object):
                                                   is_symbol_rewriting=self.is_symbol_rewriting,
                                                   **kwargs)
 
-        if self.model.decoder.use_attention is None:
+        if self.model.decoder.is_attention is None:
             raise AttentionException("Model is not using attention.")
 
     def __call__(self, src_str, tgt_str=None):
@@ -462,8 +479,10 @@ def _plot_attention(src_words, out_words, attention, ax, title=None, is_colorbar
 
 
 def _plot_training_phase(df, title=None, sharey=True, sharex=True, **kwargs):
-    """Plots a melted dataframe containing the training history of interpretable
-     variables."""
+    """
+    Plots a melted dataframe containing the training history of interpretable
+     variables.
+    """
     sns.set(font_scale=1.5)
     grid = sns.factorplot(data=df,
                           x="epochs",
@@ -586,16 +605,17 @@ def visualize_training(to_visualize, model):
         grid_building_blocks = _plot_building_blocks(to_visualize, building_blocks_labels)
         to_return.append(grid_building_blocks.fig)
 
-    title_losses = "Training Process - Averages of Unweighted Regularization Losses."
-    grid_losses = _plot_variables_train(losses_to_visualize,
-                                        title=title_losses,
-                                        sharey=False)
-    to_return.append(grid_losses.fig)
+    if len(losses_to_visualize) != 0:
+        title_losses = "Training Process - Averages of Unweighted Regularization Losses."
+        grid_losses = _plot_variables_train(losses_to_visualize,
+                                            title=title_losses,
+                                            sharey=False)
+        to_return.append(grid_losses.fig)
 
-    title_weighted_losses = "Training Process - Averages of Weighted Regularization Losses in % of Total Loss."
-    grid_weighted_losses = _plot_variables_train(weighted_losses_to_visualize,
-                                                 title=title_weighted_losses)
-    to_return.append(grid_weighted_losses.fig)
+        title_weighted_losses = "Training Process - Averages of Weighted Regularization Losses in % of Total Loss."
+        grid_weighted_losses = _plot_variables_train(weighted_losses_to_visualize,
+                                                     title=title_weighted_losses)
+        to_return.append(grid_weighted_losses.fig)
 
     return to_return
 

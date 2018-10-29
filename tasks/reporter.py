@@ -1,3 +1,15 @@
+"""
+Report generator
+
+TO DO:
+- clean
+- modularize even more
+- be more specific in arguments and returns
+- add examples
+- use logging instead of printing (not doing that for now, because logging doesn't work well on jupyter notebooks)
+
+Contact: Yann Dubois
+"""
 import os
 import logging
 import shutil
@@ -31,6 +43,16 @@ from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
 from seq2seq.evaluator import Evaluator, Predictor
 from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.main import train
+
+"""
+from seq2seq.trainer import SupervisedTrainer
+from seq2seq.loss.loss import get_losses
+from seq2seq.metrics.metrics import get_metrics
+from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
+from seq2seq.evaluator import Evaluator, Predictor
+from seq2seq.util.checkpoint import Checkpoint
+from seq2seq.main import train
+"""
 
 from tasks import get_task
 from visualizer import (plot_compare, plot_losses, plot_text, plot_results,
@@ -70,12 +92,13 @@ def generate_multireport(tasks,
     models = {}
     others = {}
     pdf = None
+    print()
     for i, task in enumerate(tasks):
         if isinstance(task, str):
             task = get_task(task)
 
-        print()
         print("----- TASK : {} -----".format(task.name))
+        print()
         task_kwarg = task.task_kwargs
         task_kwarg.update(kwargs)
         if task_kwargs is not None:
@@ -111,7 +134,7 @@ def generate_report(task,
                                     parameters='train_arguments.txt',
                                     report='report.pdf'),
                     **kwargs):
-    """Makes a pdf report experiments either by loading them or recomputing them.
+    """Make a pdf report experiments either by loading them or recomputing them.
 
     Args:
         task (Task): helper object containing meta information of the task.
@@ -138,10 +161,7 @@ def generate_report(task,
         model (seq2seq.models.seq2seq.Seq2seq): trained model in the last run.
         other (dictionary): additional information of the last run.
     """
-    # is_predict_eos = kwargs.pop("is_predict_eos", True)  # gets because want to show their name
-
     parameters_show_name = {k: v for k, v in kwargs.items() if k not in var_not_show}
-    #  parameters_show_name["is_predict_eos"] = is_predict_eos
     name = _namer(name, is_rm_FalseNone=is_rm_FalseNone, **parameters_show_name)
 
     output_path = os.path.join(output_dir, name)
@@ -152,18 +172,18 @@ def generate_report(task,
         if os.path.exists(task_path) and os.path.isdir(task_path):
             shutil.rmtree(task_path)
 
-        model, _, _, other = _train_evaluate(task.name,
-                                             task.train_path,
-                                             task.test_paths,
-                                             task.valid_path,
-                                             oneshot_path=task.oneshot_path,
-                                             metric_names=task.metric_names,
-                                             loss_names=task.loss_names,
-                                             output_dir=output_path,
-                                             k=k,
-                                             is_viz_train=is_plot_train,
-                                             _filenames=_filenames,
-                                             **kwargs)
+        model, other = _train_evaluate(task.name,
+                                       task.train_path,
+                                       task.test_paths,
+                                       task.valid_path,
+                                       oneshot_path=task.oneshot_path,
+                                       metric_names=task.metric_names,
+                                       loss_names=task.loss_names,
+                                       output_dir=output_path,
+                                       k=k,
+                                       is_viz_train=is_plot_train,
+                                       _filenames=_filenames,
+                                       **kwargs)
     else:
         model = None
         other = dict()
@@ -376,6 +396,8 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
 def _namer(name, is_rm_FalseNone=False, **kwargs):
     """Append variable name and value in alphabetical order to `name`."""
     def _key_value_to_name(k, v):
+        if isinstance(v, list):
+            return "_".join(sorted(v))
         if isinstance(v, bool):
             if not v:
                 return k.replace("is_", "no_")
@@ -458,8 +480,7 @@ def _evaluate(checkpoint_path, test_paths,
               max_len=50,
               batch_size=32,
               is_predict_eos=True,
-              content_method=None,
-              is_attnloss=False):
+              content_method=None):
     """Evaluates the models saved in a checkpoint."""
     results = []
 
@@ -468,8 +489,7 @@ def _evaluate(checkpoint_path, test_paths,
     seq2seq = checkpoint.model
 
     tabular_data_fields = get_tabular_data_fields(content_method=content_method,
-                                                  is_predict_eos=is_predict_eos,
-                                                  is_attnloss=is_attnloss)
+                                                  is_predict_eos=is_predict_eos)
 
     dic_data_fields = dict(tabular_data_fields)
     src = dic_data_fields["src"]
@@ -528,9 +548,7 @@ def _train_evaluate(name,
                     is_save=True,
                     is_predict_eos=True,
                     batch_size=32,
-                    content_method="scaledot",
-                    is_attnloss=False,
-                    scale_attention_loss=1.0,
+                    content_method="scalemult",
                     _filenames=dict(results="results.csv",
                                     histories="histories.csv",
                                     other="other.pkl"),
@@ -543,9 +561,6 @@ def _train_evaluate(name,
             # final target accuracy is like sequence accuracy but is correct if
             # outputted too many token (but not if not enough!)
             metric_names.append("final target accuracy")
-
-    if is_attnloss:
-        loss_names.append(("attention loss", scale_attention_loss))
 
     results_dfs = [None] * k
     histories = [None] * k
@@ -565,7 +580,6 @@ def _train_evaluate(name,
                                       is_predict_eos=is_predict_eos,
                                       batch_size=batch_size,
                                       content_method=content_method,
-                                      is_attnloss=is_attnloss,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
                                       **kwargs)
@@ -580,7 +594,6 @@ def _train_evaluate(name,
                                    max_len=max_len,
                                    batch_size=batch_size,
                                    content_method=content_method,
-                                   is_attnloss=is_attnloss,
                                    metric_names=metric_names,
                                    loss_names=loss_names)
 
@@ -603,4 +616,4 @@ def _train_evaluate(name,
         _save_output_training(output_path, results, other, histories,
                               _filenames=_filenames)
 
-    return model, histories, results, other
+    return model, other

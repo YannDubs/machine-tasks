@@ -1,3 +1,8 @@
+"""
+Helper task objects specific for machine-tasks, that can be given to the report generator.
+
+Contact: Yann Dubois
+"""
 import os
 
 CURRENT_DIR = os.path.abspath(os.path.dirname(__file__))

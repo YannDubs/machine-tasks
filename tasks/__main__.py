@@ -1,3 +1,11 @@
+"""
+Main entrypoint to machine-tasks
+
+TO DO:
+- update
+
+Contact : Yann Dubois
+"""
 import sys
 import argparse
 import os
