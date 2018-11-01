@@ -53,13 +53,13 @@ def plot_losses(losses, title="Training and validation losses"):
     """Plots the losses given a pd.dataframe with `n_epoch` rows and `columns=["epoch","k","loss","data"]`."""
     sns.set(font_scale=1.5, style="white")
     f, ax = plt.subplots(figsize=(11, 7))
-    grid = sns.tsplot(time="epoch",
-                      value="loss",
-                      unit="k",
-                      err_style="unit_traces",
-                      condition="data",
-                      data=losses,
-                      ax=ax)
+    grid = sns.lineplot(x="epoch",
+                        y="loss",
+                        data=losses,
+                        hue="data", 
+                        style="data",
+                        err_style="band",
+                        ax=ax)
     sns.despine()
     if title is not None:
         grid.set_title(title)
@@ -82,15 +82,15 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
         is_plot_mean (bool, optional): whether to plot the mean value with a horizontal bar.
         title (str, optional): title to add.
         kwargs:
-            Additional arguments to `sns.factorplot`.
+            Additional arguments to `sns.catplot`.
     """
     sns.set(font_scale=1.5)
     hue = "Model" if "Model" in data.columns and data['Model'].nunique() > 1 else None
-    grid = sns.factorplot(x="Dataset",
+    grid = sns.catplot(x="Dataset",
                           y="Value",
                           col="Metric",
                           kind="bar",
-                          size=9,
+                          height=9,
                           sharey=False,
                           ci=95,
                           hue=hue,
@@ -484,13 +484,13 @@ def _plot_training_phase(df, title=None, sharey=True, sharex=True, **kwargs):
      variables.
     """
     sns.set(font_scale=1.5)
-    grid = sns.factorplot(data=df,
+    grid = sns.catplot(data=df,
                           x="epochs",
                           y="value",
+                          kind="point",
                           margin_titles=True,
                           sharey=sharey,
                           sharex=sharex,
-                          scale=0.5,
                           **kwargs)
 
     ax = plt.gca()
