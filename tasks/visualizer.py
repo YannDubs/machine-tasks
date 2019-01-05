@@ -86,16 +86,16 @@ def plot_results(data, is_plot_mean=False, title=None, **kwargs):
     """
     sns.set(font_scale=1.5)
     hue = "Model" if "Model" in data.columns and data['Model'].nunique() > 1 else None
-    grid = sns.factorplot(x="Dataset",
-                          y="Value",
-                          col="Metric",
-                          kind="bar",
-                          size=9,
-                          sharey=False,
-                          ci=95,
-                          hue=hue,
-                          data=data,
-                          **kwargs)
+    grid = sns.catplot(x="Dataset",
+                       y="Value",
+                       col="Metric",
+                       kind="bar",
+                       height=9,
+                       sharey=False,
+                       ci=95,
+                       hue=hue,
+                       data=data,
+                       **kwargs)
     grid.set_xticklabels(rotation=90)
     for ax in grid.axes[0, 1:]:
         ax.set_ylim(0, 1)
@@ -212,19 +212,19 @@ class AttentionVisualizer(object):
                  is_show_evaluation=True,
                  output_length_key='length',
                  attention_key="attention_score",
-                 position_attn_key='position_attention',
+                 position_attn_key='loc_attention',
                  content_attn_key='content_attention',
-                 positional_table_labels={"λ%": "position_percentage",
+                 positional_table_labels={"λ%": "loc_percentage",
                                           "C.γ": "content_confidence",
                                           #"lgt": "approx_max_logit",
-                                          "C.λ": "pos_confidence",
+                                          "C.λ": "loc_confidence",
                                           "μ": "mu",
                                           "σ": "sigma",
+                                          "w_γ": "mean_content_attn_weight",
                                           "w_α": "mean_attn_old_weight",
-                                          "w_j/n": "rel_counter_decoder_weight",
-                                          "w_1/n": "single_step_weight",
                                           "w_μ": "mu_old_weight",
-                                          "w_γ": "mean_content_old_weight",
+                                          "w_j/n": "diagonal_weight",
+                                          "w_1/n": "single_step_weight",
                                           "w_1": "bias_weight"},
                  # "% carry": "carry_rates",
                  is_show_name=True,
@@ -262,7 +262,7 @@ class AttentionVisualizer(object):
                                                   is_symbol_rewriting=self.is_symbol_rewriting,
                                                   **kwargs)
 
-        if self.model.decoder.is_attention is None:
+        if self.model.decoder.attender is None:
             raise AttentionException("Model is not using attention.")
 
     def __call__(self, src_str, tgt_str=None):
@@ -371,7 +371,7 @@ class AttentionVisualizer(object):
 
         def _format_mu_weights(mu_weights):
             if mu_weights is not None:
-                building_blocks_labels = self.model.decoder.position_attention.bb_labels
+                building_blocks_labels = _get_bb_labels(self.model)
                 for i, label in enumerate(building_blocks_labels):
                     output[label + "_weight"] = mu_weights[:, i]
 
@@ -390,7 +390,7 @@ class AttentionVisualizer(object):
             tensor = v if isinstance(v, torch.Tensor) else torch.cat(v)
             output[k] = tensor.detach().cpu().numpy().squeeze()[:output[self.output_length_key]]
 
-        carry_txt = _format_carry_rates(additional.pop("carry_rates", None))
+        carry_txt = _format_carry_rates(additional.pop("value_gates", None))
         bb_gates_txt = _format_bb_gates(output.pop("bb_gates", None))
         additional_text.append(carry_txt)
         additional_text.append(bb_gates_txt)
@@ -601,7 +601,7 @@ def visualize_training(to_visualize, model):
     to_return.append(grid_no_building_blocks.fig)
 
     if "building_blocks" in to_visualize:
-        building_blocks_labels = model.decoder.position_attention.bb_labels
+        building_blocks_labels = _get_bb_labels(model)
         grid_building_blocks = _plot_building_blocks(to_visualize, building_blocks_labels)
         to_return.append(grid_building_blocks.fig)
 
@@ -631,3 +631,13 @@ def flatten_dict(d):
         except AttributeError:
             items.append((k, v))
     return dict(items)
+
+
+def _get_bb_labels(model):
+    """Return the building block labels of a given model."""
+    try:
+        bb_labels = model.decoder.attender.mu_generator.bb_labels
+    except:
+        bb_labels = model.decoder.attender.location_attender.mu_generator.bb_labels
+
+    return bb_labels

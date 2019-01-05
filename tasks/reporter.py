@@ -182,6 +182,7 @@ def generate_report(task,
                                        output_dir=output_path,
                                        k=k,
                                        is_viz_train=is_plot_train,
+                                       mini_plot_args=[task, name, output_dir, is_plot_train],
                                        _filenames=_filenames,
                                        **kwargs)
     else:
@@ -194,13 +195,6 @@ def generate_report(task,
                                                    compare_name=compare_name,
                                                    is_multiple_tasks=_is_multiple_tasks,
                                                    _filenames=_filenames)
-
-    if k > 1:
-        for i in range(k):
-            # making smaller report for each run
-            plot_report(task, name, output_dir, is_plot_train, n_attn_plots=1,
-                        sub_run=i,
-                        _filenames=_filenames)
 
     other["task_path"] = task_path
 
@@ -549,6 +543,7 @@ def _train_evaluate(name,
                     is_predict_eos=True,
                     batch_size=32,
                     content_method="scalemult",
+                    mini_plot_args=[],
                     _filenames=dict(results="results.csv",
                                     histories="histories.csv",
                                     other="other.pkl"),
@@ -583,11 +578,8 @@ def _train_evaluate(name,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
                                       **kwargs)
-        # DEV MODE
-        confusers = other.pop("confusers")
-        other = _format_other(other)
-        other["confusers"] = confusers
 
+        other = _format_other(other)
         histories[i] = list(history)
         results_dfs[i] = _evaluate(output_path, test_paths,
                                    is_predict_eos=is_predict_eos,
@@ -605,6 +597,12 @@ def _train_evaluate(name,
                 histories_i = pd.DataFrame([histories[i]], columns=history.names)
                 _save_output_training(i_output_path, results_dfs[i], other, histories_i,
                                       _filenames=_filenames)
+
+            # making smaller report for each run
+            plot_report(*mini_plot_args,
+                        n_attn_plots=1,
+                        sub_run=i,
+                        _filenames=_filenames)
 
         if not is_last_run:
             shutil.rmtree(output_path)
