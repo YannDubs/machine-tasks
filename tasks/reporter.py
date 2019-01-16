@@ -64,7 +64,15 @@ logging.basicConfig(format=LOG_FORMAT, level=getattr(logging, log_level.upper())
 logger = logging.getLogger(__name__)
 
 
+FILENAMES = dict(results="results.csv",
+                 histories="histories.csv",
+                 other="other.pkl",
+                 parameters='train_arguments.txt',
+                 report='report.pdf',
+                 locator="locator.pt")
+
 ### API ###
+
 
 def generate_multireport(tasks,
                          output_dir,
@@ -128,11 +136,6 @@ def generate_report(task,
                                   "checkpoint_path", "name_checkpoint", "patience"],
                     _is_multiple_tasks=False,
                     _pdf=None,
-                    _filenames=dict(results="results.csv",
-                                    histories="histories.csv",
-                                    other="other.pkl",
-                                    parameters='train_arguments.txt',
-                                    report='report.pdf'),
                     **kwargs):
     """Make a pdf report experiments either by loading them or recomputing them.
 
@@ -166,7 +169,7 @@ def generate_report(task,
 
     output_path = os.path.join(output_dir, name)
     task_path = os.path.join(output_path, task.name)
-    report_path = os.path.join(output_path, _filenames["report"])
+    report_path = os.path.join(output_path, FILENAMES["report"])
 
     if is_retrain:
         if os.path.exists(task_path) and os.path.isdir(task_path):
@@ -183,7 +186,6 @@ def generate_report(task,
                                        k=k,
                                        is_viz_train=is_plot_train,
                                        mini_plot_args=[task, name, output_dir, is_plot_train],
-                                       _filenames=_filenames,
                                        **kwargs)
     else:
         model = None
@@ -193,8 +195,7 @@ def generate_report(task,
     model, other, fig_multiple_tasks = plot_report(task, name, output_dir, is_plot_train,
                                                    n_attn_plots,
                                                    compare_name=compare_name,
-                                                   is_multiple_tasks=_is_multiple_tasks,
-                                                   _filenames=_filenames)
+                                                   is_multiple_tasks=_is_multiple_tasks)
 
     other["task_path"] = task_path
 
@@ -309,20 +310,15 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
 def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
                 compare_name=None,
                 sub_run=None,
-                is_multiple_tasks=False,
-                _filenames=dict(results="results.csv",
-                                histories="histories.csv",
-                                other="other.pkl",
-                                parameters='train_arguments.txt',
-                                report='report.pdf')):
+                is_multiple_tasks=False):
 
     output_path = os.path.join(output_dir, name)
     task_name = task.name if sub_run is None else "{}_{}".format(task.name, sub_run)
     task_path = os.path.join(output_path, task_name)
-    report_task_path = os.path.join(task_path, _filenames["report"])
+    report_task_path = os.path.join(task_path, FILENAMES["report"])
 
     (model, results, histories,
-     other, parameters) = _load_output_training(task_path, _filenames=_filenames)
+     other, parameters) = _load_output_training(task_path)
 
     k = histories["k"].max() + 1
 
@@ -346,7 +342,7 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
 
     if compare_name is not None:
         compare_to = reduce(os.path.join,
-                            [output_dir, compare_name, task.name, _filenames["results"]])
+                            [output_dir, compare_name, task.name, FILENAMES["results"]])
         compare_to = pd.read_csv(compare_to)
         grid = plot_compare(results, compare_to, name, compare_name,
                             is_plot_mean=True,
@@ -445,20 +441,16 @@ def _format_other(other):
             for k_ext, v_ext in other.items()}
 
 
-def _load_output_training(task_path,
-                          _filenames=dict(results="results.csv",
-                                          histories="histories.csv",
-                                          other="other.pkl",
-                                          parameters='train_arguments.txt')):
+def _load_output_training(task_path):
     """Loads all the components that were saved during and at the end of training."""
     checkpoint = Checkpoint.load(task_path)
     model = checkpoint.model
-    results = pd.read_csv(os.path.join(task_path, _filenames["results"]))
-    histories = pd.read_csv(os.path.join(task_path, _filenames["histories"]),
+    results = pd.read_csv(os.path.join(task_path, FILENAMES["results"]))
+    histories = pd.read_csv(os.path.join(task_path, FILENAMES["histories"]),
                             converters={0: ast.literal_eval, 1: ast.literal_eval})
-    with open(os.path.join(task_path, _filenames["other"]), 'rb') as f:
+    with open(os.path.join(task_path, FILENAMES["other"]), 'rb') as f:
         other = pickle.load(f)
-    with open(os.path.join(task_path, _filenames["parameters"]), 'r') as f:
+    with open(os.path.join(task_path, FILENAMES["parameters"]), 'r') as f:
         parameters = json.load(f)
 
     histories = _format_losses_history(histories)
@@ -517,16 +509,20 @@ def _evaluate(checkpoint_path, test_paths,
     return results_df
 
 
-def _save_output_training(output_path, results, other, histories,
-                          _filenames=dict(results="results.csv",
-                                          histories="histories.csv",
-                                          other="other.pkl")):
-    results.to_csv(os.path.join(output_path, _filenames["results"]),
+def _save_output_training(output_path, results, other, histories, model):
+    results.to_csv(os.path.join(output_path, FILENAMES["results"]),
                    index=False)
-    histories.to_csv(os.path.join(output_path, _filenames["histories"]),
+    histories.to_csv(os.path.join(output_path, FILENAMES["histories"]),
                      index=False)
-    with open(os.path.join(output_path, _filenames["other"]), 'wb') as f:
+    with open(os.path.join(output_path, FILENAMES["other"]), 'wb') as f:
         pickle.dump(other, f)
+
+    try:
+        file = os.path.join(output_path, FILENAMES["locator"])
+        model.decoder.attender.save_locator(file)
+    except AttributeError as e:
+        print(e)
+        pass
 
 
 def _train_evaluate(name,
@@ -542,11 +538,8 @@ def _train_evaluate(name,
                     is_save=True,
                     is_predict_eos=True,
                     batch_size=32,
-                    content_method="scalemult",
+                    content_method="multiplicative",
                     mini_plot_args=[],
-                    _filenames=dict(results="results.csv",
-                                    histories="histories.csv",
-                                    other="other.pkl"),
                     **kwargs):
     """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
@@ -596,13 +589,12 @@ def _train_evaluate(name,
             if is_save:
                 histories_i = pd.DataFrame([histories[i]], columns=history.names)
                 _save_output_training(i_output_path, results_dfs[i], other, histories_i,
-                                      _filenames=_filenames)
+                                      model)
 
             # making smaller report for each run
             plot_report(*mini_plot_args,
                         n_attn_plots=1,
-                        sub_run=i,
-                        _filenames=_filenames)
+                        sub_run=i)
 
         if not is_last_run:
             shutil.rmtree(output_path)
@@ -612,6 +604,6 @@ def _train_evaluate(name,
 
     if is_save:
         _save_output_training(output_path, results, other, histories,
-                              _filenames=_filenames)
+                              model)
 
     return model, other
