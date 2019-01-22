@@ -178,6 +178,30 @@ def get_task(name,
         loss_names = ["nll"]
         oneshot_train_file = None
 
+    # basic attention localization dataset
+    elif name == "attn loc":
+        task_name = "Attention Localization"
+        train_file = "train"
+        test_files = "test"
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "AttentionLocalization")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7, "is_predict_eos": False}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
+
+    # basic attention localization dataset
+    elif name == "attn loc wait":
+        task_name = "Attention Localization Wait"
+        train_file = "train"
+        test_files = "test"
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "AttentionLocalizationWait")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7, "is_predict_eos": False}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = ["nll"]
+        oneshot_train_file = None
+
     # classical symbol rewriting task
     elif name == "symbol rewriting":
         task_name = "Symbol Rewriting"

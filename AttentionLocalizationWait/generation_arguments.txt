@@ -1,0 +1,12 @@
+dir=.
+n_samples=1
+not_add_rep=False
+max_wait=3
+max_step=3
+max_len_src=20
+max_len_tgt=25
+validation_size=0.1
+n_train=2000
+n_test=500
+is_target_attention=False
+seed=123
