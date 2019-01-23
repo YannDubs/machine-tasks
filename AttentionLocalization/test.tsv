@@ -1,500 +1,500 @@
-mid. mid. -2 -3 eos eos eos eos -2 ini. rep. eos -3 +1 mid. -3	0 7
-+2 mid. +1 -1 ini. +3 +1 fin. -2 eos eos eos fin. -3 -3 rep. rep. -2 +1 mid.	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2
-mid. +3 mid. eos eos +2 +1 +1 -3 -1 mid. -2	0 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7
-+2 mid. +3 ini. ini. eos +1 ini. eos +3 +2 ini. -3 +1 -3	0 2 5
-+2 mid. -2 eos -1 +1 -2 eos eos eos -1 +2 +1 -3	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. -1 +3 -2 -3 ini. -3 +2 ini. fin. +1 eos -1 +1 +2 -3 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-+1 -1 +1 +2 rep. eos -1 rep. +3 -1 +2 -2 -2 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+1 mid. -2 ini. fin. +3 +1 eos -1 -3 fin. -1 -2 +3 -1 +1 mid. -2 -1	0 1 9 6 7
-mid. +2 +2 +3 fin. -3 ini. rep. ini. ini. +2 +2 +1 +3 -1 eos mid. mid. -3	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
-mid. +1 mid. ini. -1 +2 -2 -3 ini. ini. +3 -3 eos fin. +2 -2 -1 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-+3 +2 mid. ini. -2 -3 eos fin. +3 -3 -2 rep. +3 +3 eos -3 -2 +2 -2 mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+3 -1 mid. -2 rep. eos eos eos -1 fin. eos rep. fin. -3 fin. +1 mid. mid. -1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1
-+3 +1 -1 eos +1 eos eos -3 +1 -1 -3 mid.	0 3
-mid. +1 +3 fin. eos fin. +1 eos -1 -3 -2 -1 -2	0 6 7
-+3 mid. +2 eos -3 fin. -1 +1 -1 -2 +1 eos +1 -3 mid. -1 ini.	0 3
-mid. -1 mid. ini. +3 -3 -3 ini. ini. eos ini. +3 +3 -2 rep. -2 +3 +2 mid. -2	0 9
-+2 mid. -2 ini. +1 eos +1 +3 eos mid. -1 -2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. +3 mid. ini. +3 -1 +2 +3 eos fin. +3 -2 fin. -3 ini. +3 eos -2 mid. mid.	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9
-mid. +2 -1 eos eos +3 +2 fin. -2 ini. -3 -1 eos mid. -2 -2	0 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15
-mid. -1 +1 +3 fin. eos ini. +1 eos fin. mid. mid. mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
-+1 +3 +3 +3 ini. ini. -3 eos -2 -2 mid. -3 -3	0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4
-mid. mid. +3 -2 eos rep. +3 rep. rep. mid. mid. mid.	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. +1 -1 +2 eos fin. eos ini. -1 -2 mid.	0 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5
-+3 mid. mid. rep. eos -3 -2 eos eos +3 +2 +1 mid.	0 3 6 4
-mid. +3 -2 -2 fin. -2 -1 +1 -2 -3 eos +1 rep. eos -2 mid. mid.	0 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6
-+2 -1 +2 ini. eos fin. -1 eos +2 -3 eos -3 +2 +1 mid.	0 2 4
-mid. +3 +3 eos -2 eos -3 eos +2 -1 -1 eos +3 -3 +1 +2 rep. mid. -2 mid.	0 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8
-mid. +3 -1 eos +3 eos eos -2 -2 -1 -2	0 5
-+3 +3 +2 ini. +1 -2 fin. -3 rep. -2 -3 ini. -3 +2 -3 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. mid. mid. +2 +2 fin. eos +3 -3 -3 ini. -3 fin. -3 -1 +1 +3 +2 mid. mid.	0 9 6
-+2 +1 +2 +3 eos eos eos -3 ini. mid. -1 -1	0 2 4
-+3 +2 +3 -1 fin. +2 +1 -3 -3 +1 eos eos +2 -1 mid. mid.	0 3 2 5 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4
-+3 -1 +2 eos fin. ini. +1 -3 eos fin. eos -1 -3 mid. mid.	0 3
-+1 +2 +3 +2 +1 rep. -3 eos +3 +3 fin. -1 eos -2 eos -3 +1 mid.	0 1 3 5 7
-+3 +1 mid. eos +3 -2 +3 eos eos eos eos ini. ini. mid. -2 -1	0 3
-+2 mid. +1 eos eos ini. eos -1 +2 rep. +1 +3 +3 mid. mid. -3	0 2 3
-mid. mid. +2 +3 +3 fin. +3 eos +2 +1 rep. ini. ini. +1 ini. +2 eos mid. mid. -1	0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11
-mid. +1 +2 +2 eos -2 eos -2 +3 eos -1 +3 eos +1 -3 -1	0 7 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3
-+2 +1 mid. -2 -1 +2 eos +3 mid. -2 -3	0 2 5 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7
-+3 +2 -2 +2 eos -3 rep. +2 eos -1 mid. mid. mid.	0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2
-+2 +3 mid. +3 ini. ini. rep. fin. +3 -1 -1 rep. eos eos +3 mid. -3 -2	0 2 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11
-mid. mid. +3 +3 fin. ini. -3 +2 -3 -3 eos +1 mid. +1 -3	0 7 9 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6
-+1 +1 +2 -1 rep. +2 +3 -3 eos +1 mid. +1 -2	0 1 2 4 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9
-mid. mid. +2 -1 +3 ini. +3 eos eos +1 ini. fin. -1 +2 +1 eos -2 -2 -2 -3	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
-mid. +1 +2 -3 fin. -1 -2 +3 +2 +1 -1 rep. rep. fin. rep. -1 -3 mid. +1 mid.	0 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9
-mid. mid. mid. +2 -2 ini. -2 +1 fin. eos eos +3 eos +3 mid. mid. mid.	0 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8
-+3 +2 +1 -1 eos -2 -1 +1 eos eos -3 +3 -3 rep. fin. eos -2 -3	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
-+2 +1 +3 +2 eos -3 +2 -2 +1 eos ini. fin. -1 -2 mid.	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2
-+2 mid. mid. -1 -3 -2 +1 -2 +1 rep. rep. -1 eos -2 fin. mid. -3 mid.	0 2 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11
-mid. +2 +3 +2 eos eos ini. -2 +1 -3 -3	0 5
-+1 +1 mid. -1 +3 ini. +3 mid. -1 -2 rep. eos fin. -1 -3 +2 eos +2 -2 mid.	0 1 2 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9
-mid. +1 mid. fin. rep. -3 -2 +3 +3 +1 ini. ini. fin. +3 eos -1 -2 -2 -2	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
-+1 mid. -2 +3 rep. -1 eos ini. fin. -1 eos -1 -2 -1 mid.	0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7
-mid. mid. +3 ini. -1 +1 eos +2 rep. mid. -2 -3	0 5 6
-+1 +1 +2 eos +1 -2 +2 eos rep. -1 eos +2 -3 -1	0 1 2 4 5 3
-+2 mid. mid. -1 +2 eos -1 fin. -1 eos rep. -2 +3 -3 -3 +1 mid.	0 2 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8
-mid. mid. +3 eos -2 rep. eos eos -3 -2 -1	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. +1 mid. +3 +2 rep. rep. -2 +1 rep. -1 eos eos -3 mid. -1	0 7 5 3 6 9 12
-mid. +2 -1 -2 ini. -3 -3 ini. -2 -1 +3 eos +3 -3 mid. mid.	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7
-+3 +1 +1 +3 eos eos eos eos +1 eos +1 +3 -2 +2 -2 mid.	0 3 6
-+2 mid. +2 rep. rep. -3 eos +3 -1 ini. ini. fin. eos +1 +1 -3	0 2 4 6
-mid. +2 mid. +1 +2 -3 eos eos ini. eos +1 +2 -3 -1	0 6
-mid. +1 -1 +2 -2 rep. rep. fin. fin. rep. rep. eos fin. ini. +2 -1 -2 -2	0 8 17 15 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16
-+3 -1 -2 +3 +1 rep. +2 +1 +3 +1 +3 rep. eos eos -3 -2 -3 -2 -3	0 3 6 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8
-mid. +3 +3 -3 ini. fin. +1 -2 -2 +3 +3 +3 eos eos eos -3 -3 -2	0 8 6 7 5 17 15 12
-+1 mid. -2 -3 -1 -2 -2 -2 -2 eos -2 eos -2 rep. ini. -3 +1 -1	0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3
-+2 +2 +3 -3 rep. -3 -1 ini. eos +2 eos -2 eos -1 fin. +1 -3 -3	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2
-+3 +1 mid. +3 +1 -2 ini. -2 -1 -1 -1 eos eos ini. rep. -1 -2 mid.	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6
-+3 -1 +2 rep. -3 -3 +1 -2 -3 +1 eos +2 +1 +1 eos rep. mid. mid. -2	0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1
-+2 -1 -2 -1 ini. fin. +1 fin. +2 +1 ini. mid. mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. +2 -2 -3 -1 ini. +3 ini. +3 -2 +3 -2 fin. fin. -3 ini. eos +1 -3 -3	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
-+2 +3 mid. eos fin. -2 eos eos -2 -2 mid.	0 2 5 3
-+3 +1 +3 eos fin. ini. eos +2 ini. -2 rep. +1 -2 fin. rep. mid. -3 -3	0 3
-+3 +2 -2 +1 -2 +2 eos rep. -3 eos rep. -2 mid. mid.	0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2
-+2 +2 -2 eos eos eos eos +1 -1 -2 mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. mid. mid. -1 +2 +1 +3 +3 eos +1 +3 -2 ini. eos -2 mid. -2	0 8
-+2 +3 +1 +1 -3 rep. eos -3 -1 eos mid. -1 eos	0 2 3 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4
-mid. -1 +1 eos -1 -3 -2 ini. +3 eos -1 fin. +3 fin. ini. +1 -2 mid. mid.	0 9
-mid. +3 +1 eos eos -2 +3 eos rep. -2 mid. mid.	0 5 3
-mid. +1 mid. +2 +2 eos ini. +1 -2 +3 ini. rep. mid. mid. -3	0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6
-mid. +3 +3 -1 -2 eos eos eos -2 mid. -2	0 5
-+3 mid. mid. +2 eos fin. eos -3 -2 fin. mid. mid. -3	0 3 5 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12
-+3 +2 mid. +3 rep. +1 rep. -3 +1 eos +1 -2 -3	0 3 6 9
-+3 mid. mid. +1 eos -3 ini. eos +1 -3 mid. +1 mid.	0 3 4
-+2 -1 +1 eos -3 eos eos -3 -3 +1 -3	0 2 3
-mid. mid. +2 +3 rep. -1 fin. rep. mid. -3 -1	0 5 4 3 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10
-mid. mid. mid. eos +3 +3 -2 +3 eos eos -2 -1 -3	0 6 4 7 10 8
-mid. mid. mid. rep. +2 +3 rep. -2 eos -3 mid. -1	0 5 8
-mid. +1 +3 +3 rep. eos ini. +3 -1 mid. mid.	0 5
-mid. mid. +2 +3 +3 rep. fin. -3 -3 eos +2 mid. mid.	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6
-+2 +3 mid. rep. rep. -2 +2 ini. -1 rep. +1 rep. +2 eos eos +1 +1 mid.	0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7
-mid. mid. +2 -1 -3 rep. -3 -3 +2 eos ini. eos eos +2 ini. -3 rep. -1 mid. mid.	0 9
-mid. mid. +3 +2 -3 -2 +3 ini. eos +1 fin. +3 +2 +3 +2 rep. -1 mid. mid.	0 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10
-mid. mid. eos eos ini. -1 +3 fin. eos +3 +2 +1 -3 -3 +2 -2 -2	0 8
-+3 +3 mid. rep. fin. eos -2 +3 -3 rep. ini. -2 rep. mid. -1 mid.	0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6
-+3 +1 +2 +1 ini. -3 +1 eos -3 -1 -1	0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4
-mid. -1 -1 eos +2 eos -2 eos +1 -3 -2	0 5
-mid. +1 mid. -2 rep. eos ini. -3 eos -1 -2 -3 +3 -2 +1 -1 -3 -3	0 8
-+2 +3 +3 eos -1 eos eos -3 eos -3 fin. fin. -3 mid. -1	0 2 5
-+3 mid. +3 +3 -2 +2 fin. eos eos +3 -3 ini. +3 mid. eos -1	0 3 6 15 14
-mid. mid. -2 eos eos eos +2 +3 +2 mid. mid.	0 5
-+3 +2 +2 rep. -1 +2 eos +2 fin. +2 mid. -3	0 3 6
-+1 mid. +1 fin. +2 rep. +1 eos +2 eos eos +3 eos ini. rep. -3 -2 mid.	0 1 8 10
-mid. +1 +2 -2 +2 eos +2 eos -2 ini. -2 +3 -2 mid. mid.	0 7
-mid. mid. mid. rep. -2 eos eos ini. mid. -3 -2	0 5
-+3 +1 mid. eos +2 eos -3 +3 +3 eos fin. -2 rep. +2 -1 mid. -1 mid.	0 3
-mid. mid. mid. -1 +2 fin. -3 ini. +3 -1 ini. +1 +3 mid. mid. -2	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7
-mid. mid. +3 -3 eos -1 ini. -3 eos eos -2 -2 fin. -3 mid. mid.	0 7 4
-+1 mid. +1 -1 -1 fin. eos eos -2 +1 -3 mid.	0 1 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11
-mid. -1 mid. -3 +1 eos eos eos rep. +1 mid. -2 mid.	0 6
-+2 fin. +2 -2 rep. -3 +1 -3 -2 fin. eos -2 +2 +3 -2 -2 -1 mid.	0 2 4 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4
-mid. +3 +1 rep. +2 eos +1 +3 rep. -1 -2 mid.	0 5
-+3 +3 -2 rep. eos -3 ini. -3 fin. -1 +2 +2 -2 -2 mid.	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6
-+1 +3 mid. +2 eos -1 +1 +2 eos eos mid. -1 -2	0 1 4
-+1 -1 mid. -1 -2 eos rep. +1 ini. +1 +2 mid. -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+1 mid. +3 -2 +2 eos +2 +2 -3 mid. -2	0 1 5
-+2 +1 -2 +2 +1 eos +3 +3 eos mid. +1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. mid. -1 -1 fin. -1 +3 -1 eos fin. -2 -2 rep. +1 +1 mid. mid.	0 8
-+2 mid. +2 eos eos -2 rep. eos eos +2 -1 -1 -3	0 2 4
-mid. +2 -1 fin. +3 +3 -2 eos +1 -2 -2 +1 +1 -1 mid. -3	0 7
-+3 -1 +2 -3 ini. +2 -3 ini. eos rep. ini. fin. +3 +3 rep. +3 mid. mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. -1 mid. rep. -1 rep. -2 +1 -2 +3 ini. eos rep. +1 +2 +1 -3	0 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4
-mid. +2 mid. -1 ini. eos +3 eos fin. ini. ini. +3 +1 ini. +2 mid. -1	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16
-+2 mid. +2 eos -2 eos fin. -2 -3 rep. eos eos -1 mid. mid. mid.	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2
-+1 +2 -2 rep. ini. eos -2 -2 +1 -3 ini. mid. mid. -2	0 1 3 5
-mid. +3 mid. eos eos -2 eos -3 +1 -2 mid. -1	0 5 3
-+1 +2 mid. -2 -1 -2 fin. eos mid. -3 mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
-+2 mid. +2 eos ini. -1 -2 -2 -1 +1 +1 eos eos eos -1 -1 mid.	0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4
-+2 mid. +1 +1 -1 -3 rep. ini. +2 eos -2 eos +1 -3 -3	0 2 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4
-+3 -1 +2 eos fin. eos eos eos eos eos fin. mid. +1 -3	0 3
-+3 +3 -2 rep. eos +1 +3 +1 eos eos rep. rep. -3 mid. -3 -3	0 3 6 9
-+3 mid. -2 ini. -3 +2 eos eos +1 -1 -1	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+2 -1 +3 +1 rep. eos +2 eos -1 eos -3 mid. -2	0 2 5
-mid. +3 mid. fin. -3 +2 fin. eos -2 -1 -1 +3 rep. eos -3 +2 +1 -3	0 8 6 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11
-mid. +1 -1 +1 +3 +3 fin. ini. eos -2 -1 rep. eos rep. -2 mid. -3	0 8
-+1 -1 +1 +2 rep. +2 fin. eos rep. -2 mid. -2 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+1 mid. mid. rep. -3 -3 -3 eos ini. -3 -2 -1 -3 eos mid. +1 mid.	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8
-mid. +1 mid. +2 ini. -2 -2 +3 eos fin. -2 mid. -3	0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4
-mid. +3 mid. ini. eos -2 +2 rep. -3 -2 +2 fin. rep. ini. +2 +1 rep. mid. +1 -1	0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5
-+2 +3 mid. ini. +1 +3 -2 +3 eos -1 rep. eos -1 -1 mid.	0 2 7 10 13 12 11
-+1 +2 mid. rep. -2 -2 +2 +3 ini. rep. +3 +2 eos eos rep. -3 mid. -1	0 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5
-+2 -1 +2 eos eos +2 +1 -1 +1 -2 +1 +2 mid. -1	0 2 4
-+3 mid. mid. fin. rep. +3 -2 +3 +2 -1 ini. +1 +1 -3	0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10
-+2 mid. mid. +1 eos +3 eos eos -1 +1 -3	0 2 5 8 7
-mid. +1 +3 eos rep. -1 +1 +1 eos -2 fin. -1 rep. mid. +1 mid.	0 7 8
-mid. mid. +3 ini. eos eos -1 eos eos eos eos +2 +1 -3 -2	0 7
-+3 mid. -2 +1 eos +1 fin. -2 ini. -2 ini. mid. mid. mid.	0 3 4
-mid. +1 -1 -3 eos -2 ini. fin. ini. -1 -3 +3 -2 eos -2 -3 -2 -3 mid. mid.	0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8
-mid. +3 mid. +3 eos -2 -1 fin. rep. +2 rep. +2 -1 -2 -2 mid.	0 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7
-+1 +2 -1 +1 eos rep. eos ini. +2 mid. +1 -3	0 1 3 4
-+2 mid. -1 ini. +2 rep. rep. -2 +3 mid. mid. -2	0 2 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. +2 -2 -1 +1 ini. -2 eos ini. eos -3 -1 mid. mid.	0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5
-+1 mid. -1 -1 fin. fin. -2 fin. -1 +3 -1 eos rep. eos eos +2 eos mid. -1 mid.	0 1 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12
-mid. mid. mid. +1 eos +3 eos +2 ini. eos -3 mid. mid.	0 6
-mid. +1 +3 rep. ini. -1 rep. ini. eos -1 eos +1 +1 -2	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-mid. mid. +3 fin. -3 -3 +3 ini. -2 ini. -3 rep. ini. ini. ini. ini. +2 -2 -2 -1	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
-mid. +2 mid. eos -2 -3 eos fin. rep. -3 +1 -2	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
-+2 -1 mid. -1 -3 eos -1 eos fin. -3 -1 mid.	0 2 5
-mid. +2 +2 rep. +3 -1 eos -3 +1 +2 eos +2 -1 -3 mid. -3 mid.	0 8 9 11 13 10
-mid. +2 +2 eos eos fin. fin. +2 -3 -2 -1 +1 mid. -1 mid.	0 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7
-+2 +3 mid. eos +2 +1 eos ini. eos -1 -2 +1 +3 fin. fin. -3 -3 mid.	0 2 8
-mid. +2 mid. eos +2 rep. +1 eos fin. mid. -1 -3	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. -1 -1 eos -3 +2 +2 -1 ini. ini. +3 rep. -2 +1 mid.	0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8
-mid. +2 +2 eos fin. ini. +2 +1 ini. +3 eos -1 +2 rep. -3 -3 +1 mid.	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-+1 +2 mid. +3 eos -1 -1 +2 eos fin. mid. mid. mid.	0 1 3 6 5 4
-mid. -1 +2 -1 -2 +2 +2 eos ini. +1 mid. mid.	0 5 7
-mid. mid. mid. eos +1 eos +2 eos +2 -2 mid. mid.	0 5
-mid. +3 +3 eos rep. -3 ini. rep. +2 +1 mid.	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
-+3 +2 +3 +3 -2 -3 eos ini. -3 -1 mid.	0 3 6
-+3 +2 +2 +3 -2 rep. +2 +2 +2 fin. +2 -2 -2 rep. eos eos +3 mid. -1 mid.	0 3 6 8 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12
-mid. +3 +1 eos eos eos eos +3 rep. -3 -3 mid.	0 5
-+1 -1 +1 rep. fin. ini. eos fin. ini. fin. -3 ini. fin. ini. +2 +1 -1 mid. mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+1 mid. +1 eos -1 ini. rep. +2 eos eos -3 eos -3 rep. eos +2 -2 -1	0 1 8
-+1 mid. mid. ini. ini. -2 -1 -3 +2 fin. eos ini. ini. -3 -1 +3 fin. +1 -2 -2	0 1 9 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19
-mid. +2 mid. -3 -1 eos +3 eos eos eos eos +1 +3 eos mid. -3 -3	0 8
-mid. mid. +2 -3 +3 eos -2 +3 eos ini. eos fin. -3 +1 fin. -3 eos -2 -2 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
-+3 +2 mid. fin. eos eos -3 -3 eos mid. mid. -1	0 3 11 10 5
-+2 +1 mid. -1 -1 rep. eos ini. +3 fin. +2 mid. eos +2 -1 mid.	0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7
-+2 +2 -1 +2 +1 -3 eos +2 -2 +1 ini. +1 fin. fin. fin. eos -3 -3 -2 mid.	0 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3
-+1 +1 -2 rep. fin. -1 -3 rep. eos -3 rep. rep. eos -1 rep. mid. -1 -2	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
-mid. +3 +1 eos ini. -2 eos fin. rep. +2 +1 eos ini. eos eos mid. mid. -3	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-mid. mid. mid. ini. -1 +2 -1 eos ini. ini. +1 fin. +3 -3 mid. -2	0 7
-+1 +3 mid. -1 fin. -2 rep. fin. +3 -1 ini. eos -2 -3 +2 +3 mid. -2 mid.	0 1 4 18 9 8 11
-+2 mid. -1 -2 fin. eos +1 eos +3 rep. fin. eos +1 -1 -2 +1 mid. -3	0 2 1 8 11
-+1 -1 mid. -3 eos -2 rep. ini. ini. +1 +3 -1 eos rep. eos +1 -3 mid. -3 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-mid. +1 -1 eos fin. -2 eos fin. -3 mid. mid. -3	0 5 3
-+2 mid. mid. +3 -2 eos fin. -3 rep. rep. -1 eos ini. -1 -2 -1	0 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7
-+2 mid. +2 eos eos -1 +1 +3 mid. +1 -1	0 2 4
-+1 mid. mid. -1 eos eos eos rep. ini. -1 mid. mid.	0 1 5
-+1 mid. -1 -1 +3 +3 ini. ini. eos -3 ini. -3 +1 eos +2 -1 -2 -3 mid.	0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6
-+1 +1 -2 -1 ini. +3 fin. +1 +3 +2 +1 -1 rep. -3 +1 mid. mid. mid.	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
-+1 mid. mid. -1 eos -1 -2 +3 -1 -1 -2	0 1 5 4
-mid. -1 +1 +1 -2 -3 +3 -1 +2 rep. -1 +1 -1 ini. fin. +2 +2 -1 +1 -2	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
-+1 +1 mid. fin. fin. rep. +1 -2 rep. ini. +3 ini. eos +2 -2 +1 fin. -2 -2 mid.	0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9
-+2 mid. mid. eos +1 rep. +3 -2 eos +3 -1 -1 mid.	0 2 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6
-+3 +2 mid. rep. +2 ini. +2 eos fin. -3 eos +1 +1 mid. mid. mid.	0 3 6 8 15 7
-+2 +3 mid. -3 -2 -3 fin. rep. eos +2 -1 rep. +1 eos ini. rep. mid. mid. -2	0 2 9 11 13
-mid. mid. +2 -2 +1 +1 eos eos eos -2 -1 +2 +1 mid.	0 6
-+2 +3 +2 +2 eos +3 -1 ini. -1 eos +3 +2 fin. -3 mid. -2	0 2 4
-+2 +1 -2 eos eos eos +1 rep. eos fin. eos +3 mid. mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-+1 +1 -2 ini. -3 rep. fin. -1 rep. +3 +2 -2 -1 -1 eos eos +1 mid. mid.	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
-mid. +3 +1 +2 ini. -1 -2 eos -2 ini. +3 ini. -2 mid. mid.	0 7
-+2 +3 -1 rep. -2 ini. +1 +3 eos +3 -2 -2 mid. -2	0 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1
-mid. mid. +1 rep. eos -1 -1 +3 -1 -2 mid. -1	0 5 4
-mid. mid. +3 -1 -3 fin. eos -1 fin. ini. rep. eos -3 -1 fin. -2 eos -1 +1 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
-+2 +1 mid. eos eos ini. eos -3 mid. mid. mid.	0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5
-mid. -1 -1 -2 +2 +1 +2 -2 -1 -2 -3 eos ini. -3 -2 -2	0 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6
-+2 -1 -2 eos rep. +3 +1 -3 +3 eos +1 -1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-+1 -1 -1 eos eos eos +2 fin. eos -3 mid. -2	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+3 mid. -1 -2 -3 ini. -3 -3 rep. rep. -3 ini. ini. eos -2 mid. mid.	0 3 1 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-+1 mid. +2 eos fin. -2 eos ini. -1 +1 -2	0 1 5 3
-+2 +3 mid. +2 +1 ini. eos eos ini. fin. +2 -2 mid.	0 2 6
-+1 mid. mid. -2 -2 fin. +3 +2 ini. -1 -2 eos -2 ini. eos +1 -1 mid.	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8
-mid. +1 mid. -1 fin. -1 fin. rep. eos +3 -3 +3 +3 eos +1 mid. mid.	0 8
-mid. +2 -1 +1 +2 eos -1 +2 rep. -1 -2 eos +2 -3 -3	0 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9
-+2 mid. +3 -3 eos -2 +2 eos rep. fin. -3 mid. mid.	0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3
-mid. +1 +3 +3 +2 +2 +1 +3 eos +2 -3 eos rep. fin. ini. +2 -1 -2 +1 -2	0 9 11
-+1 +1 +1 -2 +3 +1 eos fin. rep. eos -1 mid. -2	0 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
-+1 -1 mid. eos eos eos -3 eos mid. +1 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+3 +3 +3 eos mid. +3 fin. eos eos eos rep. -2 fin. -1 mid. -3 mid.	0 3
-+3 mid. mid. eos eos +2 fin. eos -2 mid. mid. -2	0 3
-mid. mid. -2 ini. +3 +3 rep. eos ini. -3 rep. mid. mid. mid.	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-+2 mid. -1 +2 -3 eos -3 eos mid. ini. mid.	0 2 1 5
-+3 +3 +3 eos ini. eos fin. -1 eos +1 -1 mid. -2	0 3
-+1 +3 +3 rep. +3 eos +3 +1 -1 fin. +3 eos eos -3 -1 -3	0 1 4 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7
-mid. +2 mid. fin. +3 rep. -1 -3 eos -2 fin. -3 fin. ini. fin. mid. mid. -1	0 8
-mid. +3 +1 -2 eos eos -3 +2 ini. -3 -2 -3	0 5
-+2 mid. mid. -2 +1 rep. fin. +3 -1 -2 eos eos mid. -1 -3	0 2 7 10
-+3 +2 -2 eos -2 +1 rep. fin. ini. -1 +3 -2 ini. -2 +2 -1 +1 mid.	0 3
-mid. +2 +1 eos +2 +2 +2 rep. -1 mid. -1	0 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7
-+2 -1 mid. -3 ini. -1 +3 -3 +3 +2 ini. +2 eos +2 -3 +3 +2 -3 -3	0 2 9 11 13 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15
-mid. -1 +2 eos +3 fin. -2 eos ini. rep. -3 +2 fin. -2 -3 mid.	0 7
-+1 +1 mid. -2 fin. eos +1 +1 +3 +2 eos rep. -2 fin. +1 -2 +1 -2	0 1 2 8 11 14 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17
-mid. -1 mid. +1 rep. ini. -1 +1 ini. eos eos +2 -3 mid.	0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5
-+3 +1 +1 +2 -2 +2 +3 eos fin. -2 -1 -3 -1 -2 -2 -2	0 3 5 7
-+2 mid. mid. -3 -1 rep. eos fin. mid. mid. mid.	0 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. +1 mid. ini. +2 fin. +2 ini. -1 +1 rep. -3 rep. +3 +1 -2 +1 -3 -1	0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7
-+3 +1 -1 eos eos eos -1 eos -2 -1 -2	0 3
-+3 +1 -1 eos eos rep. -2 -1 -2 -2 rep. -2 +3 ini. rep. mid. -1 -1	0 3
-+2 +2 mid. eos rep. fin. fin. +3 +2 -3 ini. +2 +2 ini. +1 rep. mid. mid. mid.	0 2 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9
-+3 mid. +3 rep. +1 rep. -1 +1 +2 -2 eos rep. -2 -3 +2 -2 -1 -2 -2 -1	0 3 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5
-mid. mid. -1 eos rep. ini. fin. eos eos -2 mid. mid. mid.	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6
-mid. +2 +3 -1 rep. +1 eos +3 -3 -1 rep. +3 eos -3 +1 mid.	0 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13
-mid. mid. mid. rep. +3 rep. fin. ini. eos +2 -3 fin. +2 -1 rep. mid. +1 -3	0 8
-+3 +3 +3 eos +3 eos +3 rep. -3 +1 eos -3 +1 fin. fin. fin. +3 mid. mid. -3	0 3
-mid. mid. -1 fin. eos -1 fin. -2 +2 +2 fin. -2 rep. +1 eos -3 mid. -3	0 8 10 17 14
-+3 mid. -1 -1 -3 eos fin. fin. +1 -2 eos rep. -1 rep. -2 -1 +2 mid. -2 mid.	0 3 2 1 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7
-mid. +3 mid. eos fin. ini. ini. rep. rep. -3 eos ini. -1 -1 +2 -3 -3 -1 -1 -1	0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6
-+2 mid. -2 eos +3 -2 +2 ini. fin. -1 eos +3 +2 ini. +1 +3 +2 -3 -3	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. +2 mid. ini. eos eos fin. ini. -3 eos mid. -1 -2	0 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12
-+1 mid. -1 +1 ini. rep. +1 -2 ini. rep. rep. -3 fin. mid. -1 mid.	0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4
-+3 mid. mid. eos +3 +3 +1 -1 eos fin. +2 rep. +1 +3 +2 mid. mid. -3	0 3
-+1 mid. -1 +3 +2 rep. eos ini. +2 +1 fin. -1 +3 fin. rep. -3 -3 mid.	0 1 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8
-mid. +1 mid. eos eos fin. +3 +1 ini. eos +1 fin. -1 -3 mid.	0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8
-+3 +3 +1 +3 eos -2 +3 eos -2 ini. -1 eos +2 mid. -1	0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9
-+2 mid. mid. rep. -3 +2 fin. -2 +3 +2 -1 ini. rep. +1 -2 mid. +1 -1	0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11
-mid. +2 -2 rep. +3 rep. +2 fin. rep. +3 -1 -3 mid. -3 mid.	0 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7
-mid. +2 -1 rep. ini. eos eos fin. mid. mid. mid.	0 5
-+1 mid. -2 fin. ini. -2 +3 rep. rep. eos fin. eos +1 -3 eos +3 mid. -1 -3	0 1 9
-+3 -1 +1 eos +3 ini. +2 mid. -3 -1 -2 rep. -3 ini. -2 -2 +1 +2 mid. -1	0 3
-+1 +1 +1 +2 eos rep. -2 -2 eos eos -1 rep. -3 -2 +1 +1 mid. mid. -2	0 1 2 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3
-+3 -1 mid. ini. +3 -3 eos -2 -1 fin. eos eos -1 mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. -1 +2 eos +2 eos rep. +3 eos +3 +1 -1 -1	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-mid. +2 -2 +2 +2 -3 eos -1 eos ini. rep. +2 +2 mid. -2 -1	0 7 6
-+3 -1 -2 -2 +2 rep. eos -2 eos fin. mid. mid. -1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1
-+1 mid. mid. -3 +1 eos eos -1 +1 -2 -3 +3 -1 +2 +2 +1 mid. mid. -3	0 1 9 7 6
-+1 -1 +2 -1 +3 rep. eos -2 rep. ini. +1 -3 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-mid. +1 +3 -3 -1 eos fin. -1 -2 -1 +1 mid. +1 -3	0 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10
-+2 mid. mid. +3 +2 -2 +2 fin. +3 +3 ini. eos +2 +3 rep. mid. mid. -2	0 2 8 11
-+3 +1 +2 eos +1 eos fin. ini. -2 -1 mid.	0 3
-+3 mid. -2 ini. -2 +3 ini. -2 eos eos ini. +1 fin. -1 eos +1 +2 mid. mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+2 mid. mid. eos eos -2 +3 -2 eos -1 -1 -1	0 2 5 3
-mid. mid. -1 -2 ini. eos +2 +2 -2 fin. -2 -3 -1 -3 +1 -2 -1	0 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8
-+3 -1 mid. ini. -1 -3 eos -3 +2 -2 fin. +1 -3 -2 -1 mid. -2 -2	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. mid. mid. rep. rep. eos +2 rep. +3 -3 rep. rep. eos +1 mid. +1 mid.	0 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11
-mid. -1 -2 rep. ini. -1 -3 -2 -3 +1 -3 -3 -1 -3 mid.	0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4
-mid. mid. -2 ini. ini. +2 eos eos -1 -3 mid.	0 5 7
-mid. +3 +1 -1 -1 eos +3 +3 +1 +2 +1 fin. ini. -2 -3 -2	0 7 10 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13
-+1 mid. -1 +2 -3 eos +2 eos -3 -2 -1	0 1 5
-mid. -1 +1 eos ini. -3 -1 +2 fin. -3 -3 -3	0 5 2 3
-+3 +3 -2 eos ini. +1 +2 +2 -2 +1 eos -1 +1 -1 -1 -3 -1 -3 mid. -3	0 3
-+2 -1 -2 +1 -2 +3 +3 -1 +2 -1 ini. -2 +1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. mid. +2 eos +3 mid. -1 -1 mid. mid. -1	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
-mid. +3 -1 fin. mid. eos eos -1 fin. +1 eos ini. +3 +2 -3 mid.	0 7 6
-mid. mid. -2 eos fin. +3 rep. +2 ini. fin. eos +1 rep. +1 eos -1 +2 -3 -3 mid.	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9
-+1 mid. mid. rep. eos fin. eos fin. -1 +1 eos -1 mid. -2	0 1 6
-mid. mid. +2 +1 rep. rep. eos -3 -2 +1 -3 mid. -1	0 6
-+2 mid. +1 ini. -3 +1 eos -3 fin. -3 -1 +1 -1 eos -1 ini. mid. -1 -2	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3
-+3 mid. -2 +1 eos eos rep. -2 -2 +1 eos eos rep. +1 mid. mid.	0 3 4
-+2 +3 -2 -3 -2 +2 rep. -1 -3 -1 -2 -2 mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. +2 mid. -3 -3 -3 rep. -3 fin. -2 -3 +1 -2 mid. -2	0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1
-mid. mid. +1 fin. rep. -3 eos +3 ini. -1 +3 +2 mid. mid. mid.	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10
-+3 mid. -1 -2 -2 fin. +1 -1 eos +3 -1 eos -3 -1 -3	0 3 1 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7
-mid. mid. mid. +1 +2 +1 +2 eos +3 eos eos eos +3 rep. -2 -1 mid.	0 8 11
-+2 -1 mid. ini. -1 eos fin. eos mid. +1 mid.	0 2 5
-mid. mid. +1 +1 eos rep. eos -2 -3 -2 +3 eos -3 mid. -3	0 7 5 3 4
-+3 mid. +1 -2 +3 +2 -1 rep. eos eos mid. -2 -3	0 3 1 6 5 7 9
-+1 +1 +3 -3 eos rep. +1 -3 +1 +1 eos ini. fin. eos -2 -2 -2	0 1 2 5 8 9 10
-+1 +1 +2 -2 eos +2 -3 +3 +2 rep. +2 +1 -1 -2 fin. eos -2 +1 -1 -3	0 1 2 4
-mid. mid. mid. +2 eos eos ini. eos -2 -2 +1 mid.	0 5
-mid. mid. +2 -3 +2 eos rep. -2 eos rep. ini. -2 -1 +2 -1 -1	0 7 5
-mid. +1 +1 +2 +1 +2 +2 -1 +3 -1 +1 +2 mid. mid. -3	0 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8
-mid. mid. -1 eos fin. +2 +1 -2 ini. +1 ini. eos -2 -3 -3 fin. fin. +1 -1 mid.	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
-mid. mid. mid. +1 +3 +3 rep. +3 ini. +2 fin. -2 +3 eos fin. mid. -1 -1	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-mid. +2 +3 +2 +1 -2 +2 eos +2 ini. eos -3 mid. mid. mid.	0 7
-+1 +1 +2 eos fin. eos eos eos mid. -3 mid.	0 1 2 4 10 5
-mid. mid. mid. +1 eos ini. rep. rep. -2 ini. -1 eos -3 +2 +1 -3 -2	0 8 6 4
-mid. mid. mid. -3 -1 ini. +1 +3 +2 eos fin. rep. -2 +1 -1 mid.	0 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10
-mid. mid. mid. eos +2 -3 -2 eos mid. mid. mid.	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
-+1 +1 mid. eos -1 fin. -1 -1 eos eos -2 eos +1 -1 -3	0 1 2 7 6 5 14 11
-+3 -1 mid. +3 -3 ini. +2 +3 rep. +1 fin. +3 eos eos -3 ini. mid. -3 -1	0 3 6 8 10 18 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14
-mid. mid. +3 +1 eos fin. eos eos fin. ini. +1 +1 -2 +1 ini. mid. mid. -1	0 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17
-+2 +3 mid. rep. -2 +1 eos -2 ini. eos +3 eos rep. eos eos rep. mid. +1 mid.	0 2 9
-+2 mid. -2 ini. ini. -1 -2 -1 +1 ini. -1 -1 mid. -2 mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
-mid. -1 +3 +1 ini. rep. -1 -1 +2 ini. fin. -2 -2 -2 mid. -1 mid.	0 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10
-mid. mid. +2 +1 eos ini. -1 -3 ini. -3 -3 +1 eos eos -3 -2 -2 mid. -2	0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5
-mid. +2 -1 eos -3 -1 -2 ini. -3 -2 +3 -1 eos -3 +1 -3 -3	0 8 5 4 1 3
-mid. +2 +2 eos -3 eos -3 eos eos +2 eos mid. +1 -3	0 6 3
-+3 -1 +2 eos -2 rep. -2 +2 eos fin. -2 +3 mid. -2 -3	0 3
-+1 mid. +3 -1 +3 +3 +2 -3 +2 mid. -2	0 1 5 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8
-mid. mid. -1 -1 -1 +2 ini. eos +3 eos +1 +2 +3 +2 +1 -2	0 7
-+3 mid. mid. -1 -1 +2 fin. +3 ini. eos +1 rep. +2 -3 mid.	0 3 2 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7
-+1 -1 -2 +3 eos rep. eos +2 mid. -1 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-mid. +2 mid. ini. +2 -1 ini. -2 +2 -3 eos -1 +1 +2 +1 mid. mid.	0 8 10
-+2 +3 mid. eos rep. +2 -3 -2 eos ini. ini. -2 mid. -1	0 2 6 3
-mid. +3 +2 -2 eos fin. ini. -2 rep. ini. eos eos rep. mid. -2 mid.	0 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5
-+3 +2 -2 rep. +1 +3 fin. eos -2 +1 +3 -1 -3 -3 mid. mid. mid.	0 3 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6
-+1 +1 mid. -1 ini. +2 +3 eos +3 -2 +1 ini. rep. rep. ini. +3 -3 +1 +1 mid.	0 1 2 9 7
-+3 mid. -1 eos +2 fin. ini. +3 +1 eos ini. ini. +3 -3 -1 -2	0 3
-+3 -1 -2 -3 +2 -1 ini. -1 -1 +1 rep. +2 +1 -2 -2 +1 -2 -2 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. +3 +2 -1 eos +2 ini. +3 eos eos +2 fin. +2 mid. -1 mid.	0 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12
-mid. +1 +2 ini. fin. eos ini. eos rep. eos eos -3 eos ini. +3 +1 -3 mid.	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-mid. -1 mid. -3 rep. -1 ini. fin. eos eos -3 fin. -3 +1 rep. -1 ini. -1 mid. -3	0 9
-+1 mid. mid. fin. fin. +3 ini. ini. rep. eos +2 eos +2 -3 -2 rep. ini. -1 -1 mid.	0 1 9
-mid. +3 -2 eos eos eos eos +3 -1 -1 mid.	0 5
-mid. +3 +1 +3 fin. -2 fin. -1 rep. -3 fin. rep. eos -3 +2 +1 mid. -2 -2	0 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18
-+1 mid. mid. fin. rep. -1 eos eos eos rep. eos -2 -2 -1	0 1 6
-mid. +3 +2 fin. +1 -2 fin. ini. eos +2 fin. +3 +1 ini. +1 -3 mid.	0 8
-mid. -1 +1 eos ini. +1 -2 -2 mid. -1 mid.	0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4
-+1 +2 -1 +1 -1 -1 eos eos eos -2 fin. -2 mid. -1	0 1 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4
-mid. mid. +2 +2 -2 +1 eos +2 eos fin. ini. +1 -1 mid.	0 6
-mid. -1 +2 +1 rep. eos rep. eos eos +1 -1 -1 -3 mid.	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-+1 +2 -2 -2 -2 eos -2 fin. mid. mid. mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
-+1 +1 +2 +3 -1 -2 eos -2 +2 +2 fin. -1 +3 -2 -2 -3 -1 eos	0 1 2 4 3 6
-mid. +2 +3 +1 +1 eos fin. +3 fin. eos fin. +2 -2 -2	0 6 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11
-mid. +3 -2 -2 -3 +1 eos +2 -3 eos eos eos mid. -3 -3	0 7 9
-mid. mid. +1 +1 -2 eos eos -1 fin. +2 -2 -3 +1 mid.	0 6
-+3 +2 mid. ini. eos ini. +2 eos mid. -2 -2	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-mid. +3 -1 rep. +3 +3 -2 -3 eos +3 -1 eos -1 +1 ini. -1 +2 -3 +1 mid.	0 9 12 11
-+2 -1 +3 -3 -1 eos -2 ini. fin. ini. -3 -2 -3 +2 rep. +1 -2 mid.	0 2 5
-+3 +3 +1 ini. -2 +3 +1 -1 eos -3 rep. +2 rep. -1 +2 rep. mid. mid. mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+1 +2 +3 fin. +1 eos fin. rep. +1 +3 -2 -2 mid. -3 -2	0 1 3 14 12 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-mid. -1 +3 -3 -1 eos fin. fin. +1 +1 rep. -1 eos rep. -1 eos -1 -3 mid.	0 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11
-mid. -1 +1 -3 eos -3 -2 rep. fin. +2 rep. eos +3 +1 +1 eos +1 -2 -1	0 9 11
-mid. +1 +2 +3 eos fin. +3 -1 eos rep. -2 -1 mid.	0 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9
-+1 mid. -1 eos fin. -2 +3 -2 rep. -2 -2 -1 rep. -1 mid. mid.	0 1 7 5 3
-+1 +2 mid. -1 eos rep. eos -1 -3 -2 +3 -2 ini. -2 mid.	0 1 3 2 7 6
-+3 mid. mid. rep. +3 eos +1 -3 rep. fin. ini. +2 -3 eos -1 -1 +3 mid. +1 mid.	0 3 6 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7
-+3 +2 -2 ini. +3 +2 -2 +3 +3 +1 eos eos ini. -3 -3 fin. -2 mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+2 +2 +1 -3 +2 +3 -1 fin. eos +2 -2 -2 -3 -1 -1 -3 -2 mid.	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3
-+1 +2 +1 eos -3 fin. +1 -2 -3 mid. -3	0 1 3
-+3 mid. -2 eos +3 eos +2 -3 ini. eos -1 -2 -3 -3	0 3
-+2 -1 -1 +2 +1 rep. -2 eos -3 +1 rep. eos -1 +3 eos fin. -3 +1 +1 -1	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1
-mid. +1 -1 ini. +2 +3 -2 eos eos +3 eos +3 eos eos -2 -1 -2 mid.	0 8
-mid. mid. -1 eos rep. fin. +2 -3 eos rep. eos fin. eos -2 fin. -3 +1 -2	0 8
-mid. mid. +1 eos rep. rep. +2 +3 eos +3 fin. rep. -1 -2 mid. -2	0 7 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10
-mid. +1 -1 +3 rep. -2 eos -2 eos +2 eos -2 -2 -2	0 6
-+3 -1 mid. eos fin. +1 +2 eos eos +1 rep. -3 mid. -3	0 3
-mid. -1 mid. +2 fin. fin. +1 rep. +3 +1 -3 -3 -2 -2 fin. eos +3 mid. -1 mid.	0 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7
-mid. +3 mid. +1 eos eos fin. eos ini. +3 -2 -2 -1 -1 mid.	0 7
-mid. mid. -2 +3 eos -1 +2 eos -2 eos rep. mid. mid. mid.	0 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6
-mid. +2 +2 eos eos +2 eos fin. eos -1 -3 mid. -1	0 6
-mid. +3 -2 +2 eos fin. ini. +3 rep. rep. -3 +1 +1 mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
-mid. mid. +1 -1 +2 ini. -2 +3 +1 +1 +3 +1 -1 fin. +1 +1 -2	0 8 9 10 13 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16
-+3 mid. mid. +2 eos eos eos -2 -3 eos ini. eos mid. -2 -1	0 3 5
-mid. +3 -1 ini. +2 ini. ini. rep. fin. +3 ini. rep. +2 -1 fin. fin. eos -2 +1 mid.	0 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14
-mid. mid. -2 fin. -2 eos ini. ini. eos rep. -3 -2 rep. -3 mid. -2 mid.	0 8
-mid. +2 +2 +2 eos fin. ini. -3 -3 mid. +1 -3	0 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11
-+3 -1 mid. +2 eos eos -2 +2 -2 eos eos +1 -3 -3	0 3 5
-+1 mid. mid. eos -2 +2 +1 -2 rep. +3 -3 -1 ini. eos +2 eos +1 +1 mid.	0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12
-+2 +2 +2 -2 -1 -2 -3 rep. -1 -3 rep. +2 +1 fin. +2 ini. eos -3 +1 mid.	0 2 4 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3
-mid. mid. mid. rep. +1 eos +2 -3 +2 -2 -2 mid.	0 5
-+1 +3 +2 -2 +2 +1 -2 -1 eos +1 eos -1 -1 eos -1 ini. -1 +1 +1 -3	0 1 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6
-+3 +2 -2 +2 eos fin. -1 +1 ini. eos +3 -3 mid. mid.	0 3 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5
-mid. -1 +2 +1 eos rep. -2 ini. rep. -2 +3 ini. -3 eos +1 ini. -2 mid. -1 -2	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
-+1 mid. mid. fin. rep. fin. +1 -2 +3 -3 eos eos +2 mid. mid. -2	0 1 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5
-mid. +3 +1 -2 -3 rep. -3 rep. eos -2 -3 +2 +3 -2 mid. mid. -1	0 8
-mid. -1 +2 +1 +2 +1 +3 rep. fin. rep. eos -3 eos -3 -1 +2 rep. mid. mid. mid.	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
-+2 +1 +2 fin. +2 fin. eos eos fin. -3 rep. -2 -1 +2 eos eos +2 -1 -2	0 2 4 6
-mid. mid. -2 -1 -2 rep. eos +3 -2 eos +3 rep. mid. mid. mid.	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10
-mid. mid. -1 +1 +1 +3 eos -1 +2 eos +3 mid. mid. mid.	0 6
-mid. +1 +1 ini. fin. eos -3 +1 fin. -1 +1 -2 rep. mid. -1 -3	0 7 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15
-mid. +1 +3 -3 -2 ini. ini. eos -1 mid. mid.	0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5
-mid. mid. mid. rep. +2 ini. ini. +3 -1 -1 -2 eos +2 +2 -2 -2	0 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10
-mid. +3 +2 -2 +2 -3 -3 ini. +3 -3 +1 eos -2 eos mid. +1 -1	0 8 11
-+3 +1 mid. -1 ini. eos +3 rep. ini. ini. +3 eos +3 eos rep. mid. +1 mid.	0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8
-mid. +2 -1 eos eos eos ini. eos -3 +1 -1 -1	0 5
-mid. +2 +1 -2 +3 -2 rep. +3 -3 -3 rep. ini. rep. +1 rep. mid. -2 -3	0 8 5 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3
-+1 +1 +2 +3 -1 eos fin. +3 -3 rep. -2 -3 -1 +2 +1 mid. -3	0 1 2 4 3 6 16 13 15 8 5
-+1 mid. fin. +3 eos ini. -1 +2 fin. +1 -3 eos +1 -3 -2 -3 mid. mid.	0 1 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17
-+2 mid. +2 -2 eos +3 -1 -3 -1 fin. eos -3 -2 -1	0 2 4
-+3 +2 mid. +2 rep. eos -3 -1 fin. eos fin. -3 +3 eos eos -3 -1 mid.	0 3 5
-mid. +3 mid. -1 eos eos +2 rep. eos +2 -1 fin. +2 -2 mid.	0 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
-+3 mid. -2 eos rep. eos rep. -1 -2 eos -1 -3 +2 -3 +1 mid.	0 3
-+3 +2 mid. eos +3 +1 -1 eos +1 eos +2 -1 -3	0 3
-+3 +3 -1 +2 ini. +2 -2 fin. -1 +2 +3 -1 fin. +1 rep. -1 mid. mid.	0 3 5 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8
-mid. +1 -2 ini. ini. -2 -1 -1 -1 -3 rep. -3 -3 eos ini. -1 +1 -1	0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3
-+3 -1 -1 -1 rep. +3 -2 eos -2 eos mid. -3 mid.	0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1
-+1 +2 mid. ini. rep. -2 eos eos +2 -1 mid.	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3
-mid. +2 -1 -1 ini. rep. +2 fin. fin. +3 -1 +1 -1 -1 +3 -2 rep. -1 -1 mid.	0 9 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11
-+1 +3 mid. eos +1 fin. eos +1 rep. eos -2 -3 +3 +1 +2 eos rep. -2 -3 -3	0 1 4 5 19 16 13 14 16 18 15
-+2 +1 mid. -3 ini. rep. +1 eos -1 eos -1 -2 -2 mid.	0 2 6 7
-+1 -1 +1 rep. +2 +2 fin. -3 ini. fin. -2 eos eos +3 rep. -1 -1 -2 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-mid. -1 mid. -1 +1 +3 eos -3 -2 mid. -3	0 5 8 6
-mid. +2 -2 mid. fin. +2 -1 +1 -2 +1 fin. fin. eos -3 +2 -3 mid.	0 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5
-+2 -1 mid. eos +3 eos +3 -2 eos rep. mid. mid. -1	0 2 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9
-mid. mid. mid. mid. +2 +3 fin. eos ini. -3 +3 +2 rep. ini. fin. ini. +2 +1 +1 -2	0 9 6 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18
-mid. +2 +2 -3 eos +2 eos -3 ini. -2 +3 +1 +3 ini. fin. -3 -3 -1	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-mid. -1 -2 eos -2 +1 -2 -1 ini. +2 eos eos eos fin. eos -2 -1 mid. +1 -1	0 9 11
-+3 +3 +1 -1 -3 ini. -2 +2 -2 eos eos fin. -2 +1 mid. -2	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
-mid. +3 mid. fin. fin. -3 -3 ini. rep. -2 ini. -1 ini. ini. rep. +3 +1 mid. -2	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
-+3 +2 -2 fin. -1 -3 ini. -1 ini. -1 +3 eos +2 mid. -2 mid.	0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7
-mid. mid. mid. -1 -2 -2 ini. +2 eos fin. -2 fin. ini. +3 eos +1 -3 -1	0 8
-+3 mid. +2 +3 eos -3 eos fin. eos mid. mid. -2	0 3 6
-+3 -1 +2 eos eos eos -1 +3 eos eos eos eos -1 mid. -3 mid.	0 3
-+2 +2 mid. -1 +1 eos ini. -2 +3 rep. eos fin. -2 -3 ini. +2 mid. -1	0 2 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11
-mid. mid. mid. +2 eos eos +2 +2 ini. ini. ini. fin. -3 -3 mid. mid.	0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9
-+1 +2 mid. ini. ini. -1 +2 fin. -3 fin. fin. ini. -2 +3 +1 mid. -2	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3
-mid. mid. -2 fin. +1 eos -2 +1 eos +1 -2 -1	0 5
-mid. +1 +3 rep. ini. -2 +3 ini. +2 ini. +2 mid. -2	0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9
-+1 +2 -1 -2 +2 -1 -3 eos +1 -3 mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
-+1 +2 +2 -2 ini. -2 eos +1 -2 -2 rep. eos +2 +2 -1 -2 -2 -2 -2 -1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
-+2 +3 mid. eos -1 -1 -3 eos -1 -3 -2	0 2 5 4 3
-mid. -1 mid. ini. eos +3 fin. +1 fin. +3 fin. fin. +1 fin. fin. mid. mid. mid.	0 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8
-mid. mid. +1 +2 -2 -1 eos ini. eos eos mid. -2 -2	0 6
-+3 mid. -2 -3 +3 rep. fin. +3 +3 fin. eos rep. eos ini. -3 +2 -3 -3 mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+2 mid. +2 eos -3 eos +3 eos +2 mid. mid.	0 2 4 1 5
-+3 -1 -1 eos eos +1 +2 +2 -3 fin. mid. -1 -1	0 3
-mid. mid. mid. +1 eos eos -2 -2 eos -1 -2 -2	0 5
-mid. +2 +2 -1 eos fin. -1 -3 fin. +1 ini. +2 -2 -3 -3	0 7 4
-+2 mid. +3 eos +2 rep. eos -1 rep. -3 eos eos -1 -3 mid. -2 mid.	0 2 5 8 11
-+1 +2 -2 eos -1 ini. eos rep. -3 -3 mid.	0 1 3
-mid. +1 mid. +3 +1 -1 -2 eos -3 -2 +3 +1 -2 -1	0 6 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5
-+1 mid. mid. -2 fin. fin. -2 eos -3 +3 -2 mid. -3	0 1 6 4 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9
-+2 +1 +3 +3 rep. +2 -3 rep. +1 fin. fin. -3 -3 mid. -3 -3	0 2 5 7 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15
-mid. mid. -2 +2 +2 +3 -2 rep. -3 eos -2 +1 -2	0 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6
-+3 mid. mid. -3 +2 fin. +2 eos -1 +2 +1 +3 rep. fin. rep. +2 +2 mid. -1	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+3 mid. -1 eos eos +2 eos eos eos +2 +1 mid.	0 3
-+1 +2 -1 -1 +3 -2 +1 eos +2 eos +1 rep. fin. -2 rep. -1 rep. -2 mid. -3	0 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
-+1 mid. +1 -1 -3 -1 eos +3 -2 -3 +1 mid. mid. -3	0 1 6
-+3 -1 +2 fin. eos +1 -2 -3 -3 mid. -3	0 3 10 7 4
-+2 mid. +2 -3 -3 rep. eos +2 eos eos -3 -3 mid.	0 2 4 1 6
-mid. -1 +1 eos -1 rep. rep. -2 eos fin. -2 +1 eos eos mid. +1 mid.	0 8
-mid. mid. mid. +2 +3 eos +1 rep. rep. +1 -3 -1 fin. +1 -3 mid. mid.	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
-+1 +1 +3 +3 -2 fin. eos ini. -2 ini. -1 +1 mid. -1 mid.	0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7
-+3 mid. -1 -3 +2 fin. ini. eos +1 -3 -3 rep. mid. -2 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
-+2 +2 +2 rep. eos -2 eos +2 eos eos eos -1 mid. -1	0 2 4
-mid. +1 -1 -3 -3 +1 -3 -2 eos +3 eos +3 -3 -3 -3 -1	0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6
-+3 mid. mid. eos eos +2 rep. +2 -3 -1 eos +2 +2 -1 -3	0 3
-eos -1 -1 eos rep. -2 eos -2 mid. -1 mid.	0
-+1 mid. +1 eos -3 -3 -3 +1 ini. +1 -1 +2 -1 mid. -3	0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8
-mid. -1 mid. -1 eos ini. +1 eos +1 -2 eos -3 +1 ini. eos mid. mid. mid.	0 8 9 7
-mid. mid. +2 +2 +3 +1 eos rep. eos -3 -1 +2 -1 eos eos mid. -1 -1	0 8
-mid. +1 -1 +3 +3 -1 ini. eos eos eos -3 mid. mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
-mid. mid. +1 -3 -1 eos eos eos -1 +2 ini. rep. -1 rep. +3 ini. +2 mid. mid. mid.	0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13
-mid. +2 +3 eos -2 eos eos -2 fin. eos fin. +3 eos mid. +1 mid.	0 7 5
-mid. +1 mid. ini. rep. eos +3 eos -3 -1 -2 -2	0 5
-+3 -1 +3 +2 fin. +3 eos -2 -1 ini. +3 -3 eos fin. fin. +1 mid. mid. -3	0 3 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5
-mid. +3 mid. -1 -1 -1 -3 -1 rep. +3 mid. eos mid.	0 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3
-mid. +2 +1 eos +1 ini. eos rep. ini. eos eos ini. ini. +3 -3 -2 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-mid. +1 mid. eos rep. eos eos eos eos mid. -2 -1	0 5
-mid. mid. mid. +3 -3 -1 rep. eos ini. ini. rep. ini. +1 eos eos +3 -2 +1 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
-mid. +2 +1 ini. -2 -2 rep. -2 eos mid. +1 mid.	0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3
-+1 mid. mid. eos eos +2 -3 +1 -1 +1 -1 +2 +1 mid.	0 1 6 3
-+2 +2 mid. -3 -2 -2 fin. +3 +3 fin. eos eos fin. rep. +1 -2 -3	0 2 8 11
-+3 +1 -1 +2 rep. +3 +2 rep. +1 +3 rep. mid. mid. -3	0 3 5 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8
-mid. mid. +2 -1 +1 eos eos -2 -3 mid. mid.	0 5
-mid. +3 mid. +2 fin. -3 ini. +2 fin. +1 eos -1 -2 -1 -2 mid. -1	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16
-+1 +3 +2 -1 +2 -1 -3 fin. +2 +3 +1 ini. fin. -1 -3 mid. -1 mid.	0 1 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6
-mid. +1 -2 +3 fin. fin. rep. -3 -3 +2 +1 -2 -2 +3 +1 -1 mid. -2	0 8 5 17 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14
-mid. mid. +2 -2 eos eos +2 +2 fin. -1 eos -1 rep. -3 +1 -3	0 7 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8
-+3 +2 mid. rep. fin. rep. eos eos fin. +2 +3 -2 +3 rep. -1 +3 +2 -2 -3	0 3 6
-+2 mid. +2 +1 +2 eos +1 fin. eos -3 mid. mid.	0 2 4 6 7 11 5
-mid. +2 +2 +3 eos +2 +1 +3 eos -3 +1 -2	0 5 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10
-+2 -1 +1 -1 +1 eos +1 rep. -2 eos eos rep. eos +1 -2 mid.	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2
-mid. mid. +2 eos eos +2 +2 fin. -3 -3 mid.	0 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7
-+2 +3 +2 -2 -2 eos eos eos mid. -2 -2	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2
-+1 +1 mid. fin. eos eos rep. eos +3 rep. mid. -1 mid.	0 1 2 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
-+2 -1 -1 ini. +2 eos eos eos -2 mid. mid.	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1
-+2 -1 +1 +2 rep. fin. fin. rep. eos -1 eos -2 +1 fin. ini. mid. -1 mid.	0 2 3 5 17 8
-+1 mid. -1 eos eos eos +1 -2 fin. +2 rep. -1 -3 mid.	0 1 6 7 5
-+2 +3 mid. +3 +2 +2 -1 -1 eos +2 -1 ini. +2 +2 fin. -2 -1 mid. -1	0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11
-mid. +2 +1 -3 -1 -3 +3 fin. fin. +2 -3 -3 -3	0 6 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11
-+1 -1 -2 +1 -1 +3 -3 -2 -3 -3 +3 +2 ini. -1 eos -1 mid. mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
-+2 +3 mid. -2 -2 -2 +2 fin. +2 ini. rep. eos ini. -2 +3 eos mid. mid. -3	0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9
-mid. -1 mid. -3 rep. -3 -2 rep. fin. fin. eos +2 +1 -1	0 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4
-+1 +1 mid. +3 +1 +2 +1 +1 -1 ini. fin. -3 +3 -2 eos +2 -3 mid.	0 1 2 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8
-+1 mid. -2 +1 rep. -2 eos ini. fin. rep. rep. ini. rep. +1 rep. +1 -3 -1	0 1 8 17 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15
-mid. -1 -2 ini. rep. eos -3 +1 ini. rep. +1 eos -1 -1 eos mid. mid. -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
-mid. mid. +1 eos eos fin. -2 rep. ini. -2 fin. fin. eos -2 ini. +2 -3 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
+mid. mid. -2 -3 eos eos eos eos -2 ini. rep. eos -3 +1 mid. -3	0 7	0 7
++2 mid. +1 -1 ini. +3 +1 fin. -2 eos eos eos fin. -3 -3 rep. rep. -2 +1 mid.	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2
+mid. +3 mid. eos eos +2 +1 +1 -3 -1 mid. -2	0 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7	0 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7 8 5 7
++2 mid. +3 ini. ini. eos +1 ini. eos +3 +2 ini. -3 +1 -3	0 2 5	0 2 5
++2 mid. -2 eos -1 +1 -2 eos eos eos -1 +2 +1 -3	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. -1 +3 -2 -3 ini. -3 +2 ini. fin. +1 eos -1 +1 +2 -3 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
++1 -1 +1 +2 rep. eos -1 rep. +3 -1 +2 -2 -2 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++1 mid. -2 ini. fin. +3 +1 eos -1 -3 fin. -1 -2 +3 -1 +1 mid. -2 -1	0 1 9 6 7	0 1 9 6 7
+mid. +2 +2 +3 fin. -3 ini. rep. ini. ini. +2 +2 +1 +3 -1 eos mid. mid. -3	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+mid. +1 mid. ini. -1 +2 -2 -3 ini. ini. +3 -3 eos fin. +2 -2 -1 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
++3 +2 mid. ini. -2 -3 eos fin. +3 -3 -2 rep. +3 +3 eos -3 -2 +2 -2 mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++3 -1 mid. -2 rep. eos eos eos -1 fin. eos rep. fin. -3 fin. +1 mid. mid. -1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1
++3 +1 -1 eos +1 eos eos -3 +1 -1 -3 mid.	0 3	0 3
+mid. +1 +3 fin. eos fin. +1 eos -1 -3 -2 -1 -2	0 6 7	0 6 7
++3 mid. +2 eos -3 fin. -1 +1 -1 -2 +1 eos +1 -3 mid. -1 ini.	0 3	0 3
+mid. -1 mid. ini. +3 -3 -3 ini. ini. eos ini. +3 +3 -2 rep. -2 +3 +2 mid. -2	0 9	0 9
++2 mid. -2 ini. +1 eos +1 +3 eos mid. -1 -2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. +3 mid. ini. +3 -1 +2 +3 eos fin. +3 -2 fin. -3 ini. +3 eos -2 mid. mid.	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9
+mid. +2 -1 eos eos +3 +2 fin. -2 ini. -3 -1 eos mid. -2 -2	0 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15	0 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15 13 7 15
+mid. -1 +1 +3 fin. eos ini. +1 eos fin. mid. mid. mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
++1 +3 +3 +3 ini. ini. -3 eos -2 -2 mid. -3 -3	0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4	0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4 0 1 4
+mid. mid. +3 -2 eos rep. +3 rep. rep. mid. mid. mid.	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. +1 -1 +2 eos fin. eos ini. -1 -2 mid.	0 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5	0 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5 10 5
++3 mid. mid. rep. eos -3 -2 eos eos +3 +2 +1 mid.	0 3 6 4	0 3 6 4
+mid. +3 -2 -2 fin. -2 -1 +1 -2 -3 eos +1 rep. eos -2 mid. mid.	0 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6	0 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6 5 3 1 4 16 8 6
++2 -1 +2 ini. eos fin. -1 eos +2 -3 eos -3 +2 +1 mid.	0 2 4	0 2 4
+mid. +3 +3 eos -2 eos -3 eos +2 -1 -1 eos +3 -3 +1 +2 rep. mid. -2 mid.	0 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8	0 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8 10 9 8
+mid. +3 -1 eos +3 eos eos -2 -2 -1 -2	0 5	0 5
++3 +3 +2 ini. +1 -2 fin. -3 rep. -2 -3 ini. -3 +2 -3 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. mid. mid. +2 +2 fin. eos +3 -3 -3 ini. -3 fin. -3 -1 +1 +3 +2 mid. mid.	0 9 6	0 9 6
++2 +1 +2 +3 eos eos eos -3 ini. mid. -1 -1	0 2 4	0 2 4
++3 +2 +3 -1 fin. +2 +1 -3 -3 +1 eos eos +2 -1 mid. mid.	0 3 2 5 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4	0 3 2 5 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4 15 7 4
++3 -1 +2 eos fin. ini. +1 -3 eos fin. eos -1 -3 mid. mid.	0 3	0 3
++1 +2 +3 +2 +1 rep. -3 eos +3 +3 fin. -1 eos -2 eos -3 +1 mid.	0 1 3 5 7	0 1 3 5 7
++3 +1 mid. eos +3 -2 +3 eos eos eos eos ini. ini. mid. -2 -1	0 3	0 3
++2 mid. +1 eos eos ini. eos -1 +2 rep. +1 +3 +3 mid. mid. -3	0 2 3	0 2 3
+mid. mid. +2 +3 +3 fin. +3 eos +2 +1 rep. ini. ini. +1 ini. +2 eos mid. mid. -1	0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11	0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11 0 9 10 11
+mid. +1 +2 +2 eos -2 eos -2 +3 eos -1 +3 eos +1 -3 -1	0 7 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3	0 7 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3 5 3
++2 +1 mid. -2 -1 +2 eos +3 mid. -2 -3	0 2 5 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7	0 2 5 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7 10 7
++3 +2 -2 +2 eos -3 rep. +2 eos -1 mid. mid. mid.	0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2	0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2 0 3 5 2
++2 +3 mid. +3 ini. ini. rep. fin. +3 -1 -1 rep. eos eos +3 mid. -3 -2	0 2 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11	0 2 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11 14 17 15 8 11
+mid. mid. +3 +3 fin. ini. -3 +2 -3 -3 eos +1 mid. +1 -3	0 7 9 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6	0 7 9 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6 3 6
++1 +1 +2 -1 rep. +2 +3 -3 eos +1 mid. +1 -2	0 1 2 4 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9	0 1 2 4 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9 10 6 9
+mid. mid. +2 -1 +3 ini. +3 eos eos +1 ini. fin. -1 +2 +1 eos -2 -2 -2 -3	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
+mid. +1 +2 -3 fin. -1 -2 +3 +2 +1 -1 rep. rep. fin. rep. -1 -3 mid. +1 mid.	0 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9	0 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9 10 9
+mid. mid. mid. +2 -2 ini. -2 +1 fin. eos eos +3 eos +3 mid. mid. mid.	0 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8	0 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8 16 8
++3 +2 +1 -1 eos -2 -1 +1 eos eos -3 +3 -3 rep. fin. eos -2 -3	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
++2 +1 +3 +2 eos -3 +2 -2 +1 eos ini. fin. -1 -2 mid.	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2
++2 mid. mid. -1 -3 -2 +1 -2 +1 rep. rep. -1 eos -2 fin. mid. -3 mid.	0 2 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11	0 2 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11 10 9 8 9 10 11
+mid. +2 +3 +2 eos eos ini. -2 +1 -3 -3	0 5	0 5
++1 +1 mid. -1 +3 ini. +3 mid. -1 -2 rep. eos fin. -1 -3 +2 eos +2 -2 mid.	0 1 2 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9	0 1 2 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9
+mid. +1 mid. fin. rep. -3 -2 +3 +3 +1 ini. ini. fin. +3 eos -1 -2 -2 -2	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
++1 mid. -2 +3 rep. -1 eos ini. fin. -1 eos -1 -2 -1 mid.	0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7	0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7 0 1 7
+mid. mid. +3 ini. -1 +1 eos +2 rep. mid. -2 -3	0 5 6	0 5 6
++1 +1 +2 eos +1 -2 +2 eos rep. -1 eos +2 -3 -1	0 1 2 4 5 3	0 1 2 4 5 3
++2 mid. mid. -1 +2 eos -1 fin. -1 eos rep. -2 +3 -3 -3 +1 mid.	0 2 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8	0 2 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8 7 16 8
+mid. mid. +3 eos -2 rep. eos eos -3 -2 -1	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. +1 mid. +3 +2 rep. rep. -2 +1 rep. -1 eos eos -3 mid. -1	0 7 5 3 6 9 12	0 7 5 3 6 9 12
+mid. +2 -1 -2 ini. -3 -3 ini. -2 -1 +3 eos +3 -3 mid. mid.	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7
++3 +1 +1 +3 eos eos eos eos +1 eos +1 +3 -2 +2 -2 mid.	0 3 6	0 3 6
++2 mid. +2 rep. rep. -3 eos +3 -1 ini. ini. fin. eos +1 +1 -3	0 2 4 6	0 2 4 6
+mid. +2 mid. +1 +2 -3 eos eos ini. eos +1 +2 -3 -1	0 6	0 6
+mid. +1 -1 +2 -2 rep. rep. fin. fin. rep. rep. eos fin. ini. +2 -1 -2 -2	0 8 17 15 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16	0 8 17 15 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16 14 16
++3 -1 -2 +3 +1 rep. +2 +1 +3 +1 +3 rep. eos eos -3 -2 -3 -2 -3	0 3 6 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8	0 3 6 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8 11 14 11 8
+mid. +3 +3 -3 ini. fin. +1 -2 -2 +3 +3 +3 eos eos eos -3 -3 -2	0 8 6 7 5 17 15 12	0 8 6 7 5 17 15 12
++1 mid. -2 -3 -1 -2 -2 -2 -2 eos -2 eos -2 rep. ini. -3 +1 -1	0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3	0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3 0 1 8 6 4 3
++2 +2 +3 -3 rep. -3 -1 ini. eos +2 eos -2 eos -1 fin. +1 -3 -3	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2	0 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2
++3 +1 mid. +3 +1 -2 ini. -2 -1 -1 -1 eos eos ini. rep. -1 -2 mid.	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6
++3 -1 +2 rep. -3 -3 +1 -2 -3 +1 eos +2 +1 +1 eos rep. mid. mid. -2	0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1	0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1 0 3 6 7 5 2 4 1
++2 -1 -2 -1 ini. fin. +1 fin. +2 +1 ini. mid. mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. +2 -2 -3 -1 ini. +3 ini. +3 -2 +3 -2 fin. fin. -3 ini. eos +1 -3 -3	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
++2 +3 mid. eos fin. -2 eos eos -2 -2 mid.	0 2 5 3	0 2 5 3
++3 +1 +3 eos fin. ini. eos +2 ini. -2 rep. +1 -2 fin. rep. mid. -3 -3	0 3	0 3
++3 +2 -2 +1 -2 +2 eos rep. -3 eos rep. -2 mid. mid.	0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2	0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2 0 3 4 2
++2 +2 -2 eos eos eos eos +1 -1 -2 mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. mid. mid. -1 +2 +1 +3 +3 eos +1 +3 -2 ini. eos -2 mid. -2	0 8	0 8
++2 +3 +1 +1 -3 rep. eos -3 -1 eos mid. -1 eos	0 2 3 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4	0 2 3 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4 1 4
+mid. -1 +1 eos -1 -3 -2 ini. +3 eos -1 fin. +3 fin. ini. +1 -2 mid. mid.	0 9	0 9
+mid. +3 +1 eos eos -2 +3 eos rep. -2 mid. mid.	0 5 3	0 5 3
+mid. +1 mid. +2 +2 eos ini. +1 -2 +3 ini. rep. mid. mid. -3	0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6	0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6 0 7 8 6
+mid. +3 +3 -1 -2 eos eos eos -2 mid. -2	0 5	0 5
++3 mid. mid. +2 eos fin. eos -3 -2 fin. mid. mid. -3	0 3 5 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12	0 3 5 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12
++3 +2 mid. +3 rep. +1 rep. -3 +1 eos +1 -2 -3	0 3 6 9	0 3 6 9
++3 mid. mid. +1 eos -3 ini. eos +1 -3 mid. +1 mid.	0 3 4	0 3 4
++2 -1 +1 eos -3 eos eos -3 -3 +1 -3	0 2 3	0 2 3
+mid. mid. +2 +3 rep. -1 fin. rep. mid. -3 -1	0 5 4 3 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10	0 5 4 3 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10 9 6 10
+mid. mid. mid. eos +3 +3 -2 +3 eos eos -2 -1 -3	0 6 4 7 10 8	0 6 4 7 10 8
+mid. mid. mid. rep. +2 +3 rep. -2 eos -3 mid. -1	0 5 8	0 5 8
+mid. +1 +3 +3 rep. eos ini. +3 -1 mid. mid.	0 5	0 5
+mid. mid. +2 +3 +3 rep. fin. -3 -3 eos +2 mid. mid.	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6
++2 +3 mid. rep. rep. -2 +2 ini. -1 rep. +1 rep. +2 eos eos +1 +1 mid.	0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7	0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7 0 2 8 7
+mid. mid. +2 -1 -3 rep. -3 -3 +2 eos ini. eos eos +2 ini. -3 rep. -1 mid. mid.	0 9	0 9
+mid. mid. +3 +2 -3 -2 +3 ini. eos +1 fin. +3 +2 +3 +2 rep. -1 mid. mid.	0 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10	0 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10 18 9 10
+mid. mid. eos eos ini. -1 +3 fin. eos +3 +2 +1 -3 -3 +2 -2 -2	0 8	0 8
++3 +3 mid. rep. fin. eos -2 +3 -3 rep. ini. -2 rep. mid. -1 mid.	0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6	0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6 4 15 7 10 0 3 6
++3 +1 +2 +1 ini. -3 +1 eos -3 -1 -1	0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4	0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4 0 3 4
+mid. -1 -1 eos +2 eos -2 eos +1 -3 -2	0 5	0 5
+mid. +1 mid. -2 rep. eos ini. -3 eos -1 -2 -3 +3 -2 +1 -1 -3 -3	0 8	0 8
++2 +3 +3 eos -1 eos eos -3 eos -3 fin. fin. -3 mid. -1	0 2 5	0 2 5
++3 mid. +3 +3 -2 +2 fin. eos eos +3 -3 ini. +3 mid. eos -1	0 3 6 15 14	0 3 6 15 14
+mid. mid. -2 eos eos eos +2 +3 +2 mid. mid.	0 5	0 5
++3 +2 +2 rep. -1 +2 eos +2 fin. +2 mid. -3	0 3 6	0 3 6
++1 mid. +1 fin. +2 rep. +1 eos +2 eos eos +3 eos ini. rep. -3 -2 mid.	0 1 8 10	0 1 8 10
+mid. +1 +2 -2 +2 eos +2 eos -2 ini. -2 +3 -2 mid. mid.	0 7	0 7
+mid. mid. mid. rep. -2 eos eos ini. mid. -3 -2	0 5	0 5
++3 +1 mid. eos +2 eos -3 +3 +3 eos fin. -2 rep. +2 -1 mid. -1 mid.	0 3	0 3
+mid. mid. mid. -1 +2 fin. -3 ini. +3 -1 ini. +1 +3 mid. mid. -2	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7	0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7 0 7
+mid. mid. +3 -3 eos -1 ini. -3 eos eos -2 -2 fin. -3 mid. mid.	0 7 4	0 7 4
++1 mid. +1 -1 -1 fin. eos eos -2 +1 -3 mid.	0 1 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11	0 1 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11 5 11
+mid. -1 mid. -3 +1 eos eos eos rep. +1 mid. -2 mid.	0 6	0 6
++2 fin. +2 -2 rep. -3 +1 -3 -2 fin. eos -2 +2 +3 -2 -2 -1 mid.	0 2 4 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4	0 2 4 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4 1 17 8 6 7 4
+mid. +3 +1 rep. +2 eos +1 +3 rep. -1 -2 mid.	0 5	0 5
++3 +3 -2 rep. eos -3 ini. -3 fin. -1 +2 +2 -2 -2 mid.	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6	0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6 0 3 6
++1 +3 mid. +2 eos -1 +1 +2 eos eos mid. -1 -2	0 1 4	0 1 4
++1 -1 mid. -1 -2 eos rep. +1 ini. +1 +2 mid. -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++1 mid. +3 -2 +2 eos +2 +2 -3 mid. -2	0 1 5	0 1 5
++2 +1 -2 +2 +1 eos +3 +3 eos mid. +1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. mid. -1 -1 fin. -1 +3 -1 eos fin. -2 -2 rep. +1 +1 mid. mid.	0 8	0 8
++2 mid. +2 eos eos -2 rep. eos eos +2 -1 -1 -3	0 2 4	0 2 4
+mid. +2 -1 fin. +3 +3 -2 eos +1 -2 -2 +1 +1 -1 mid. -3	0 7	0 7
++3 -1 +2 -3 ini. +2 -3 ini. eos rep. ini. fin. +3 +3 rep. +3 mid. mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. -1 mid. rep. -1 rep. -2 +1 -2 +3 ini. eos rep. +1 +2 +1 -3	0 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4	0 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4 3 2 8 6 4
+mid. +2 mid. -1 ini. eos +3 eos fin. ini. ini. +3 +1 ini. +2 mid. -1	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16
++2 mid. +2 eos -2 eos fin. -2 -3 rep. eos eos -1 mid. mid. mid.	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2
++1 +2 -2 rep. ini. eos -2 -2 +1 -3 ini. mid. mid. -2	0 1 3 5	0 1 3 5
+mid. +3 mid. eos eos -2 eos -3 +1 -2 mid. -1	0 5 3	0 5 3
++1 +2 mid. -2 -1 -2 fin. eos mid. -3 mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
++2 mid. +2 eos ini. -1 -2 -2 -1 +1 +1 eos eos eos -1 -1 mid.	0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4	0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4 0 2 4
++2 mid. +1 +1 -1 -3 rep. ini. +2 eos -2 eos +1 -3 -3	0 2 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4	0 2 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4
++3 -1 +2 eos fin. eos eos eos eos eos fin. mid. +1 -3	0 3	0 3
++3 +3 -2 rep. eos +1 +3 +1 eos eos rep. rep. -3 mid. -3 -3	0 3 6 9	0 3 6 9
++3 mid. -2 ini. -3 +2 eos eos +1 -1 -1	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++2 -1 +3 +1 rep. eos +2 eos -1 eos -3 mid. -2	0 2 5	0 2 5
+mid. +3 mid. fin. -3 +2 fin. eos -2 -1 -1 +3 rep. eos -3 +2 +1 -3	0 8 6 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11	0 8 6 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11
+mid. +1 -1 +1 +3 +3 fin. ini. eos -2 -1 rep. eos rep. -2 mid. -3	0 8	0 8
++1 -1 +1 +2 rep. +2 fin. eos rep. -2 mid. -2 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++1 mid. mid. rep. -3 -3 -3 eos ini. -3 -2 -1 -3 eos mid. +1 mid.	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8
+mid. +1 mid. +2 ini. -2 -2 +3 eos fin. -2 mid. -3	0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4	0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4 0 6 4
+mid. +3 mid. ini. eos -2 +2 rep. -3 -2 +2 fin. rep. ini. +2 +1 rep. mid. +1 -1	0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5	0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5 3 0 9 7 5
++2 +3 mid. ini. +1 +3 -2 +3 eos -1 rep. eos -1 -1 mid.	0 2 7 10 13 12 11	0 2 7 10 13 12 11
++1 +2 mid. rep. -2 -2 +2 +3 ini. rep. +3 +2 eos eos rep. -3 mid. -1	0 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5	0 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5 3 1 3 5
++2 -1 +2 eos eos +2 +1 -1 +1 -2 +1 +2 mid. -1	0 2 4	0 2 4
++3 mid. mid. fin. rep. +3 -2 +3 +2 -1 ini. +1 +1 -3	0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10	0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10 0 3 13 10
++2 mid. mid. +1 eos +3 eos eos -1 +1 -3	0 2 5 8 7	0 2 5 8 7
+mid. +1 +3 eos rep. -1 +1 +1 eos -2 fin. -1 rep. mid. +1 mid.	0 7 8	0 7 8
+mid. mid. +3 ini. eos eos -1 eos eos eos eos +2 +1 -3 -2	0 7	0 7
++3 mid. -2 +1 eos +1 fin. -2 ini. -2 ini. mid. mid. mid.	0 3 4	0 3 4
+mid. +1 -1 -3 eos -2 ini. fin. ini. -1 -3 +3 -2 eos -2 -3 -2 -3 mid. mid.	0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8	0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8 0 9 8
+mid. +3 mid. +3 eos -2 -1 fin. rep. +2 rep. +2 -1 -2 -2 mid.	0 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7	0 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7 15 7
++1 +2 -1 +1 eos rep. eos ini. +2 mid. +1 -3	0 1 3 4	0 1 3 4
++2 mid. -1 ini. +2 rep. rep. -2 +3 mid. mid. -2	0 2 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 2 1 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. +2 -2 -1 +1 ini. -2 eos ini. eos -3 -1 mid. mid.	0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5	0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5 0 6 4 5
++1 mid. -1 -1 fin. fin. -2 fin. -1 +3 -1 eos rep. eos eos +2 eos mid. -1 mid.	0 1 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12	0 1 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12 15 17 9 12
+mid. mid. mid. +1 eos +3 eos +2 ini. eos -3 mid. mid.	0 6	0 6
+mid. +1 +3 rep. ini. -1 rep. ini. eos -1 eos +1 +1 -2	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+mid. mid. +3 fin. -3 -3 +3 ini. -2 ini. -3 rep. ini. ini. ini. ini. +2 -2 -2 -1	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+mid. +2 mid. eos -2 -3 eos fin. rep. -3 +1 -2	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
++2 -1 mid. -1 -3 eos -1 eos fin. -3 -1 mid.	0 2 5	0 2 5
+mid. +2 +2 rep. +3 -1 eos -3 +1 +2 eos +2 -1 -3 mid. -3 mid.	0 8 9 11 13 10	0 8 9 11 13 10
+mid. +2 +2 eos eos fin. fin. +2 -3 -2 -1 +1 mid. -1 mid.	0 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7	0 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7 9 7
++2 +3 mid. eos +2 +1 eos ini. eos -1 -2 +1 +3 fin. fin. -3 -3 mid.	0 2 8	0 2 8
+mid. +2 mid. eos +2 rep. +1 eos fin. mid. -1 -3	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. -1 -1 eos -3 +2 +2 -1 ini. ini. +3 rep. -2 +1 mid.	0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8	0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8 0 7 6 8
+mid. +2 +2 eos fin. ini. +2 +1 ini. +3 eos -1 +2 rep. -3 -3 +1 mid.	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
++1 +2 mid. +3 eos -1 -1 +2 eos fin. mid. mid. mid.	0 1 3 6 5 4	0 1 3 6 5 4
+mid. -1 +2 -1 -2 +2 +2 eos ini. +1 mid. mid.	0 5 7	0 5 7
+mid. mid. mid. eos +1 eos +2 eos +2 -2 mid. mid.	0 5	0 5
+mid. +3 +3 eos rep. -3 ini. rep. +2 +1 mid.	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
++3 +2 +3 +3 -2 -3 eos ini. -3 -1 mid.	0 3 6	0 3 6
++3 +2 +2 +3 -2 rep. +2 +2 +2 fin. +2 -2 -2 rep. eos eos +3 mid. -1 mid.	0 3 6 8 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12	0 3 6 8 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12 10 12
+mid. +3 +1 eos eos eos eos +3 rep. -3 -3 mid.	0 5	0 5
++1 -1 +1 rep. fin. ini. eos fin. ini. fin. -3 ini. fin. ini. +2 +1 -1 mid. mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++1 mid. +1 eos -1 ini. rep. +2 eos eos -3 eos -3 rep. eos +2 -2 -1	0 1 8	0 1 8
++1 mid. mid. ini. ini. -2 -1 -3 +2 fin. eos ini. ini. -3 -1 +3 fin. +1 -2 -2	0 1 9 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19	0 1 9 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19 17 18 16 19
+mid. +2 mid. -3 -1 eos +3 eos eos eos eos +1 +3 eos mid. -3 -3	0 8	0 8
+mid. mid. +2 -3 +3 eos -2 +3 eos ini. eos fin. -3 +1 fin. -3 eos -2 -2 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
++3 +2 mid. fin. eos eos -3 -3 eos mid. mid. -1	0 3 11 10 5	0 3 11 10 5
++2 +1 mid. -1 -1 rep. eos ini. +3 fin. +2 mid. eos +2 -1 mid.	0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7	0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7 0 2 7
++2 +2 -1 +2 +1 -3 eos +2 -2 +1 ini. +1 fin. fin. fin. eos -3 -3 -2 mid.	0 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3	0 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3 5 2 1 3
++1 +1 -2 rep. fin. -1 -3 rep. eos -3 rep. rep. eos -1 rep. mid. -1 -2	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
+mid. +3 +1 eos ini. -2 eos fin. rep. +2 +1 eos ini. eos eos mid. mid. -3	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+mid. mid. mid. ini. -1 +2 -1 eos ini. ini. +1 fin. +3 -3 mid. -2	0 7	0 7
++1 +3 mid. -1 fin. -2 rep. fin. +3 -1 ini. eos -2 -3 +2 +3 mid. -2 mid.	0 1 4 18 9 8 11	0 1 4 18 9 8 11
++2 mid. -1 -2 fin. eos +1 eos +3 rep. fin. eos +1 -1 -2 +1 mid. -3	0 2 1 8 11	0 2 1 8 11
++1 -1 mid. -3 eos -2 rep. ini. ini. +1 +3 -1 eos rep. eos +1 -3 mid. -3 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+mid. +1 -1 eos fin. -2 eos fin. -3 mid. mid. -3	0 5 3	0 5 3
++2 mid. mid. +3 -2 eos fin. -3 rep. rep. -1 eos ini. -1 -2 -1	0 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7	0 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7 4 2 7
++2 mid. +2 eos eos -1 +1 +3 mid. +1 -1	0 2 4	0 2 4
++1 mid. mid. -1 eos eos eos rep. ini. -1 mid. mid.	0 1 5	0 1 5
++1 mid. -1 -1 +3 +3 ini. ini. eos -3 ini. -3 +1 eos +2 -1 -2 -3 mid.	0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6	0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6 0 1 9 6
++1 +1 -2 -1 ini. +3 fin. +1 +3 +2 +1 -1 rep. -3 +1 mid. mid. mid.	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
++1 mid. mid. -1 eos -1 -2 +3 -1 -1 -2	0 1 5 4	0 1 5 4
+mid. -1 +1 +1 -2 -3 +3 -1 +2 rep. -1 +1 -1 ini. fin. +2 +2 -1 +1 -2	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
++1 +1 mid. fin. fin. rep. +1 -2 rep. ini. +3 ini. eos +2 -2 +1 fin. -2 -2 mid.	0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9	0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9 0 1 2 9
++2 mid. mid. eos +1 rep. +3 -2 eos +3 -1 -1 mid.	0 2 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6	0 2 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6
++3 +2 mid. rep. +2 ini. +2 eos fin. -3 eos +1 +1 mid. mid. mid.	0 3 6 8 15 7	0 3 6 8 15 7
++2 +3 mid. -3 -2 -3 fin. rep. eos +2 -1 rep. +1 eos ini. rep. mid. mid. -2	0 2 9 11 13	0 2 9 11 13
+mid. mid. +2 -2 +1 +1 eos eos eos -2 -1 +2 +1 mid.	0 6	0 6
++2 +3 +2 +2 eos +3 -1 ini. -1 eos +3 +2 fin. -3 mid. -2	0 2 4	0 2 4
++2 +1 -2 eos eos eos +1 rep. eos fin. eos +3 mid. mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
++1 +1 -2 ini. -3 rep. fin. -1 rep. +3 +2 -2 -1 -1 eos eos +1 mid. mid.	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2	0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2 0 1 2
+mid. +3 +1 +2 ini. -1 -2 eos -2 ini. +3 ini. -2 mid. mid.	0 7	0 7
++2 +3 -1 rep. -2 ini. +1 +3 eos +3 -2 -2 mid. -2	0 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1	0 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1 4 2 1
+mid. mid. +1 rep. eos -1 -1 +3 -1 -2 mid. -1	0 5 4	0 5 4
+mid. mid. +3 -1 -3 fin. eos -1 fin. ini. rep. eos -3 -1 fin. -2 eos -1 +1 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
++2 +1 mid. eos eos ini. eos -3 mid. mid. mid.	0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5	0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5 0 2 5
+mid. -1 -1 -2 +2 +1 +2 -2 -1 -2 -3 eos ini. -3 -2 -2	0 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6	0 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6 8 7 5 6
++2 -1 -2 eos rep. +3 +1 -3 +3 eos +1 -1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
++1 -1 -1 eos eos eos +2 fin. eos -3 mid. -2	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++3 mid. -1 -2 -3 ini. -3 -3 rep. rep. -3 ini. ini. eos -2 mid. mid.	0 3 1 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8	0 3 1 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
++1 mid. +2 eos fin. -2 eos ini. -1 +1 -2	0 1 5 3	0 1 5 3
++2 +3 mid. +2 +1 ini. eos eos ini. fin. +2 -2 mid.	0 2 6	0 2 6
++1 mid. mid. -2 -2 fin. +3 +2 ini. -1 -2 eos -2 ini. eos +1 -1 mid.	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8	0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8 0 1 8
+mid. +1 mid. -1 fin. -1 fin. rep. eos +3 -3 +3 +3 eos +1 mid. mid.	0 8	0 8
+mid. +2 -1 +1 +2 eos -1 +2 rep. -1 -2 eos +2 -3 -3	0 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9	0 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9 8 7 9
++2 mid. +3 -3 eos -2 +2 eos rep. fin. -3 mid. mid.	0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3	0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3 0 2 5 3
+mid. +1 +3 +3 +2 +2 +1 +3 eos +2 -3 eos rep. fin. ini. +2 -1 -2 +1 -2	0 9 11	0 9 11
++1 +1 +1 -2 +3 +1 eos fin. rep. eos -1 mid. -2	0 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2	0 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
++1 -1 mid. eos eos eos -3 eos mid. +1 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++3 +3 +3 eos mid. +3 fin. eos eos eos rep. -2 fin. -1 mid. -3 mid.	0 3	0 3
++3 mid. mid. eos eos +2 fin. eos -2 mid. mid. -2	0 3	0 3
+mid. mid. -2 ini. +3 +3 rep. eos ini. -3 rep. mid. mid. mid.	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
++2 mid. -1 +2 -3 eos -3 eos mid. ini. mid.	0 2 1 5	0 2 1 5
++3 +3 +3 eos ini. eos fin. -1 eos +1 -1 mid. -2	0 3	0 3
++1 +3 +3 rep. +3 eos +3 +1 -1 fin. +3 eos eos -3 -1 -3	0 1 4 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7	0 1 4 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7
+mid. +2 mid. fin. +3 rep. -1 -3 eos -2 fin. -3 fin. ini. fin. mid. mid. -1	0 8	0 8
+mid. +3 +1 -2 eos eos -3 +2 ini. -3 -2 -3	0 5	0 5
++2 mid. mid. -2 +1 rep. fin. +3 -1 -2 eos eos mid. -1 -3	0 2 7 10	0 2 7 10
++3 +2 -2 eos -2 +1 rep. fin. ini. -1 +3 -2 ini. -2 +2 -1 +1 mid.	0 3	0 3
+mid. +2 +1 eos +2 +2 +2 rep. -1 mid. -1	0 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7	0 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7 9 5 7
++2 -1 mid. -3 ini. -1 +3 -3 +3 +2 ini. +2 eos +2 -3 +3 +2 -3 -3	0 2 9 11 13 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15	0 2 9 11 13 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15 18 15
+mid. -1 +2 eos +3 fin. -2 eos ini. rep. -3 +2 fin. -2 -3 mid.	0 7	0 7
++1 +1 mid. -2 fin. eos +1 +1 +3 +2 eos rep. -2 fin. +1 -2 +1 -2	0 1 2 8 11 14 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17	0 1 2 8 11 14 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17 15 13 17
+mid. -1 mid. +1 rep. ini. -1 +1 ini. eos eos +2 -3 mid.	0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5	0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5 0 6 5
++3 +1 +1 +2 -2 +2 +3 eos fin. -2 -1 -3 -1 -2 -2 -2	0 3 5 7	0 3 5 7
++2 mid. mid. -3 -1 rep. eos fin. mid. mid. mid.	0 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. +1 mid. ini. +2 fin. +2 ini. -1 +1 rep. -3 rep. +3 +1 -2 +1 -3 -1	0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7	0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7 0 9 10 11 8 7
++3 +1 -1 eos eos eos -1 eos -2 -1 -2	0 3	0 3
++3 +1 -1 eos eos rep. -2 -1 -2 -2 rep. -2 +3 ini. rep. mid. -1 -1	0 3	0 3
++2 +2 mid. eos rep. fin. fin. +3 +2 -3 ini. +2 +2 ini. +1 rep. mid. mid. mid.	0 2 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9	0 2 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9 6 18 9
++3 mid. +3 rep. +1 rep. -1 +1 +2 -2 eos rep. -2 -3 +2 -2 -1 -2 -2 -1	0 3 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5	0 3 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5 4 5 6 5
+mid. mid. -1 eos rep. ini. fin. eos eos -2 mid. mid. mid.	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6	0 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6 12 6
+mid. +2 +3 -1 rep. +1 eos +3 -3 -1 rep. +3 eos -3 +1 mid.	0 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13	0 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13 10 7 10 13
+mid. mid. mid. rep. +3 rep. fin. ini. eos +2 -3 fin. +2 -1 rep. mid. +1 -3	0 8	0 8
++3 +3 +3 eos +3 eos +3 rep. -3 +1 eos -3 +1 fin. fin. fin. +3 mid. mid. -3	0 3	0 3
+mid. mid. -1 fin. eos -1 fin. -2 +2 +2 fin. -2 rep. +1 eos -3 mid. -3	0 8 10 17 14	0 8 10 17 14
++3 mid. -1 -1 -3 eos fin. fin. +1 -2 eos rep. -1 rep. -2 -1 +2 mid. -2 mid.	0 3 2 1 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7	0 3 2 1 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7 19 9 7
+mid. +3 mid. eos fin. ini. ini. rep. rep. -3 eos ini. -1 -1 +2 -3 -3 -1 -1 -1	0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6	0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6 0 9 6
++2 mid. -2 eos +3 -2 +2 ini. fin. -1 eos +3 +2 ini. +1 +3 +2 -3 -3	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. +2 mid. ini. eos eos fin. ini. -3 eos mid. -1 -2	0 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12	0 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12 10 6 12
++1 mid. -1 +1 ini. rep. +1 -2 ini. rep. rep. -3 fin. mid. -1 mid.	0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4	0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4 0 1 7 5 3 4
++3 mid. mid. eos +3 +3 +1 -1 eos fin. +2 rep. +1 +3 +2 mid. mid. -3	0 3	0 3
++1 mid. -1 +3 +2 rep. eos ini. +2 +1 fin. -1 +3 fin. rep. -3 -3 mid.	0 1 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8	0 1 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8 10 17 8
+mid. +1 mid. eos eos fin. +3 +1 ini. eos +1 fin. -1 -3 mid.	0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8	0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8 0 7 8
++3 +3 +1 +3 eos -2 +3 eos -2 ini. -1 eos +2 mid. -1	0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9	0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9 0 3 6 9
++2 mid. mid. rep. -3 +2 fin. -2 +3 +2 -1 ini. rep. +1 -2 mid. +1 -1	0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11	0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11 0 2 8 11
+mid. +2 -2 rep. +3 rep. +2 fin. rep. +3 -1 -3 mid. -3 mid.	0 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7	0 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7 14 7
+mid. +2 -1 rep. ini. eos eos fin. mid. mid. mid.	0 5	0 5
++1 mid. -2 fin. ini. -2 +3 rep. rep. eos fin. eos +1 -3 eos +3 mid. -1 -3	0 1 9	0 1 9
++3 -1 +1 eos +3 ini. +2 mid. -3 -1 -2 rep. -3 ini. -2 -2 +1 +2 mid. -1	0 3	0 3
++1 +1 +1 +2 eos rep. -2 -2 eos eos -1 rep. -3 -2 +1 +1 mid. mid. -2	0 1 2 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3	0 1 2 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3 5 7 5 3
++3 -1 mid. ini. +3 -3 eos -2 -1 fin. eos eos -1 mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. -1 +2 eos +2 eos rep. +3 eos +3 +1 -1 -1	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
+mid. +2 -2 +2 +2 -3 eos -1 eos ini. rep. +2 +2 mid. -2 -1	0 7 6	0 7 6
++3 -1 -2 -2 +2 rep. eos -2 eos fin. mid. mid. -1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1	0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1 0 3 1
++1 mid. mid. -3 +1 eos eos -1 +1 -2 -3 +3 -1 +2 +2 +1 mid. mid. -3	0 1 9 7 6	0 1 9 7 6
++1 -1 +2 -1 +3 rep. eos -2 rep. ini. +1 -3 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+mid. +1 +3 -3 -1 eos fin. -1 -2 -1 +1 mid. +1 -3	0 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10	0 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10 11 6 13 10
++2 mid. mid. +3 +2 -2 +2 fin. +3 +3 ini. eos +2 +3 rep. mid. mid. -2	0 2 8 11	0 2 8 11
++3 +1 +2 eos +1 eos fin. ini. -2 -1 mid.	0 3	0 3
++3 mid. -2 ini. -2 +3 ini. -2 eos eos ini. +1 fin. -1 eos +1 +2 mid. mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++2 mid. mid. eos eos -2 +3 -2 eos -1 -1 -1	0 2 5 3	0 2 5 3
+mid. mid. -1 -2 ini. eos +2 +2 -2 fin. -2 -3 -1 -3 +1 -2 -1	0 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8	0 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8
++3 -1 mid. ini. -1 -3 eos -3 +2 -2 fin. +1 -3 -2 -1 mid. -2 -2	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. mid. mid. rep. rep. eos +2 rep. +3 -3 rep. rep. eos +1 mid. +1 mid.	0 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11	0 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11 14 8 11
+mid. -1 -2 rep. ini. -1 -3 -2 -3 +1 -3 -3 -1 -3 mid.	0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4	0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4 0 7 5 4
+mid. mid. -2 ini. ini. +2 eos eos -1 -3 mid.	0 5 7	0 5 7
+mid. +3 +1 -1 -1 eos +3 +3 +1 +2 +1 fin. ini. -2 -3 -2	0 7 10 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13	0 7 10 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13 11 15 13
++1 mid. -1 +2 -3 eos +2 eos -3 -2 -1	0 1 5	0 1 5
+mid. -1 +1 eos ini. -3 -1 +2 fin. -3 -3 -3	0 5 2 3	0 5 2 3
++3 +3 -2 eos ini. +1 +2 +2 -2 +1 eos -1 +1 -1 -1 -3 -1 -3 mid. -3	0 3	0 3
++2 -1 -2 +1 -2 +3 +3 -1 +2 -1 ini. -2 +1 -1	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. mid. +2 eos +3 mid. -1 -1 mid. mid. -1	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5	0 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+mid. +3 -1 fin. mid. eos eos -1 fin. +1 eos ini. +3 +2 -3 mid.	0 7 6	0 7 6
+mid. mid. -2 eos fin. +3 rep. +2 ini. fin. eos +1 rep. +1 eos -1 +2 -3 -3 mid.	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9	0 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9 19 9
++1 mid. mid. rep. eos fin. eos fin. -1 +1 eos -1 mid. -2	0 1 6	0 1 6
+mid. mid. +2 +1 rep. rep. eos -3 -2 +1 -3 mid. -1	0 6	0 6
++2 mid. +1 ini. -3 +1 eos -3 fin. -3 -1 +1 -1 eos -1 ini. mid. -1 -2	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3
++3 mid. -2 +1 eos eos rep. -2 -2 +1 eos eos rep. +1 mid. mid.	0 3 4	0 3 4
++2 +3 -2 -3 -2 +2 rep. -1 -3 -1 -2 -2 mid. mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. +2 mid. -3 -3 -3 rep. -3 fin. -2 -3 +1 -2 mid. -2	0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1	0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1 3 0 7 4 1
+mid. mid. +1 fin. rep. -3 eos +3 ini. -1 +3 +2 mid. mid. mid.	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10
++3 mid. -1 -2 -2 fin. +1 -1 eos +3 -1 eos -3 -1 -3	0 3 1 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7	0 3 1 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7 6 7
+mid. mid. mid. +1 +2 +1 +2 eos +3 eos eos eos +3 rep. -2 -1 mid.	0 8 11	0 8 11
++2 -1 mid. ini. -1 eos fin. eos mid. +1 mid.	0 2 5	0 2 5
+mid. mid. +1 +1 eos rep. eos -2 -3 -2 +3 eos -3 mid. -3	0 7 5 3 4	0 7 5 3 4
++3 mid. +1 -2 +3 +2 -1 rep. eos eos mid. -2 -3	0 3 1 6 5 7 9	0 3 1 6 5 7 9
++1 +1 +3 -3 eos rep. +1 -3 +1 +1 eos ini. fin. eos -2 -2 -2	0 1 2 5 8 9 10	0 1 2 5 8 9 10
++1 +1 +2 -2 eos +2 -3 +3 +2 rep. +2 +1 -1 -2 fin. eos -2 +1 -1 -3	0 1 2 4	0 1 2 4
+mid. mid. mid. +2 eos eos ini. eos -2 -2 +1 mid.	0 5	0 5
+mid. mid. +2 -3 +2 eos rep. -2 eos rep. ini. -2 -1 +2 -1 -1	0 7 5	0 7 5
+mid. +1 +1 +2 +1 +2 +2 -1 +3 -1 +1 +2 mid. mid. -3	0 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8	0 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8 11 13 7 6 8
+mid. mid. -1 eos fin. +2 +1 -2 ini. +1 ini. eos -2 -3 -3 fin. fin. +1 -1 mid.	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10	0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10 0 9 10
+mid. mid. mid. +1 +3 +3 rep. +3 ini. +2 fin. -2 +3 eos fin. mid. -1 -1	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
+mid. +2 +3 +2 +1 -2 +2 eos +2 ini. eos -3 mid. mid. mid.	0 7	0 7
++1 +1 +2 eos fin. eos eos eos mid. -3 mid.	0 1 2 4 10 5	0 1 2 4 10 5
+mid. mid. mid. +1 eos ini. rep. rep. -2 ini. -1 eos -3 +2 +1 -3 -2	0 8 6 4	0 8 6 4
+mid. mid. mid. -3 -1 ini. +1 +3 +2 eos fin. rep. -2 +1 -1 mid.	0 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10	0 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10 15 7 10
+mid. mid. mid. eos +2 -3 -2 eos mid. mid. mid.	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5	0 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5 2 5
++1 +1 mid. eos -1 fin. -1 -1 eos eos -2 eos +1 -1 -3	0 1 2 7 6 5 14 11	0 1 2 7 6 5 14 11
++3 -1 mid. +3 -3 ini. +2 +3 rep. +1 fin. +3 eos eos -3 ini. mid. -3 -1	0 3 6 8 10 18 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14	0 3 6 8 10 18 17 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14 11 14
+mid. mid. +3 +1 eos fin. eos eos fin. ini. +1 +1 -2 +1 ini. mid. mid. -1	0 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17	0 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17 16 8 17
++2 +3 mid. rep. -2 +1 eos -2 ini. eos +3 eos rep. eos eos rep. mid. +1 mid.	0 2 9	0 2 9
++2 mid. -2 ini. ini. -1 -2 -1 +1 ini. -1 -1 mid. -2 mid.	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2	0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2
+mid. -1 +3 +1 ini. rep. -1 -1 +2 ini. fin. -2 -2 -2 mid. -1 mid.	0 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10	0 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10 16 8 10
+mid. mid. +2 +1 eos ini. -1 -3 ini. -3 -3 +1 eos eos -3 -2 -2 mid. -2	0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5	0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5 0 9 6 5
+mid. +2 -1 eos -3 -1 -2 ini. -3 -2 +3 -1 eos -3 +1 -3 -3	0 8 5 4 1 3	0 8 5 4 1 3
+mid. +2 +2 eos -3 eos -3 eos eos +2 eos mid. +1 -3	0 6 3	0 6 3
++3 -1 +2 eos -2 rep. -2 +2 eos fin. -2 +3 mid. -2 -3	0 3	0 3
++1 mid. +3 -1 +3 +3 +2 -3 +2 mid. -2	0 1 5 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8	0 1 5 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8 10 8
+mid. mid. -1 -1 -1 +2 ini. eos +3 eos +1 +2 +3 +2 +1 -2	0 7	0 7
++3 mid. mid. -1 -1 +2 fin. +3 ini. eos +1 rep. +2 -3 mid.	0 3 2 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7	0 3 2 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7 10 11 12 14 7
++1 -1 -2 +3 eos rep. eos +2 mid. -1 mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+mid. +2 mid. ini. +2 -1 ini. -2 +2 -3 eos -1 +1 +2 +1 mid. mid.	0 8 10	0 8 10
++2 +3 mid. eos rep. +2 -3 -2 eos ini. ini. -2 mid. -1	0 2 6 3	0 2 6 3
+mid. +3 +2 -2 eos fin. ini. -2 rep. ini. eos eos rep. mid. -2 mid.	0 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5	0 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5 15 7 5
++3 +2 -2 rep. +1 +3 fin. eos -2 +1 +3 -1 -3 -3 mid. mid. mid.	0 3 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6	0 3 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6 16 8 6
++1 +1 mid. -1 ini. +2 +3 eos +3 -2 +1 ini. rep. rep. ini. +3 -3 +1 +1 mid.	0 1 2 9 7	0 1 2 9 7
++3 mid. -1 eos +2 fin. ini. +3 +1 eos ini. ini. +3 -3 -1 -2	0 3	0 3
++3 -1 -2 -3 +2 -1 ini. -1 -1 +1 rep. +2 +1 -2 -2 +1 -2 -2 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. +3 +2 -1 eos +2 ini. +3 eos eos +2 fin. +2 mid. -1 mid.	0 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12	0 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12 14 13 7 10 12
+mid. +1 +2 ini. fin. eos ini. eos rep. eos eos -3 eos ini. +3 +1 -3 mid.	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
+mid. -1 mid. -3 rep. -1 ini. fin. eos eos -3 fin. -3 +1 rep. -1 ini. -1 mid. -3	0 9	0 9
++1 mid. mid. fin. fin. +3 ini. ini. rep. eos +2 eos +2 -3 -2 rep. ini. -1 -1 mid.	0 1 9	0 1 9
+mid. +3 -2 eos eos eos eos +3 -1 -1 mid.	0 5	0 5
+mid. +3 +1 +3 fin. -2 fin. -1 rep. -3 fin. rep. eos -3 +2 +1 mid. -2 -2	0 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18	0 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18 16 9 6 18
++1 mid. mid. fin. rep. -1 eos eos eos rep. eos -2 -2 -1	0 1 6	0 1 6
+mid. +3 +2 fin. +1 -2 fin. ini. eos +2 fin. +3 +1 ini. +1 -3 mid.	0 8	0 8
+mid. -1 +1 eos ini. +1 -2 -2 mid. -1 mid.	0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4	0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4 0 5 6 4
++1 +2 -1 +1 -1 -1 eos eos eos -2 fin. -2 mid. -1	0 1 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4	0 1 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4 3 4
+mid. mid. +2 +2 -2 +1 eos +2 eos fin. ini. +1 -1 mid.	0 6	0 6
+mid. -1 +2 +1 rep. eos rep. eos eos +1 -1 -1 -3 mid.	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6	0 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
++1 +2 -2 -2 -2 eos -2 fin. mid. mid. mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
++1 +1 +2 +3 -1 -2 eos -2 +2 +2 fin. -1 +3 -2 -2 -3 -1 eos	0 1 2 4 3 6	0 1 2 4 3 6
+mid. +2 +3 +1 +1 eos fin. +3 fin. eos fin. +2 -2 -2	0 6 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11	0 6 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11 13 11
+mid. +3 -2 -2 -3 +1 eos +2 -3 eos eos eos mid. -3 -3	0 7 9	0 7 9
+mid. mid. +1 +1 -2 eos eos -1 fin. +2 -2 -3 +1 mid.	0 6	0 6
++3 +2 mid. ini. eos ini. +2 eos mid. -2 -2	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
+mid. +3 -1 rep. +3 +3 -2 -3 eos +3 -1 eos -1 +1 ini. -1 +2 -3 +1 mid.	0 9 12 11	0 9 12 11
++2 -1 +3 -3 -1 eos -2 ini. fin. ini. -3 -2 -3 +2 rep. +1 -2 mid.	0 2 5	0 2 5
++3 +3 +1 ini. -2 +3 +1 -1 eos -3 rep. +2 rep. -1 +2 rep. mid. mid. mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++1 +2 +3 fin. +1 eos fin. rep. +1 +3 -2 -2 mid. -3 -2	0 1 3 14 12 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7	0 1 3 14 12 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
+mid. -1 +3 -3 -1 eos fin. fin. +1 +1 rep. -1 eos rep. -1 eos -1 -3 mid.	0 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11	0 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11 10 9 10 11
+mid. -1 +1 -3 eos -3 -2 rep. fin. +2 rep. eos +3 +1 +1 eos +1 -2 -1	0 9 11	0 9 11
+mid. +1 +2 +3 eos fin. +3 -1 eos rep. -2 -1 mid.	0 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9	0 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9 12 6 9
++1 mid. -1 eos fin. -2 +3 -2 rep. -2 -2 -1 rep. -1 mid. mid.	0 1 7 5 3	0 1 7 5 3
++1 +2 mid. -1 eos rep. eos -1 -3 -2 +3 -2 ini. -2 mid.	0 1 3 2 7 6	0 1 3 2 7 6
++3 mid. mid. rep. +3 eos +1 -3 rep. fin. ini. +2 -3 eos -1 -1 +3 mid. +1 mid.	0 3 6 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7	0 3 6 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7 4 7
++3 +2 -2 ini. +3 +2 -2 +3 +3 +1 eos eos ini. -3 -3 fin. -2 mid. -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++2 +2 +1 -3 +2 +3 -1 fin. eos +2 -2 -2 -3 -1 -1 -3 -2 mid.	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3	0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3 0 2 3
++1 +2 +1 eos -3 fin. +1 -2 -3 mid. -3	0 1 3	0 1 3
++3 mid. -2 eos +3 eos +2 -3 ini. eos -1 -2 -3 -3	0 3	0 3
++2 -1 -1 +2 +1 rep. -2 eos -3 +1 rep. eos -1 +3 eos fin. -3 +1 +1 -1	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1
+mid. +1 -1 ini. +2 +3 -2 eos eos +3 eos +3 eos eos -2 -1 -2 mid.	0 8	0 8
+mid. mid. -1 eos rep. fin. +2 -3 eos rep. eos fin. eos -2 fin. -3 +1 -2	0 8	0 8
+mid. mid. +1 eos rep. rep. +2 +3 eos +3 fin. rep. -1 -2 mid. -2	0 7 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10	0 7 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10 15 13 11 9 12 11 10
+mid. +1 -1 +3 rep. -2 eos -2 eos +2 eos -2 -2 -2	0 6	0 6
++3 -1 mid. eos fin. +1 +2 eos eos +1 rep. -3 mid. -3	0 3	0 3
+mid. -1 mid. +2 fin. fin. +1 rep. +3 +1 -3 -3 -2 -2 fin. eos +3 mid. -1 mid.	0 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7	0 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7 4 19 9 10 7
+mid. +3 mid. +1 eos eos fin. eos ini. +3 -2 -2 -1 -1 mid.	0 7	0 7
+mid. mid. -2 +3 eos -1 +2 eos -2 eos rep. mid. mid. mid.	0 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6	0 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6 8 6
+mid. +2 +2 eos eos +2 eos fin. eos -1 -3 mid. -1	0 6	0 6
+mid. +3 -2 +2 eos fin. ini. +3 rep. rep. -3 +1 +1 mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
+mid. mid. +1 -1 +2 ini. -2 +3 +1 +1 +3 +1 -1 fin. +1 +1 -2	0 8 9 10 13 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16	0 8 9 10 13 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16 14 15 16
++3 mid. mid. +2 eos eos eos -2 -3 eos ini. eos mid. -2 -1	0 3 5	0 3 5
+mid. +3 -1 ini. +2 ini. ini. rep. fin. +3 ini. rep. +2 -1 fin. fin. eos -2 +1 mid.	0 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14	0 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14 19 9 12 14
+mid. mid. -2 fin. -2 eos ini. ini. eos rep. -3 -2 rep. -3 mid. -2 mid.	0 8	0 8
+mid. +2 +2 +2 eos fin. ini. -3 -3 mid. +1 -3	0 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11	0 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11 8 5 11
++3 -1 mid. +2 eos eos -2 +2 -2 eos eos +1 -3 -3	0 3 5	0 3 5
++1 mid. mid. eos -2 +2 +1 -2 rep. +3 -3 -1 ini. eos +2 eos +1 +1 mid.	0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12	0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12 0 1 9 12
++2 +2 +2 -2 -1 -2 -3 rep. -1 -3 rep. +2 +1 fin. +2 ini. eos -3 +1 mid.	0 2 4 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3	0 2 4 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3
+mid. mid. mid. rep. +1 eos +2 -3 +2 -2 -2 mid.	0 5	0 5
++1 +3 +2 -2 +2 +1 -2 -1 eos +1 eos -1 -1 eos -1 ini. -1 +1 +1 -3	0 1 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6	0 1 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6
++3 +2 -2 +2 eos fin. -1 +1 ini. eos +3 -3 mid. mid.	0 3 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5	0 3 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5 13 6 5
+mid. -1 +2 +1 eos rep. -2 ini. rep. -2 +3 ini. -3 eos +1 ini. -2 mid. -1 -2	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
++1 mid. mid. fin. rep. fin. +1 -2 +3 -3 eos eos +2 mid. mid. -2	0 1 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5	0 1 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5 15 13 7 5
+mid. +3 +1 -2 -3 rep. -3 rep. eos -2 -3 +2 +3 -2 mid. mid. -1	0 8	0 8
+mid. -1 +2 +1 +2 +1 +3 rep. fin. rep. eos -3 eos -3 -1 +2 rep. mid. mid. mid.	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9	0 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
++2 +1 +2 fin. +2 fin. eos eos fin. -3 rep. -2 -1 +2 eos eos +2 -1 -2	0 2 4 6	0 2 4 6
+mid. mid. -2 -1 -2 rep. eos +3 -2 eos +3 rep. mid. mid. mid.	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10	0 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10 13 7 10
+mid. mid. -1 +1 +1 +3 eos -1 +2 eos +3 mid. mid. mid.	0 6	0 6
+mid. +1 +1 ini. fin. eos -3 +1 fin. -1 +1 -2 rep. mid. -1 -3	0 7 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15	0 7 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15
+mid. +1 +3 -3 -2 ini. ini. eos -1 mid. mid.	0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5	0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5 0 5
+mid. mid. mid. rep. +2 ini. ini. +3 -1 -1 -2 eos +2 +2 -2 -2	0 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10	0 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10 8 7 10
+mid. +3 +2 -2 +2 -3 -3 ini. +3 -3 +1 eos -2 eos mid. +1 -1	0 8 11	0 8 11
++3 +1 mid. -1 ini. eos +3 rep. ini. ini. +3 eos +3 eos rep. mid. +1 mid.	0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8	0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8 0 3 2 8
+mid. +2 -1 eos eos eos ini. eos -3 +1 -1 -1	0 5	0 5
+mid. +2 +1 -2 +3 -2 rep. +3 -3 -3 rep. ini. rep. +1 rep. mid. -2 -3	0 8 5 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3	0 8 5 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3
++1 +1 +2 +3 -1 eos fin. +3 -3 rep. -2 -3 -1 +2 +1 mid. -3	0 1 2 4 3 6 16 13 15 8 5	0 1 2 4 3 6 16 13 15 8 5
++1 mid. fin. +3 eos ini. -1 +2 fin. +1 -3 eos +1 -3 -2 -3 mid. mid.	0 1 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17	0 1 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17
++2 mid. +2 -2 eos +3 -1 -3 -1 fin. eos -3 -2 -1	0 2 4	0 2 4
++3 +2 mid. +2 rep. eos -3 -1 fin. eos fin. -3 +3 eos eos -3 -1 mid.	0 3 5	0 3 5
+mid. +3 mid. -1 eos eos +2 rep. eos +2 -1 fin. +2 -2 mid.	0 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7	0 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7
++3 mid. -2 eos rep. eos rep. -1 -2 eos -1 -3 +2 -3 +1 mid.	0 3	0 3
++3 +2 mid. eos +3 +1 -1 eos +1 eos +2 -1 -3	0 3	0 3
++3 +3 -1 +2 ini. +2 -2 fin. -1 +2 +3 -1 fin. +1 rep. -1 mid. mid.	0 3 5 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8	0 3 5 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8 7 17 8
+mid. +1 -2 ini. ini. -2 -1 -1 -1 -3 rep. -3 -3 eos ini. -1 +1 -1	0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3	0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3 0 8 7 6 5 3
++3 -1 -1 -1 rep. +3 -2 eos -2 eos mid. -3 mid.	0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1	0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1 0 3 2 1
++1 +2 mid. ini. rep. -2 eos eos +2 -1 mid.	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3
+mid. +2 -1 -1 ini. rep. +2 fin. fin. +3 -1 +1 -1 -1 +3 -2 rep. -1 -1 mid.	0 9 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11	0 9 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11 12 11
++1 +3 mid. eos +1 fin. eos +1 rep. eos -2 -3 +3 +1 +2 eos rep. -2 -3 -3	0 1 4 5 19 16 13 14 16 18 15	0 1 4 5 19 16 13 14 16 18 15
++2 +1 mid. -3 ini. rep. +1 eos -1 eos -1 -2 -2 mid.	0 2 6 7	0 2 6 7
++1 -1 +1 rep. +2 +2 fin. -3 ini. fin. -2 eos eos +3 rep. -1 -1 -2 -3	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
+mid. -1 mid. -1 +1 +3 eos -3 -2 mid. -3	0 5 8 6	0 5 8 6
+mid. +2 -2 mid. fin. +2 -1 +1 -2 +1 fin. fin. eos -3 +2 -3 mid.	0 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5	0 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5 7 8 6 5
++2 -1 mid. eos +3 eos +3 -2 eos rep. mid. mid. -1	0 2 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9	0 2 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9 12 11 6 9
+mid. mid. mid. mid. +2 +3 fin. eos ini. -3 +3 +2 rep. ini. fin. ini. +2 +1 +1 -2	0 9 6 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18	0 9 6 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18 19 17 18
+mid. +2 +2 -3 eos +2 eos -3 ini. -2 +3 +1 +3 ini. fin. -3 -3 -1	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
+mid. -1 -2 eos -2 +1 -2 -1 ini. +2 eos eos eos fin. eos -2 -1 mid. +1 -1	0 9 11	0 9 11
++3 +3 +1 -1 -3 ini. -2 +2 -2 eos eos fin. -2 +1 mid. -2	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3	0 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3
+mid. +3 mid. fin. fin. -3 -3 ini. rep. -2 ini. -1 ini. ini. rep. +3 +1 mid. -2	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7	0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7 0 9 7
++3 +2 -2 fin. -1 -3 ini. -1 ini. -1 +3 eos +2 mid. -2 mid.	0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7	0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7 6 0 3 15 7
+mid. mid. mid. -1 -2 -2 ini. +2 eos fin. -2 fin. ini. +3 eos +1 -3 -1	0 8	0 8
++3 mid. +2 +3 eos -3 eos fin. eos mid. mid. -2	0 3 6	0 3 6
++3 -1 +2 eos eos eos -1 +3 eos eos eos eos -1 mid. -3 mid.	0 3	0 3
++2 +2 mid. -1 +1 eos ini. -2 +3 rep. eos fin. -2 -3 ini. +2 mid. -1	0 2 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11	0 2 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11 17 16 8 11
+mid. mid. mid. +2 eos eos +2 +2 ini. ini. ini. fin. -3 -3 mid. mid.	0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9	0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9 0 7 9
++1 +2 mid. ini. ini. -1 +2 fin. -3 fin. fin. ini. -2 +3 +1 mid. -2	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3	0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3 0 1 3
+mid. mid. -2 fin. +1 eos -2 +1 eos +1 -2 -1	0 5	0 5
+mid. +1 +3 rep. ini. -2 +3 ini. +2 ini. +2 mid. -2	0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9	0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9 0 6 9
++1 +2 -1 -2 +2 -1 -3 eos +1 -3 mid.	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
++1 +2 +2 -2 ini. -2 eos +1 -2 -2 rep. eos +2 +2 -1 -2 -2 -2 -2 -1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1	0 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1 3 1
++2 +3 mid. eos -1 -1 -3 eos -1 -3 -2	0 2 5 4 3	0 2 5 4 3
+mid. -1 mid. ini. eos +3 fin. +1 fin. +3 fin. fin. +1 fin. fin. mid. mid. mid.	0 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8	0 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8 17 8
+mid. mid. +1 +2 -2 -1 eos ini. eos eos mid. -2 -2	0 6	0 6
++3 mid. -2 -3 +3 rep. fin. +3 +3 fin. eos rep. eos ini. -3 +2 -3 -3 mid.	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++2 mid. +2 eos -3 eos +3 eos +2 mid. mid.	0 2 4 1 5	0 2 4 1 5
++3 -1 -1 eos eos +1 +2 +2 -3 fin. mid. -1 -1	0 3	0 3
+mid. mid. mid. +1 eos eos -2 -2 eos -1 -2 -2	0 5	0 5
+mid. +2 +2 -1 eos fin. -1 -3 fin. +1 ini. +2 -2 -3 -3	0 7 4	0 7 4
++2 mid. +3 eos +2 rep. eos -1 rep. -3 eos eos -1 -3 mid. -2 mid.	0 2 5 8 11	0 2 5 8 11
++1 +2 -2 eos -1 ini. eos rep. -3 -3 mid.	0 1 3	0 1 3
+mid. +1 mid. +3 +1 -1 -2 eos -3 -2 +3 +1 -2 -1	0 6 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5	0 6 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5 4 5
++1 mid. mid. -2 fin. fin. -2 eos -3 +3 -2 mid. -3	0 1 6 4 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9	0 1 6 4 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9 12 9
++2 +1 +3 +3 rep. +2 -3 rep. +1 fin. fin. -3 -3 mid. -3 -3	0 2 5 7 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15	0 2 5 7 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15 12 9 15
+mid. mid. -2 +2 +2 +3 -2 rep. -3 eos -2 +1 -2	0 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6	0 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6 4 6
++3 mid. mid. -3 +2 fin. +2 eos -1 +2 +1 +3 rep. fin. rep. +2 +2 mid. -1	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++3 mid. -1 eos eos +2 eos eos eos +2 +1 mid.	0 3	0 3
++1 +2 -1 -1 +3 -2 +1 eos +2 eos +1 rep. fin. -2 rep. -1 rep. -2 mid. -3	0 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3	0 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3 2 1 3
++1 mid. +1 -1 -3 -1 eos +3 -2 -3 +1 mid. mid. -3	0 1 6	0 1 6
++3 -1 +2 fin. eos +1 -2 -3 -3 mid. -3	0 3 10 7 4	0 3 10 7 4
++2 mid. +2 -3 -3 rep. eos +2 eos eos -3 -3 mid.	0 2 4 1 6	0 2 4 1 6
+mid. -1 +1 eos -1 rep. rep. -2 eos fin. -2 +1 eos eos mid. +1 mid.	0 8	0 8
+mid. mid. mid. +2 +3 eos +1 rep. rep. +1 -3 -1 fin. +1 -3 mid. mid.	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8	0 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8
++1 +1 +3 +3 -2 fin. eos ini. -2 ini. -1 +1 mid. -1 mid.	0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7	0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7 0 1 2 5 14 7
++3 mid. -1 -3 +2 fin. ini. eos +1 -3 -3 rep. mid. -2 -3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3	0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3
++2 +2 +2 rep. eos -2 eos +2 eos eos eos -1 mid. -1	0 2 4	0 2 4
+mid. +1 -1 -3 -3 +1 -3 -2 eos +3 eos +3 -3 -3 -3 -1	0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6	0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6 3 0 7 5 6
++3 mid. mid. eos eos +2 rep. +2 -3 -1 eos +2 +2 -1 -3	0 3	0 3
+eos -1 -1 eos rep. -2 eos -2 mid. -1 mid.	0	0
++1 mid. +1 eos -3 -3 -3 +1 ini. +1 -1 +2 -1 mid. -3	0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8	0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8 0 1 7 8
+mid. -1 mid. -1 eos ini. +1 eos +1 -2 eos -3 +1 ini. eos mid. mid. mid.	0 8 9 7	0 8 9 7
+mid. mid. +2 +2 +3 +1 eos rep. eos -3 -1 +2 -1 eos eos mid. -1 -1	0 8	0 8
+mid. +1 -1 +3 +3 -1 ini. eos eos eos -3 mid. mid.	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6	0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6 0 6
+mid. mid. +1 -3 -1 eos eos eos -1 +2 ini. rep. -1 rep. +3 ini. +2 mid. mid. mid.	0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13	0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13 15 0 9 11 13
+mid. +2 +3 eos -2 eos eos -2 fin. eos fin. +3 eos mid. +1 mid.	0 7 5	0 7 5
+mid. +1 mid. ini. rep. eos +3 eos -3 -1 -2 -2	0 5	0 5
++3 -1 +3 +2 fin. +3 eos -2 -1 ini. +3 -3 eos fin. fin. +1 mid. mid. -3	0 3 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5	0 3 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5 8 7 5
+mid. +3 mid. -1 -1 -1 -3 -1 rep. +3 mid. eos mid.	0 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3	0 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3 2 6 3
+mid. +2 +1 eos +1 ini. eos rep. ini. eos eos ini. ini. +3 -3 -2 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
+mid. +1 mid. eos rep. eos eos eos eos mid. -2 -1	0 5	0 5
+mid. mid. mid. +3 -3 -1 rep. eos ini. ini. rep. ini. +1 eos eos +3 -2 +1 mid.	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9	0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9 0 9
+mid. +2 +1 ini. -2 -2 rep. -2 eos mid. +1 mid.	0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3	0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3 0 5 3
++1 mid. mid. eos eos +2 -3 +1 -1 +1 -1 +2 +1 mid.	0 1 6 3	0 1 6 3
++2 +2 mid. -3 -2 -2 fin. +3 +3 fin. eos eos fin. rep. +1 -2 -3	0 2 8 11	0 2 8 11
++3 +1 -1 +2 rep. +3 +2 rep. +1 +3 rep. mid. mid. -3	0 3 5 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8	0 3 5 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8 9 12 6 8
+mid. mid. +2 -1 +1 eos eos -2 -3 mid. mid.	0 5	0 5
+mid. +3 mid. +2 fin. -3 ini. +2 fin. +1 eos -1 -2 -1 -2 mid. -1	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16	0 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16 15 8 16
++1 +3 +2 -1 +2 -1 -3 fin. +2 +3 +1 ini. fin. -1 -3 mid. -1 mid.	0 1 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6	0 1 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6 3 2 4 6
+mid. +1 -2 +3 fin. fin. rep. -3 -3 +2 +1 -2 -2 +3 +1 -1 mid. -2	0 8 5 17 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14	0 8 5 17 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14 15 14
+mid. mid. +2 -2 eos eos +2 +2 fin. -1 eos -1 rep. -3 +1 -3	0 7 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8	0 7 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8 15 12 9 8
++3 +2 mid. rep. fin. rep. eos eos fin. +2 +3 -2 +3 rep. -1 +3 +2 -2 -3	0 3 6	0 3 6
++2 mid. +2 +1 +2 eos +1 fin. eos -3 mid. mid.	0 2 4 6 7 11 5	0 2 4 6 7 11 5
+mid. +2 +2 +3 eos +2 +1 +3 eos -3 +1 -2	0 5 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10	0 5 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10 11 9 6 7 10
++2 -1 +1 -1 +1 eos +1 rep. -2 eos eos rep. eos +1 -2 mid.	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2	0 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2 3 2
+mid. mid. +2 eos eos +2 +2 fin. -3 -3 mid.	0 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7	0 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7 10 5 7
++2 +3 +2 -2 -2 eos eos eos mid. -2 -2	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2	0 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2 4 2
++1 +1 mid. fin. eos eos rep. eos +3 rep. mid. -1 mid.	0 1 2 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6	0 1 2 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 6
++2 -1 -1 ini. +2 eos eos eos -2 mid. mid.	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1	0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1
++2 -1 +1 +2 rep. fin. fin. rep. eos -1 eos -2 +1 fin. ini. mid. -1 mid.	0 2 3 5 17 8	0 2 3 5 17 8
++1 mid. -1 eos eos eos +1 -2 fin. +2 rep. -1 -3 mid.	0 1 6 7 5	0 1 6 7 5
++2 +3 mid. +3 +2 +2 -1 -1 eos +2 -1 ini. +2 +2 fin. -2 -1 mid. -1	0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11	0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11 0 2 9 11
+mid. +2 +1 -3 -1 -3 +3 fin. fin. +2 -3 -3 -3	0 6 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11	0 6 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11 8 12 9 11
++1 -1 -2 +1 -1 +3 -3 -2 -3 -3 +3 +2 ini. -1 eos -1 mid. mid.	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1	0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1
++2 +3 mid. -2 -2 -2 +2 fin. +2 ini. rep. eos ini. -2 +3 eos mid. mid. -3	0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9	0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9 0 2 9
+mid. -1 mid. -3 rep. -3 -2 rep. fin. fin. eos +2 +1 -1	0 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4	0 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4 2 6 4
++1 +1 mid. +3 +1 +2 +1 +1 -1 ini. fin. -3 +3 -2 eos +2 -3 mid.	0 1 2 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8	0 1 2 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8 7 8
++1 mid. -2 +1 rep. -2 eos ini. fin. rep. rep. ini. rep. +1 rep. +1 -3 -1	0 1 8 17 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15	0 1 8 17 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15 16 13 14 15
+mid. -1 -2 ini. rep. eos -3 +1 ini. rep. +1 eos -1 -1 eos mid. mid. -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8
+mid. mid. +1 eos eos fin. -2 rep. ini. -2 fin. fin. eos -2 ini. +2 -3 -2	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8	0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8 0 8

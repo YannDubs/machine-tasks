@@ -474,8 +474,10 @@ def _evaluate(checkpoint_path, test_paths,
     checkpoint = Checkpoint.load(checkpoint_path)
     seq2seq = checkpoint.model
 
+    is_attnloss = "attention loss" in loss_names or "attention loss" in [n for n, _ in loss_names]
     tabular_data_fields = get_tabular_data_fields(content_method=content_method,
-                                                  is_predict_eos=is_predict_eos)
+                                                  is_predict_eos=is_predict_eos,
+                                                  is_attnloss=is_attnloss)
 
     dic_data_fields = dict(tabular_data_fields)
     src = dic_data_fields["src"]

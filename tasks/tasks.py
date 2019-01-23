@@ -185,9 +185,10 @@ def get_task(name,
         test_files = ["test"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "AttentionLocalization")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7, "is_predict_eos": False}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
+                       "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = ["nll"]
+        loss_names = [("nll", .1), ("attention loss", 1.)]
         oneshot_train_file = None
 
     # basic attention localization dataset
@@ -197,9 +198,10 @@ def get_task(name,
         test_files = ["test"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "AttentionLocalizationWait")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7, "is_predict_eos": False}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
+                       "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = ["nll"]
+        loss_names = [("nll", .1), ("attention loss", 1.)]
         oneshot_train_file = None
 
     # long attention localization dataset
@@ -209,9 +211,10 @@ def get_task(name,
         test_files = ["test"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "AttentionLocalizationWait")
-        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 5, "is_predict_eos": False}
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 5,
+                       "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = ["nll"]
+        loss_names = [("nll", .1), ("attention loss", 1.)]
         oneshot_train_file = None
 
     # classical symbol rewriting task

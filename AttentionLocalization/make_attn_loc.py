@@ -44,8 +44,8 @@ def parse_arguments(args):
                         help='Number of examples in training set.')
     parser.add_argument('-t', '--n-test', type=int, default=500,
                         help='Number of examples in any testing set')
-    parser.add_argument('--is-target-attention', action='store_true',
-                        help='Append the target attention as an additional column.')
+    parser.add_argument('--no-target-attention', action='store_true',
+                        help="Don't append the target attention as an additional column.")
     parser.add_argument('-S', '--seed', type=int, default=123,
                         help='Random seed.')
 
@@ -68,7 +68,7 @@ def main(args):
                                              max_step=args.max_step,
                                              max_len_src=args.max_len_src,
                                              max_len_tgt=args.max_len_tgt,
-                                             is_target_attention=args.is_target_attention,
+                                             is_target_attention=not args.no_target_attention,
                                              seed=seed)
 
         names = ("train", "validation", "test")
