@@ -33,14 +33,16 @@ def get_task(name,
              base_data_dir=BASE_DATA_DIR,
              is_small=False,
              is_mini=False,
-             longer_repeat=5):
+             longer_repeat=5,
+             loss_names=None):
     """Return the wanted tasks.
 
     Args:
         name ({"lookup", "long lookup", "long lookup jump", "long lookup oneshot",
             "long lookup reverse", "noisy long lookup multi", "noisy long lookup single",
             "long lookup intermediate noise", "symbol rewriting", "scan",
-            "attention lookup"}) name of the task to get.
+            "attention lookup", "attn loc", "attn loc wait", "long attn loc",
+            "mini attn loc"}) name of the task to get.
         base_data_dir (str, optional): name of the base directory containing all
             the datasets.
         is_small (bool, optional): whether to run a smaller verson of the task.
@@ -48,11 +50,15 @@ def get_task(name,
         is_mini (bool, optional): whether to run a smaller verson of the task.
             Used for testing purposes.
         longer_repeat (int, optional): number of longer test sets.
+        loss_names (list, optional): loss_names to use. If `None` uses the task
+            default one.
 
     Returns:
         task (tasks.tasks.Task): instantiated task.
     """
     name = name.lower()
+
+    replace_loss_names = loss_names
 
     # classical lookup table
     if name == "lookup":
@@ -217,6 +223,32 @@ def get_task(name,
         loss_names = [("nll", .1), ("attention loss", 1.)]
         oneshot_train_file = None
 
+    # mini attention localization dataset
+    elif name == "mini attn loc":
+        task_name = "Mini Attention Localization"
+        train_file = "train"
+        test_files = ["test"]
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "MiniAttentionLocalization")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
+                       "is_predict_eos": False}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = [("nll", .1), ("attention loss", 1.)]
+        oneshot_train_file = None
+
+    # test attention localization dataset
+    elif name == "test attn loc":
+        task_name = "Test Attention Localization"
+        train_file = "train"
+        test_files = ["test"]
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "TestAttentionLocalization")
+        task_kwargs = {"batch_size": 3, "k": 3, "max_len": 20, "patience": None,
+                       "is_predict_eos": False, "eval_batch_size": 3}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = [("nll", .1), ("attention loss", 1.), ("attention mse loss", 1.)]
+        oneshot_train_file = None
+
     # classical symbol rewriting task
     elif name == "symbol rewriting":
         task_name = "Symbol Rewriting"
@@ -255,6 +287,9 @@ def get_task(name,
 
     else:
         raise ValueError("Unkown name : {}".format(name))
+
+    if replace_loss_names is not None:
+        loss_names = replace_loss_names
 
     if is_small:
         if name == "symbol rewriting":

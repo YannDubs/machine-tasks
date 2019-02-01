@@ -14,18 +14,22 @@ import os
 import logging
 import shutil
 import itertools
-import warnings
 import ast
 import pickle
 import json
 from functools import reduce
 from distutils.dir_util import copy_tree
 
+logging.basicConfig(format='%(asctime)s %(levelname)s - %(funcName)s: %(message)s',
+                    datefmt="%H:%M:%S")
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 import matplotlib
 if os.environ.get('DISPLAY', '') == '':
     # HAS TO BE BEFORE IMPORTING PYPLOT
     # solving ssh plotting issue
-    warnings.warn('No display found. Using non-interactive Agg backend')
+    logger.warning('No display found. Using non-interactive Agg backend')
     matplotlib.use('Agg')
 
 
@@ -42,26 +46,11 @@ from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
 from seq2seq.evaluator import Evaluator, Predictor
 from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.main import train
-
-"""
-from seq2seq.trainer import SupervisedTrainer
-from seq2seq.loss.loss import get_losses
-from seq2seq.metrics.metrics import get_metrics
-from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
-from seq2seq.evaluator import Evaluator, Predictor
-from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.main import train
-"""
+from seq2seq.main import train, get_seq2seq_model, is_add_attn
 
 from tasks import get_task
 from visualizer import (plot_compare, plot_losses, plot_text, plot_results,
                         AttentionVisualizer, visualize_training, AttentionException)
-
-LOG_FORMAT = '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'
-log_level = "warning"
-logging.basicConfig(format=LOG_FORMAT, level=getattr(logging, log_level.upper()))
-logger = logging.getLogger(__name__)
 
 
 FILENAMES = dict(results="results.csv",
@@ -100,24 +89,25 @@ def generate_multireport(tasks,
     models = {}
     others = {}
     pdf = None
-    print()
+
     for i, task in enumerate(tasks):
         if isinstance(task, str):
             task = get_task(task)
 
-        print("----- TASK : {} -----".format(task.name))
-        print()
         task_kwarg = task.task_kwargs
         task_kwarg.update(kwargs)
         if task_kwargs is not None:
             task_kwarg.update(task_kwargs[i])
+
+        logger.info("----- TASK : {} -----".format(task.name))
+        logger.info("Task Kwargs: {}.".format(task_kwarg))
+
         models[task.name], pdf, others[task.name] = generate_report(task,
                                                                     output_dir,
                                                                     _is_multiple_tasks=True,
                                                                     _pdf=pdf,
                                                                     **task_kwarg)
     pdf.close()
-
     return models, others
 
 
@@ -302,7 +292,7 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
                     attn_fig = attn_visualizer(sample[0], sample[1])
                     yield attn_fig
                 except IndexError:
-                    warnings.warn("Skippping one attention visualisation as the length prediction was wrong.")
+                    logger.warning("Skippping one attention visualisation as the length prediction was wrong.")
 
     return generator()
 
@@ -358,13 +348,13 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
         figs_generator += visualize_training(other["visualize"], model)
 
     # ATTENTION #
-    if n_attn_plots != 0 and parameters["content_method"] != "hard":
+    if n_attn_plots != 0 and parameters["attender"] != "hard":
         try:
             attn_figs_generator = _generate_attn_figs(task.test_paths, task_path,
                                                       n_sample_plots=n_attn_plots,
                                                       is_predict_eos=parameters["is_predict_eos"])
         except AttentionException:
-            warnings.warn("Skipping the attention plotter because the model is not using attention.")
+            logger.warning("Skipping the attention plotter because the model is not using attention.")
             attn_figs_generator = []
 
         # generator because could be very memory heavy
@@ -431,6 +421,7 @@ def _tensors_to_np_array(list_tensors):
         arr = torch.stack(list_tensors).detach().squeeze().cpu().numpy()
     except TypeError:
         arr = np.array(list_tensors)
+    arr = np.atleast_1d(arr)
 
     return arr
 
@@ -466,7 +457,7 @@ def _evaluate(checkpoint_path, test_paths,
               max_len=50,
               batch_size=32,
               is_predict_eos=True,
-              content_method=None):
+              attender=None):
     """Evaluates the models saved in a checkpoint."""
     results = []
 
@@ -474,10 +465,8 @@ def _evaluate(checkpoint_path, test_paths,
     checkpoint = Checkpoint.load(checkpoint_path)
     seq2seq = checkpoint.model
 
-    is_attnloss = "attention loss" in loss_names or "attention loss" in [n for n, _ in loss_names]
-    tabular_data_fields = get_tabular_data_fields(content_method=content_method,
-                                                  is_predict_eos=is_predict_eos,
-                                                  is_attnloss=is_attnloss)
+    tabular_data_fields = get_tabular_data_fields(is_predict_eos=is_predict_eos,
+                                                  is_add_attn=is_add_attn(attender, loss_names))
 
     dic_data_fields = dict(tabular_data_fields)
     src = dic_data_fields["src"]
@@ -540,8 +529,8 @@ def _train_evaluate(name,
                     is_save=True,
                     is_predict_eos=True,
                     batch_size=32,
-                    content_method="multiplicative",
                     mini_plot_args=[],
+                    attender=None,
                     **kwargs):
     """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
@@ -557,7 +546,7 @@ def _train_evaluate(name,
     is_last_run = False
     for i in range(k):
         if i % 5 == 0:
-            print("run: {}".format(i))
+            logging.info("run: {}".format(i))
 
         if i == k - 1:
             is_last_run = True
@@ -569,7 +558,7 @@ def _train_evaluate(name,
                                       name_checkpoint=name,
                                       is_predict_eos=is_predict_eos,
                                       batch_size=batch_size,
-                                      content_method=content_method,
+                                      attender=attender,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
                                       **kwargs)
@@ -580,7 +569,7 @@ def _train_evaluate(name,
                                    is_predict_eos=is_predict_eos,
                                    max_len=max_len,
                                    batch_size=batch_size,
-                                   content_method=content_method,
+                                   attender=attender,
                                    metric_names=metric_names,
                                    loss_names=loss_names)
 

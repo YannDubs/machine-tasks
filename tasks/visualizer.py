@@ -8,8 +8,7 @@ Contact : Yann Dubois
 """
 import pdb
 from pdb import set_trace as bp
-
-import warnings
+import logging
 
 import pandas as pd
 import numpy as np
@@ -26,13 +25,10 @@ from seq2seq.util.checkpoint import Checkpoint
 from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import (get_tabular_data_fields, get_single_data)
 
-"""
-from seq2seq.util.helpers import check_import, rm_prefix, rm_dict_keys
-from seq2seq.evaluator import Predictor
-from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.metrics.metrics import get_metrics
-from seq2seq.dataset.helpers import (get_tabular_data_fields, get_single_data)
-"""
+logging.basicConfig(format='%(asctime)s %(levelname)s - %(funcName)s: %(message)s',
+                    datefmt="%H:%M:%S")
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 def _plot_mean(data, **kwargs):
@@ -301,7 +297,7 @@ class AttentionVisualizer(object):
             if self.metric_computer.is_predict_eos:
                 is_output_good_length = (len(full_out_str.split()) != len(full_tgt_str.split()))
                 if self.is_symbol_rewriting and is_output_good_length:
-                    warnings.warn("Cannot currently show the metric for symbol rewriting if output is not the right length.")
+                    logger.warning("Cannot currently show the metric for symbol rewriting if output is not the right length.")
 
                 else:
                     metrics = self.metric_computer(full_src_str, full_out_str, full_tgt_str)
@@ -309,7 +305,7 @@ class AttentionVisualizer(object):
                     for name, val in metrics.items():
                         title += "{}: {:.2g}  ".format(name, val)
             else:
-                warnings.warn("Cannot currently show the metric in the attention plots when `is_predict_eos=False`")
+                logger.warning("Cannot currently show the metric in the attention plots when `is_predict_eos=False`")
 
         if self.attention_key not in additional:
             raise ValueError("`{}` not returned by predictor. Make sure the model uses attention.".format(self.attention_key))
@@ -553,7 +549,7 @@ def _plot_variables_train(to_visualize,
     """
     array_lengths = set(len(v) for _, v in to_visualize.items())
     if len(array_lengths) > 1:
-        warnings.warn("Front padding of some of the training variables to train with 0 as there are multiple different sizes: {}.".format(array_lengths))
+        logger.warning("Front padding of some of the training variables to train with 0 as there are multiple different sizes: {}.".format(array_lengths))
         max_len = max(array_lengths)
         to_visualize = {k: np.pad(v, (max_len - len(v), 0), "constant", constant_values=(0,))
                         for k, v in to_visualize.items()}
@@ -597,15 +593,16 @@ def visualize_training(to_visualize, model):
     keys_to_rm = ["mu_weights", 'sigma_weights', "building_blocks"]
     to_visualize_no_bb = rm_dict_keys(to_visualize, keys_to_rm)
 
-    grid_no_building_blocks = _plot_variables_train(to_visualize_no_bb)
-    to_return.append(grid_no_building_blocks.fig)
+    if len(to_visualize_no_bb) > 0:
+        grid_no_building_blocks = _plot_variables_train(to_visualize_no_bb)
+        to_return.append(grid_no_building_blocks.fig)
 
     if "building_blocks" in to_visualize:
         building_blocks_labels = _get_bb_labels(model)
         grid_building_blocks = _plot_building_blocks(to_visualize, building_blocks_labels)
         to_return.append(grid_building_blocks.fig)
 
-    if len(losses_to_visualize) != 0:
+    if len(losses_to_visualize) > 0:
         title_losses = "Training Process - Averages of Unweighted Regularization Losses."
         grid_losses = _plot_variables_train(losses_to_visualize,
                                             title=title_losses,
