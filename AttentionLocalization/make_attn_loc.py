@@ -266,7 +266,7 @@ def attention_localisation_dataset(n_train=2000,
             test_src_dataset.append(example)
 
     test_tgt_dataset = []
-    while len(test_src_dataset) < n_test:
+    while len(test_tgt_dataset) < n_test:
         example = generate_example_ald(**kwargs)
         if example[1] not in train_tgts:
             test_tgt_dataset.append(example)
