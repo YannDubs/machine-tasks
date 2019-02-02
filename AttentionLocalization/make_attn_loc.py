@@ -6,7 +6,8 @@ Script to generate the attention localization dataset.
 Running this script will save the following files in /dir/ or /dir/sample<i>/ if n_samples > 1:
 - train.tsv
 - validation.tsv
-- test.tsv
+- test_tgt.tsv
+- test_src.tsv
 
 Help : `python make_attn_loc.py -h`
 """
@@ -71,7 +72,7 @@ def main(args):
                                              is_target_attention=not args.no_target_attention,
                                              seed=seed)
 
-        names = ("train", "validation", "test")
+        names = ("train", "validation", "test_src", "test_tgt")
 
         for data, name in zip(out, names):
             path = (args.dir if args.n_samples == 1
@@ -242,24 +243,35 @@ def attention_localisation_dataset(n_train=2000,
                   max_wait=max_wait, is_target_attention=is_target_attention,
                   expected_n_eos=expected_n_eos)
     train_dataset = [generate_example_ald(**kwargs) for i in range(n_train)]
-    valid_dataset = [generate_example_ald(**kwargs) for i in range(n_valid)]
 
     if is_target_attention:
-        train_srcs, _, _ = zip(*train_dataset)
+        train_srcs, train_tgts, _ = zip(*train_dataset)
     else:
-        train_srcs, _ = zip(*train_dataset)
+        train_srcs, train_tgts = zip(*train_dataset)
     train_srcs = set(train_srcs)
 
     if len(train_srcs) < n_train:
         warnings.warn("Only {} different train examples.".format(len(train_srcs)))
 
-    test_dataset = []
-    while len(test_dataset) < n_test:
+    valid_dataset = []
+    while len(valid_dataset) < n_valid:
         example = generate_example_ald(**kwargs)
         if example[0] not in train_srcs:
-            test_dataset.append(example)
+            valid_dataset.append(example)
 
-    return train_dataset, valid_dataset, test_dataset
+    test_src_dataset = []
+    while len(test_src_dataset) < n_test:
+        example = generate_example_ald(**kwargs)
+        if example[0] not in train_srcs:
+            test_src_dataset.append(example)
+
+    test_tgt_dataset = []
+    while len(test_src_dataset) < n_test:
+        example = generate_example_ald(**kwargs)
+        if example[1] not in train_tgts:
+            test_tgt_dataset.append(example)
+
+    return train_dataset, valid_dataset, test_src_dataset, test_tgt_dataset
 
 
 ### HELPERS ###

@@ -188,7 +188,7 @@ def get_task(name,
     elif name == "attn loc":
         task_name = "Attention Localization"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "AttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
@@ -201,7 +201,7 @@ def get_task(name,
     elif name == "attn loc wait":
         task_name = "Attention Localization Wait"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "AttentionLocalizationWait")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
@@ -214,7 +214,7 @@ def get_task(name,
     elif name == "long attn loc":
         task_name = "Long Attention Localization"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongAttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 5,
@@ -227,7 +227,7 @@ def get_task(name,
     elif name == "very long attn loc":
         task_name = "Very Long Attention Localization"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "VeryLongAttentionLocalization")
         task_kwargs = {"batch_size": 128, "k": 3, "max_len": 25, "patience": 5,
@@ -240,7 +240,7 @@ def get_task(name,
     elif name == "mini attn loc":
         task_name = "Mini Attention Localization"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "MiniAttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
@@ -253,7 +253,7 @@ def get_task(name,
     elif name == "test attn loc":
         task_name = "Test Attention Localization"
         train_file = "train"
-        test_files = ["test"]
+        test_files = ["test_tgt", "test_src"]
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "TestAttentionLocalization")
         task_kwargs = {"batch_size": 3, "k": 3, "max_len": 20, "patience": None,
