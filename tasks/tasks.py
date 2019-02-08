@@ -194,7 +194,7 @@ def get_task(name,
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
                        "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # basic attention localization dataset
@@ -207,7 +207,7 @@ def get_task(name,
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
                        "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # long attention localization dataset
@@ -220,7 +220,7 @@ def get_task(name,
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 5,
                        "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # long attention localization dataset
@@ -233,7 +233,7 @@ def get_task(name,
         task_kwargs = {"batch_size": 128, "k": 3, "max_len": 25, "patience": 5,
                        "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # mini attention localization dataset
@@ -246,7 +246,20 @@ def get_task(name,
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
                        "is_predict_eos": False}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        oneshot_train_file = None
+
+    # mini attention localization dataset
+    elif name == "simple attn loc":
+        task_name = "Simple Attention Localization"
+        train_file = "train"
+        test_files = ["test_tgt", "test_src"]
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "SimpleAttentionLocalization")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
+                       "is_predict_eos": False}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # test attention localization dataset
@@ -259,7 +272,7 @@ def get_task(name,
         task_kwargs = {"batch_size": 3, "k": 3, "max_len": 20, "patience": None,
                        "is_predict_eos": False, "eval_batch_size": 3}
         metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", .1), ("attention loss", 1.), ("attention mse loss", 1.)]
+        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
     # classical symbol rewriting task
