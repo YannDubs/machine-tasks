@@ -9,4 +9,5 @@ validation_size=0.1
 n_train=5000
 n_test=500
 no_target_attention=False
+target_weights=False
 seed=123

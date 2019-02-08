@@ -262,6 +262,19 @@ def get_task(name,
         loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
         oneshot_train_file = None
 
+    # mini attention localization dataset
+    elif name == "force attn loc":
+        task_name = "Force Attention Localization"
+        train_file = "train"
+        test_files = ["test_tgt", "test_src"]
+        valid_file = "validation"
+        data_dir = os.path.join(base_data_dir, "ForceAttentionLocalization")
+        task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
+                       "is_predict_eos": False}
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        loss_names = [("nll", 1), ("BB Weight Loss", 1.)]
+        oneshot_train_file = None
+
     # test attention localization dataset
     elif name == "test attn loc":
         task_name = "Test Attention Localization"

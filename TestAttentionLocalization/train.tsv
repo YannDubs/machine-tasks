@@ -1,0 +1,3 @@
+mid. -1 eos -1 -1 eos mid.	0 3 2	0 3 2
++1 eos fin. fin. fin. eos ini. eos +1 eos fin. mid.	0 1	0 1
+id. +1 eos eos ini. +1 fin. eos rep. +1 ini. +1 ini. ini.	0 6 13 0 6 13 0 6 13 0 6 13 0 6 13 0 6 13 0	0 6 13 0 6 13 0 6 13 0 6 13 0 6 13 0 6 13 0

@@ -47,6 +47,8 @@ def parse_arguments(args):
                         help='Number of examples in any testing set')
     parser.add_argument('--no-target-attention', action='store_true',
                         help="Don't append the target attention as an additional column.")
+    parser.add_argument('--target-weights', action='store_true',
+                        help="Append the target weights as an additional column.")
     parser.add_argument('-S', '--seed', type=int, default=123,
                         help='Random seed.')
 
@@ -70,6 +72,7 @@ def main(args):
                                              max_len_src=args.max_len_src,
                                              max_len_tgt=args.max_len_tgt,
                                              is_target_attention=not args.no_target_attention,
+                                             is_target_weights=args.target_weights,
                                              seed=seed)
 
         names = ("train", "validation", "test_src", "test_tgt")
@@ -178,21 +181,68 @@ def generate_tgt_ald(src, max_len=25):
     return tgt
 
 
-def generate_example_ald(max_step=5, max_len_src=30, max_len_tgt=35,
-                         is_add_rep=True, max_wait=None,
-                         expected_n_eos=2, is_target_attention=False):
+def generate_weights_ald(src, tgt):
+    """
+    Generate the corresponding building block weights : ["mean_attn_old",
+    "single_step", "bias"] for the Attention Localisation Dataset.
+    """
+
+    def tok_to_weights(tok, old_weights):
+        try:
+            weights = [1, int(tok), 0]
+        except ValueError:
+            if tok == "ini.":
+                weights = [0, 0, -0.5]
+            elif tok == "mid.":
+                weights = [0, 0, 0]
+            elif tok == "fin.":
+                weights = [0, 0, 0.5]
+            elif tok == "eos":
+                weights = [1, 0, 0]
+            elif tok.startswith("w"):
+                weights = [1, 0, 0]
+            elif tok == "rep.":
+                weights = old_weights
+            else:
+                raise ValueError("Unkown token : {}".format(tok))
+
+        return [str(w) for w in weights]
+
+    old_weights = None
+    weights = []
+    for idx in tgt:
+        tok = src[int(idx)]
+        old_weights = tok_to_weights(tok, old_weights)
+        weights.append(" ".join(old_weights))
+
+    return weights
+
+
+def generate_example_ald(max_step=5,
+                         max_len_src=30,
+                         max_len_tgt=35,
+                         is_add_rep=True,
+                         max_wait=None,
+                         is_target_attention=False,
+                         is_target_weights=False,
+                         expected_n_eos=2):
     """
     Generate the corresponding src and target sequence for the Attention
-    Localisation Dataset.
-    """
+    Localisation Dataset."""
     src = generate_src_ald(max_step=max_step, max_len=max_len_src,
                            is_add_rep=is_add_rep, max_wait=max_wait,
                            expected_n_eos=expected_n_eos)
     tgt = generate_tgt_ald(src, max_len=max_len_tgt)
+    if is_target_weights:
+        w = generate_weights_ald(src, tgt)
+
+    out = [" ".join(src), " ".join(tgt)]
 
     if is_target_attention:
-        return " ".join(src), " ".join(tgt), " ".join(tgt)
-    return " ".join(src), " ".join(tgt)
+        out += [" ".join(tgt)]
+    if is_target_weights:
+        out += [" ".join(w)]
+    return tuple(out)
 
 
 def attention_localisation_dataset(n_train=2000,
@@ -205,6 +255,7 @@ def attention_localisation_dataset(n_train=2000,
                                    max_len_tgt=25,
                                    expected_n_eos=2,
                                    is_target_attention=False,
+                                   is_target_weights=False,
                                    seed=123):
     r"""Prepare the attention localisation dataset.
 
@@ -228,6 +279,8 @@ def attention_localisation_dataset(n_train=2000,
             example.
         is_target_attention (bool, optional): whether to append the target
             attention as an additional column.
+        is_target_weights (bool, optional): whether to append the target
+            weights as an additional column.
         seed (int, optional): sets the seed for generating random numbers.
 
     Return:
@@ -241,13 +294,12 @@ def attention_localisation_dataset(n_train=2000,
     kwargs = dict(max_step=max_step, max_len_src=max_len_src,
                   max_len_tgt=max_len_tgt, is_add_rep=is_add_rep,
                   max_wait=max_wait, is_target_attention=is_target_attention,
+                  is_target_weights=is_target_weights,
                   expected_n_eos=expected_n_eos)
     train_dataset = [generate_example_ald(**kwargs) for i in range(n_train)]
 
-    if is_target_attention:
-        train_srcs, train_tgts, _ = zip(*train_dataset)
-    else:
-        train_srcs, train_tgts = zip(*train_dataset)
+    out = list(zip(*train_dataset))
+    train_srcs, train_tgts = out[:2]
     train_srcs = set(train_srcs)
 
     if len(train_srcs) < n_train:
