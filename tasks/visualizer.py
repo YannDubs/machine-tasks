@@ -310,7 +310,10 @@ class AttentionVisualizer(object):
         if self.attention_key not in additional:
             raise ValueError("`{}` not returned by predictor. Make sure the model uses attention.".format(self.attention_key))
 
-        attention = additional[self.attention_key]
+        if self.position_attn_key in additional:
+            attention = additional[self.position_attn_key]
+        else:
+            attention = additional[self.attention_key]
 
         if self.position_attn_key in additional:
             filtered_pos_table_labels = {k: v for k, v in self.positional_table_labels.items()
