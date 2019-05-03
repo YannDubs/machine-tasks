@@ -153,6 +153,11 @@ class MetricComputer(object):
             out_str (str): prediction of the example.
             tgt_str (str): target of the example.
         """
+        if not self.is_predict_eos:
+            # TO-DO: check if never remove something not eos
+            out_str = " ".join(out_str.split()[:-1])
+            tgt_str = " ".join(tgt_str.split()[:-1])
+
         for metric in self.metrics:
             metric.reset()
 
@@ -221,7 +226,8 @@ class AttentionVisualizer(object):
                                           "w_μ": "mu_old_weight",
                                           "w_j/n": "diagonal_weight",
                                           "w_1/n": "single_step_weight",
-                                          "w_1": "bias_weight"},
+                                          "w_1": "bias_weight",
+                                          "w_p": "provided_weight"},
                  # "% carry": "carry_rates",
                  is_show_name=True,
                  max_src=17,
@@ -261,7 +267,7 @@ class AttentionVisualizer(object):
         if self.model.decoder.attender is None:
             raise AttentionException("Model is not using attention.")
 
-    def __call__(self, src_str, tgt_str=None):
+    def __call__(self, src_str, tgt_str=None, attention_target=None):
         """Plots the attention for the current example.
 
         Args:
@@ -271,7 +277,8 @@ class AttentionVisualizer(object):
         Returns:
             fig (plt.Figure): plotted attention figure.
         """
-        out_words, other = self.predictor.predict(src_str.split())
+        out_words, other = self.predictor.predict(src_str.split(),
+                                                  attention_target=attention_target.split())
 
         full_src_str = src_str
         full_out_str = " ".join(out_words)
@@ -294,7 +301,7 @@ class AttentionVisualizer(object):
             else:
                 title = "tgt_str: {} - ".format(tgt_str)
 
-            if self.metric_computer.is_predict_eos:
+            if True:
                 is_output_good_length = (len(full_out_str.split()) != len(full_tgt_str.split()))
                 if self.is_symbol_rewriting and is_output_good_length:
                     logger.warning("Cannot currently show the metric for symbol rewriting if output is not the right length.")

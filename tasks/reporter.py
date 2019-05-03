@@ -46,7 +46,7 @@ from seq2seq.metrics.metrics import get_metrics
 from seq2seq.dataset.helpers import get_tabular_data_fields, get_data
 from seq2seq.evaluator import Evaluator, Predictor
 from seq2seq.util.checkpoint import Checkpoint
-from seq2seq.main import train, get_seq2seq_model, is_add_attn
+from seq2seq.main import train, get_seq2seq_model, get_is_attn_field
 
 from tasks import get_task
 from visualizer import (plot_compare, plot_losses, plot_text, plot_results,
@@ -169,7 +169,7 @@ def generate_report(task,
                                        task.train_path,
                                        task.test_paths,
                                        task.valid_path,
-                                       oneshot_path=task.oneshot_path,
+                                       # oneshot_path=task.oneshot_path,
                                        metric_names=task.metric_names,
                                        loss_names=task.loss_names,
                                        output_dir=output_path,
@@ -199,7 +199,7 @@ def generate_report(task,
     return model, other
 
 
-def dev_predict(task_path, src_str, is_plot=True):
+def dev_predict(task_path, src_str, is_plot=True, attention_target=None):
     """Helper used to visualize and understand why and what the model predicts.
 
     Args:
@@ -219,7 +219,9 @@ def dev_predict(task_path, src_str, is_plot=True):
     check.model.set_dev_mode()
 
     predictor = Predictor(check.model, check.input_vocab, check.output_vocab)
-    out_words, other = predictor.predict(src_str.split())
+    if attention_target is not None:
+        attention_target = attention_target.split()
+    out_words, other = predictor.predict(src_str.split(), attention_target=attention_target)
 
     test = dict()
 
@@ -231,7 +233,9 @@ def dev_predict(task_path, src_str, is_plot=True):
 
     if is_plot:
         visualizer = AttentionVisualizer(task_path)
-        visualizer(src_str)
+        if attention_target is not None:
+            attention_target = " ".join(attention_target)  # needs to be str
+        visualizer(src_str, attention_target=attention_target)
 
     return out_words, other, test
 
@@ -283,13 +287,16 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
             samples = pd.read_csv(file,
                                   sep="\t",
                                   header=None,
-                                  usecols=[0, 1]).sample(n_sample_plots)
+                                  usecols=[0, 1, 2]).sample(n_sample_plots)
 
             yield plot_text(file.split("/")[-1])
 
             for _, sample in samples.iterrows():
                 try:
-                    attn_fig = attn_visualizer(sample[0], sample[1])
+                    attention_target = sample[2] if len(sample) > 2 else None
+                    attn_fig = attn_visualizer(sample[0],
+                                               tgt_str=sample[1],
+                                               attention_target=attention_target)
                     yield attn_fig
                 except IndexError:
                     logger.warning("Skippping one attention visualisation as the length prediction was wrong.")
@@ -348,7 +355,7 @@ def plot_report(task, name, output_dir, is_plot_train, n_attn_plots,
         figs_generator += visualize_training(other["visualize"], model)
 
     # ATTENTION #
-    if n_attn_plots != 0 and parameters["attender"] != "hard":
+    if n_attn_plots != 0:
         try:
             attn_figs_generator = _generate_attn_figs(task.test_paths, task_path,
                                                       n_sample_plots=n_attn_plots,
@@ -457,7 +464,8 @@ def _evaluate(checkpoint_path, test_paths,
               max_len=50,
               batch_size=32,
               is_predict_eos=True,
-              attender=None):
+              attender=None,
+              force_mu=None):
     """Evaluates the models saved in a checkpoint."""
     results = []
 
@@ -466,7 +474,7 @@ def _evaluate(checkpoint_path, test_paths,
     seq2seq = checkpoint.model
 
     tabular_data_fields = get_tabular_data_fields(is_predict_eos=is_predict_eos,
-                                                  is_add_attn=is_add_attn(attender, loss_names))
+                                                  is_add_attn=get_is_attn_field(attender, loss_names, force_mu))
 
     dic_data_fields = dict(tabular_data_fields)
     src = dic_data_fields["src"]
@@ -520,7 +528,7 @@ def _train_evaluate(name,
                     train_path,
                     test_paths,
                     valid_path,
-                    oneshot_path=None,
+                    # oneshot_path=None,
                     metric_names=["word accuracy", "sequence accuracy", "final target accuracy"],
                     loss_names=["nll"],
                     k=5,
@@ -531,9 +539,14 @@ def _train_evaluate(name,
                     batch_size=32,
                     mini_plot_args=[],
                     attender=None,
+                    force_mu=None,
                     **kwargs):
     """Train a model and evaluate it."""
     output_path = os.path.join(output_dir, name)
+
+    if is_predict_eos and (force_mu is not None or attender == "hard"):
+        is_predict_eos = False
+        logging.warning("Setting `is_predict_eos=False` because `is_attn_field`.")
 
     if not is_predict_eos:
         if "final target accuracy" not in metric_names:
@@ -552,7 +565,7 @@ def _train_evaluate(name,
             is_last_run = True
 
         model, history, other = train(train_path, valid_path,
-                                      oneshot_path=oneshot_path,
+                                      # oneshot_path=oneshot_path,
                                       output_dir=output_dir,
                                       max_len=max_len,
                                       name_checkpoint=name,
@@ -561,6 +574,7 @@ def _train_evaluate(name,
                                       attender=attender,
                                       metric_names=metric_names,
                                       loss_names=loss_names,
+                                      force_mu=force_mu,
                                       **kwargs)
 
         other = _format_other(other)
@@ -571,7 +585,8 @@ def _train_evaluate(name,
                                    batch_size=batch_size,
                                    attender=attender,
                                    metric_names=metric_names,
-                                   loss_names=loss_names)
+                                   loss_names=loss_names,
+                                   force_mu=force_mu)
 
         if k > 1:
             i_output_path = output_path + "_{}".format(i)
