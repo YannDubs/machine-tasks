@@ -284,10 +284,16 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
         `AttentionVisualizer` constructor.
         """
         for file in files:
-            samples = pd.read_csv(file,
-                                  sep="\t",
-                                  header=None,
-                                  usecols=[0, 1, 2]).sample(n_sample_plots)
+            try:
+                samples = pd.read_csv(file,
+                                      sep="\t",
+                                      header=None,
+                                      usecols=[0, 1, 2]).sample(n_sample_plots)
+            except ValueError:
+                samples = pd.read_csv(file,
+                                      sep="\t",
+                                      header=None,
+                                      usecols=[0, 1]).sample(n_sample_plots)
 
             yield plot_text(file.split("/")[-1])
 

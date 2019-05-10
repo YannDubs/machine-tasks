@@ -215,7 +215,7 @@ class AttentionVisualizer(object):
                  attention_key="attention_score",
                  position_attn_key='loc_attention',
                  content_attn_key='content_attention',
-                 positional_table_labels={"λ%": "loc_percentage",
+                 positional_table_labels={"λ%": "position_percentage",
                                           "C.γ": "content_confidence",
                                           #"lgt": "approx_max_logit",
                                           "C.λ": "loc_confidence",
@@ -277,8 +277,9 @@ class AttentionVisualizer(object):
         Returns:
             fig (plt.Figure): plotted attention figure.
         """
+        attention_target = attention_target.split() if attention_target is not None else None
         out_words, other = self.predictor.predict(src_str.split(),
-                                                  attention_target=attention_target.split())
+                                                  attention_target=attention_target)
 
         full_src_str = src_str
         full_out_str = " ".join(out_words)
