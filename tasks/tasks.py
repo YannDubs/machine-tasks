@@ -199,7 +199,7 @@ def get_task(name,
         loss_names = ["nll"]
         oneshot_train_file = None
 
-    # basic attention localization dataset
+    # wait attention localization dataset
     elif name == "attn loc wait":
         task_name = "Attention Localization Wait"
         train_file = "train"
@@ -226,7 +226,7 @@ def get_task(name,
         loss_names = ["nll"]
         oneshot_train_file = None
 
-    # long attention localization dataset
+    # very long attention localization dataset
     elif name == "very long attn loc":
         task_name = "Very Long Attention Localization"
         train_file = "train"
@@ -252,7 +252,7 @@ def get_task(name,
         loss_names = ["nll"]
         oneshot_train_file = None
 
-    # mini attention localization dataset
+    # simple attention localization dataset
     elif name == "simple attn loc":
         task_name = "Simple Attention Localization"
         train_file = "train"
