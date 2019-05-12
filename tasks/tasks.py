@@ -70,7 +70,8 @@ def get_task(name,
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LookupTables/lookup-3bit/samples/sample1/")
         task_kwargs = {"batch_size": 1, "k": 10, "max_len": 10, "patience": 15}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy",
+                        "attention mse metric"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
@@ -85,7 +86,8 @@ def get_task(name,
         valid_file = "validation"
         data_dir = os.path.join(base_data_dir, "LongLookupTables/sample1/")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 15, "patience": 7}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
+        metric_names = ["word accuracy", "sequence accuracy",
+                        "final target accuracy", "attention mse metric"]
         loss_names = ["nll"]
         oneshot_train_file = None
 
@@ -193,8 +195,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "AttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # basic attention localization dataset
@@ -206,8 +208,9 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "AttentionLocalizationWait")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 7,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy",
+                        "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # long attention localization dataset
@@ -219,8 +222,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "LongAttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 25, "patience": 5,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # long attention localization dataset
@@ -232,8 +235,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "VeryLongAttentionLocalization")
         task_kwargs = {"batch_size": 128, "k": 3, "max_len": 25, "patience": 5,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # mini attention localization dataset
@@ -245,8 +248,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "MiniAttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # mini attention localization dataset
@@ -258,8 +261,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "SimpleAttentionLocalization")
         task_kwargs = {"batch_size": 64, "k": 3, "max_len": 20, "patience": 5,
                        "is_predict_eos": False}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # test attention localization dataset
@@ -271,8 +274,8 @@ def get_task(name,
         data_dir = os.path.join(base_data_dir, "TestAttentionLocalization")
         task_kwargs = {"batch_size": 3, "k": 3, "max_len": 20, "patience": None,
                        "is_predict_eos": False, "eval_batch_size": 3}
-        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy"]
-        loss_names = [("nll", 1), ("attention loss", 1.), ("attention mse loss", 1)]
+        metric_names = ["word accuracy", "sequence accuracy", "final target accuracy", "attention mse metric"]
+        loss_names = ["nll"]
         oneshot_train_file = None
 
     # classical symbol rewriting task
@@ -284,7 +287,7 @@ def get_task(name,
         valid_file = "grammar.val"
         data_dir = os.path.join(base_data_dir, "SymbolRewriting/")
         task_kwargs = {"batch_size": 128, "k": 3, "max_len": 60, "patience": 5, "epochs": 20}
-        metric_names = ["symbol rewriting accuracy"]
+        metric_names = ["symbol rewriting accuracy", "attention mse metric"]
         loss_names = ["nll"]
         oneshot_train_file = None
 

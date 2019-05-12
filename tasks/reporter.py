@@ -298,14 +298,11 @@ def _generate_attn_figs(files, task_path, n_sample_plots=3, **kwargs):
             yield plot_text(file.split("/")[-1])
 
             for _, sample in samples.iterrows():
-                try:
-                    attention_target = sample[2] if len(sample) > 2 else None
-                    attn_fig = attn_visualizer(sample[0],
-                                               tgt_str=sample[1],
-                                               attention_target=attention_target)
-                    yield attn_fig
-                except IndexError:
-                    logger.warning("Skippping one attention visualisation as the length prediction was wrong.")
+                attention_target = sample[2] if len(sample) > 2 else None
+                attn_fig = attn_visualizer(sample[0],
+                                           tgt_str=sample[1],
+                                           attention_target=attention_target)
+                yield attn_fig
 
     return generator()
 
@@ -480,7 +477,7 @@ def _evaluate(checkpoint_path, test_paths,
     seq2seq = checkpoint.model
 
     tabular_data_fields = get_tabular_data_fields(is_predict_eos=is_predict_eos,
-                                                  is_add_attn=get_is_attn_field(attender, loss_names, force_mu))
+                                                  is_add_attn=get_is_attn_field(attender, loss_names, metric_names, force_mu))
 
     dic_data_fields = dict(tabular_data_fields)
     src = dic_data_fields["src"]
