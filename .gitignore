@@ -6,6 +6,7 @@ PTB/*
 .DS_Store
 .ipynb_checkpoints
 reports/
+*.zip
 
 # files
 #.gitignore
